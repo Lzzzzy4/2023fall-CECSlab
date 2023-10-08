@@ -1,0 +1,13 @@
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/CECS-Lab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/sim.cpp:118 cpu_exec] sim: [1;31mABORT[0m at pc = 0x00000000[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/sim.cpp:69 statistic] total guest instructions = 33554432[0m
+[1;32mTestcase end!
+[0m
