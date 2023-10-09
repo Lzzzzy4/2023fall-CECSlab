@@ -1,4 +1,4 @@
-## Lab1 TODO: create Makefile for functest here
+# Lab1 TODO: create Makefile for functest here
 
 # NAMES ?= $(notdir $(basename $(wildcard src/*.c)))
 
@@ -13,8 +13,9 @@
 # clean-all:
 # 	rm -rf ./build ../base-port/*/build
 
-include ../base-port/Makefile
+
 NAMES = add
 SRCS = src/$(NAMES)
 BASE_PORT = ../base-port
-SIM_PATH = $(abspath "../../simulator")
+SIM_PATH = ../../simulator
+include ../base-port/Makefile

@@ -126,6 +126,7 @@ void cpu_exec(unsigned int n){
         difftest_sync();
       }
       // Lab3 TODO: use difftest_step function here to execute difftest
+      // printf("difftest\n");
       difftest_step();
       
       g_nr_guest_inst++;
@@ -193,7 +194,7 @@ extern "C" void set_csr_ptr(const svOpenArrayHandle mstatus, const svOpenArrayHa
 
 void isa_reg_display() {
   for (int i = 0; i < 32; i++) {
-    printf("gpr[%d](%s) = 0x%x\n", i, regs[i], cpu_gpr[i]);
+    printf("gpr[%d](%s) = 0x%08x\n", i, regs[i], cpu_gpr[i]);
   }
 }
 

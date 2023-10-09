@@ -24,16 +24,6 @@ uint64_t load_img(char *img_file){
     printf("Load IMG complete!\n");
     return cnt;
 
-    // FILE* fin;
-    // uint8_t* p = pmem;
-    // fin = fopen(img_file,"r");
-    // while(fread(p++,sizeof(uint8_t),1,fin)>0){
-    //     // if(p-pmem == 10421)printf("aaa %d ",*p);
-    // }
-    // fclose(fin);
-    // std::cout<<p-pmem;
-    // return p-pmem;
-
     // FILE* t;
     // t = fopen(img_file,"r");
     // std::ifstream fin(img_file,ios::binary);
