@@ -74,12 +74,13 @@ void difftest_sync(){
 
 // check the registers with nemu
 bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
+  // printf("ttt\n");
   // check gpr
   // Lab3 TODO: implement the regfile check function, return false if any difference, and output some infomation of the difference
   bool mark = true;
   for(int i = 0;i < 32;i++){
     if(ref_r->gpr[i] != sim_cpu.gpr[i]){
-      printf("r%d different at %08x,wrong:%08x,rignt:%08x\n",i,(int)(ref_r->pc),(int)(sim_cpu.gpr[i]),(int)(ref_r->gpr[i]));
+      printf("r%d different at 0x%08x,wrong:0x%08x,rignt:0x%08x\n",i,(int)(ref_r->pc),(int)(sim_cpu.gpr[i]),(int)(ref_r->gpr[i]));
       mark = false;
     }
   }
@@ -87,7 +88,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
   // check pc
   // Lab3 TODO: implement the pc check function, return false if any difference, and output some infomation of the difference
   if(ref_r->pc != sim_cpu.pc){
-    printf("pc different,wrong:%08x,rignt:%08x\n",(int)(sim_cpu.pc),(int)(ref_r->pc));
+    printf("pc different,wrong:0x%08x,rignt:0x%08x\n",(int)(sim_cpu.pc),(int)(ref_r->pc));
     mark = false;
   }
 
@@ -95,19 +96,19 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
   // check csr
   // Lab4 TODO: (In Lab3, you can ignore this part.)implement the csr check function, return false if any difference, and output some infomation of the difference
   if(ref_r->csr.mcause != sim_cpu.csr.mcause){
-    printf("mcause different at %08x,wrong:%08x,rignt:%08x\n",(int)(ref_r->pc),(int)(sim_cpu.csr.mcause),(int)(ref_r->csr.mcause));
+    printf("mcause different at 0x%08x,wrong:0x%08x,rignt:0x%08x\n",(int)(ref_r->pc),(int)(sim_cpu.csr.mcause),(int)(ref_r->csr.mcause));
     mark = false;
   }
   if(ref_r->csr.mepc != sim_cpu.csr.mepc){
-    printf("mepc different at %08x,wrong:%08x,rignt:%08x\n",(int)(ref_r->pc),(int)(sim_cpu.csr.mepc),(int)(ref_r->csr.mepc));
+    printf("mepc different at 0x%08x,wrong:0x%08x,rignt:0x%08x\n",(int)(ref_r->pc),(int)(sim_cpu.csr.mepc),(int)(ref_r->csr.mepc));
     mark = false;
   }
   if(ref_r->csr.mstatus != sim_cpu.csr.mstatus){
-    printf("mstatus different at %08x,wrong:%08x,rignt:%08x\n",(int)(ref_r->pc),(int)(sim_cpu.csr.mstatus),(int)(ref_r->csr.mstatus));
+    printf("mstatus different at 0x%08x,wrong:0x%08x,rignt:0x%08x\n",(int)(ref_r->pc),(int)(sim_cpu.csr.mstatus),(int)(ref_r->csr.mstatus));
     mark = false;
   }
   if(ref_r->csr.mtvec != sim_cpu.csr.mtvec){
-    printf("mtvec different at %08x,wrong:%08x,rignt:%08x\n",(int)(ref_r->pc),(int)(sim_cpu.csr.mtvec),(int)(ref_r->csr.mtvec));
+    printf("mtvec different at 0x%08x,wrong:0x%08x,rignt:0x%08x\n",(int)(ref_r->pc),(int)(sim_cpu.csr.mtvec),(int)(ref_r->csr.mtvec));
     mark = false;
   }
   return mark;

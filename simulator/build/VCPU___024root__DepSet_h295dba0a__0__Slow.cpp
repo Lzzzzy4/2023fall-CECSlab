@@ -102,7 +102,7 @@ VL_ATTR_COLD void VCPU___024root___eval_settle(VCPU___024root* vlSelf) {
 #ifdef VL_DEBUG
                 VCPU___024root___dump_triggers__stl(vlSelf);
 #endif
-                VL_FATAL_MT("/home/user/cpu/CECS-Lab/simulator/IP/mycpu/CPU.sv", 2, "", "Settle region did not converge.");
+                VL_FATAL_MT("/home/user/cpu/2023fall-CECSlab/simulator/IP/mycpu/CPU.sv", 2, "", "Settle region did not converge.");
             }
             vlSelf->__VstlIterCount = ((IData)(1U) 
                                        + vlSelf->__VstlIterCount);
@@ -393,7 +393,7 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                                                  (0x1fU 
                                                   & vlSelf->CPU__DOT__alu_src1))
                                               : (vlSelf->CPU__DOT__alu_src0 
-                                                 + vlSelf->CPU__DOT__alu_src1))));
+                                                 - vlSelf->CPU__DOT__alu_src1))));
     }
     vlSelf->uncache_read_wb = ((3U == (0x7fU & vlSelf->inst)) 
                                & (0xaU == (vlSelf->CPU__DOT__alu_res 

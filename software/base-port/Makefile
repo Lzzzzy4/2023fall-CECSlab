@@ -4,7 +4,6 @@ ifeq ($(MAKECMDGOALS),)
   .DEFAULT_GOAL = image
 endif
 
-SIM_PATH 	= $(abspath "../../simulator") 
 # Compilers
 CC 			= $(CROSS_COMPILE)gcc
 CXX 		= $(CROSS_COMPILE)g++
