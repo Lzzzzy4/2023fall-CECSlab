@@ -54,7 +54,7 @@ module ALU(
         `MUL:                   result = result_64[31:0];
         `MULH, `MULHSU, `MULHU: result = result_64[63:32];
         `DIV, `DIVU:            result = sr2 == 0 ? -1 : result_div;
-        `REM, `REMU:            result = sr2 == 0 ? sr1 : result_rem;
+        `REM, `REMU:            result = sr2 == 0 ? sr1 : result_rem;     
         default:                result = 0;
         endcase
     end

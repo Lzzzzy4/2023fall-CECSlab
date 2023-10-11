@@ -123,15 +123,15 @@ module Decode(
         'h73: begin
             // CSR instruction
             // Lab4 TODO: finish CSR instruction decode
-
-            // imm         = 
-            // mem_access  = 
-            // alu_op      = 
-            // rf_we       = 
-            // alu_rs1_sel = 
-            // alu_rs2_sel = 
-            // wb_rf_sel   = 
-            // br_type     = 
+            // imm         = {{27{1'b0}},{inst[19:15]}};
+            imm         = 0;
+            mem_access  = `NO_ACCESS;
+            alu_op      = `ADD;
+            rf_we       = |rd && |funct3;
+            alu_rs1_sel = `SRC1_ZERO;
+            alu_rs2_sel = `SRC2_CSR;
+            wb_rf_sel   = `FROM_ALU;
+            br_type     = {1'b0, inst[2], funct3};
         end
         default: begin
             imm         = 0;
