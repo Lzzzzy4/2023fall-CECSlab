@@ -64,6 +64,7 @@ $(IMAGE).elf: $(OBJS) $(LIBS)
 image: $(IMAGE).elf
 
 run: image
+	@echo "make -s -C $(SIM_PATH) run IMG=$(IMAGE).bin ARGS=$(ARGS)"
 	@make -s -C $(SIM_PATH) run IMG=$(IMAGE).bin ARGS=$(ARGS)
 
 gdb: image

@@ -26,6 +26,13 @@ module Hazard(
     input  logic [31:0] jump_target,
 
     // Lab4 TODO: you may need to add some signals to cope with CSR, ecall and mret
+    input  logic [ 4:0] priv_vec_ex,
+    input  logic [31:0] pc_ex,
+    input  logic [ 4:0] priv_vec_wb,
+    input  logic [31:0] pc_wb,
+    input  logic [31:0] mepc,
+    input  logic [31:0] mtvec,
+    input  logic [31:0] mcause,
 
     output logic [ 0:0] pc_set,
     output logic [ 0:0] IF1_IF2_flush,
@@ -83,17 +90,20 @@ module Hazard(
     end
 
     // control hazard
-    wire flush_by_jump = jump;
+    wire flush_by_jump      = jump;
     // Lab4 TODO: generate CSR related flush signal
     // Lab4 TODO: generate ecall and mret flush signal
-
+    wire flush_by_priv      = |priv_vec_ex;
+    wire flush_by_exp       = |mcause;
+    
     // Lab3 TODO: generate pc_set, IF1_IF2_flush, IF2_ID_flush, ID_EX_flush, EX_LS_flush, LS_WB_flush
-    assign pc_set           = jump;
-    assign IF1_IF2_flush    = flush_by_jump;
-    assign IF2_ID_flush     = flush_by_jump;
-    assign ID_EX_flush      = flush_by_jump | flush_by_load_use;
-    assign EX_LS_flush      = 0;
-    assign LS_WB_flush      = 0;
+    //stall flush优先级？？
+    assign pc_set           = flush_by_jump | flush_by_priv | flush_by_exp;
+    assign IF1_IF2_flush    = flush_by_jump | flush_by_priv | flush_by_exp;
+    assign IF2_ID_flush     = flush_by_jump | flush_by_priv | flush_by_exp;
+    assign ID_EX_flush      = flush_by_jump | flush_by_priv | flush_by_exp | flush_by_load_use;
+    assign EX_LS_flush      = flush_by_exp;
+    assign LS_WB_flush      = flush_by_exp;
 
     // Lab3 TODO: generate pc_stall, IF1_IF2_stall, IF2_ID_stall, ID_EX_stall, EX_LS_stall, LS_WB_stall
     assign pc_stall         = stall_by_load_use;
@@ -105,7 +115,13 @@ module Hazard(
 
     always_comb begin
         pc_set_target = jump_target;
-        if (flush_by_jump) begin
+        if(flush_by_exp) begin
+            pc_set_target = mtvec;
+        end
+        else if(flush_by_priv) begin
+            pc_set_target = priv_vec_ex[`MRET] ? mepc : pc_ex + 4;
+        end
+        else if(flush_by_jump) begin
             pc_set_target = jump_target;
         end
         // Lab4 TODO: generate CSR, ecall and mret related pc_set_target
