@@ -8,6 +8,9 @@ module SegReg_LS_WB#(
 
     input  logic [31:0] pc_ls,
     input  logic [31:0] inst_ls,
+    input  logic [31:0] csr_wdata_ls,
+    input  logic [ 0:0] csr_we_ls,
+    input  logic [ 4:0] priv_vec_ls,
     input  logic [31:0] alu_result_ls,
     input  logic [31:0] mem_rdata_ls,
     input  logic [ 0:0] wb_rf_sel_ls,
@@ -17,6 +20,9 @@ module SegReg_LS_WB#(
 
     output logic [31:0] pc_wb,
     output logic [31:0] inst_wb,
+    output logic [31:0] csr_wdata_wb,
+    output logic [ 0:0] csr_we_wb,
+    output logic [ 4:0] priv_vec_wb,
     output logic [31:0] alu_result_wb,
     output logic [31:0] mem_rdata_wb,
     output logic [ 0:0] wb_rf_sel_wb,
@@ -28,6 +34,9 @@ module SegReg_LS_WB#(
         if(!rstn || flush) begin
             pc_wb           <= PC_RESET_VAL;
             inst_wb         <= 32'h13;
+            csr_wdata_wb    <= 32'h0;
+            csr_we_wb       <= 1'h0;
+            priv_vec_wb     <= 5'h0;
             alu_result_wb   <= 32'h0;
             mem_rdata_wb    <= 32'h0;
             wb_rf_sel_wb    <= 1'h0;
@@ -38,6 +47,9 @@ module SegReg_LS_WB#(
         else if(!stall) begin
             pc_wb           <= pc_ls;
             inst_wb         <= inst_ls;
+            csr_wdata_wb    <= csr_wdata_ls;
+            csr_we_wb       <= csr_we_ls;
+            priv_vec_wb     <= priv_vec_ls;
             alu_result_wb <= alu_result_ls;
             mem_rdata_wb    <= mem_rdata_ls;
             wb_rf_sel_wb    <= wb_rf_sel_ls;

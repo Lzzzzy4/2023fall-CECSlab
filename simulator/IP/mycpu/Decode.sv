@@ -5,10 +5,12 @@ module Decode(
     output logic [ 4:0] mem_access,
     output logic [31:0] imm,
     output logic [ 0:0] rf_we,
+    output logic [ 0:0] csr_we,
     output logic [ 1:0] alu_rs1_sel,
     output logic [ 1:0] alu_rs2_sel,
     output logic [ 0:0] wb_rf_sel,
-    output logic [ 4:0] br_type
+    output logic [ 4:0] br_type,
+    output logic [ 4:0] priv_vec
 );
     // normal decode 
     wire [4:0] rd = inst[11:7];
@@ -123,15 +125,20 @@ module Decode(
         'h73: begin
             // CSR instruction
             // Lab4 TODO: finish CSR instruction decode
-            // imm         = {{27{1'b0}},{inst[19:15]}};
-            imm         = 0;
+            imm         = {{27{1'b0}},{inst[19:15]}};
+            // imm         = 0;
             mem_access  = `NO_ACCESS;
             alu_op      = `ADD;
             rf_we       = |rd && |funct3;
+            csr_we      = |funct3;
             alu_rs1_sel = `SRC1_ZERO;
             alu_rs2_sel = `SRC2_CSR;
             wb_rf_sel   = `FROM_ALU;
             br_type     = {1'b0, inst[2], funct3};
+
+            priv_vec[`CSR_RW] = funct3 != 3'h0;
+            priv_vec[`ECALL]  = funct3 == 3'h0 && inst[31:20] == 12'h0;
+            priv_vec[`MRET]   = funct3 == 3'h0 && inst[31:20] == 12'h302;
         end
         default: begin
             imm         = 0;
@@ -146,5 +153,5 @@ module Decode(
         endcase
     end
     // Lab4 TODO: you may need to decode for ecall and mret specially here
-
+    assign priv_vec[`FENCEI] = inst[6:0] == 7'b1111111  && funct3 == 3'h1;
 endmodule

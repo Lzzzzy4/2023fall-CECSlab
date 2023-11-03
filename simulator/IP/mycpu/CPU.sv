@@ -109,16 +109,20 @@ module CPU#(
     );
 
     /* ID stage */
+    logic [ 0:0]    csr_we_id;
+    logic [ 4:0]    priv_vec_id;
     Decode  Decode_inst (
         .inst           (inst_id),
         .alu_op         (alu_op_id),
         .mem_access     (mem_access_id),
         .imm            (imm_id),
         .rf_we          (rf_we_id),
+        .csr_we         (csr_we_id),
         .alu_rs1_sel    (alu_rs1_sel_id),
         .alu_rs2_sel    (alu_rs2_sel_id),
         .wb_rf_sel      (wb_rf_sel_id),
-        .br_type        (br_type_id)
+        .br_type        (br_type_id),
+        .priv_vec       (priv_vec_id)
     );
     Regfile  Regfile_inst (
         .clk            (clk),
@@ -131,7 +135,31 @@ module CPU#(
         .rdata2         (rf_rdata2_id)
     );
 
+    logic [31:0]    csr_wdata_wb;
+    logic [ 0:0]    csr_we_wb;
+    logic [31:0]    csr_rdata_id;
+    logic [31:0]    csr_mepc_out;
+    logic [31:0]    csr_mtvec_out;
+    logic [31:0]    csr_mcause_in;
+    CSR CSR_inst (
+        .clk            (clk),
+        .rstn           (rstn),
+        .raddr          (inst_id[31:20]),
+        .waddr          (inst_wb[31:20]),
+        .we             (csr_we_wb),
+        .wdata          (csr_wdata_wb),
+        .rdata          (csr_rdata_id),
+        .mepc_out       (csr_mepc_out),
+        .pc_wb          (pc_wb),
+        .mtvec_out      (csr_mtvec_out),
+        .mcause_in      (csr_mcause_in),
+        .priv_vec_wb    (priv_vec_wb)
+    );
+
     /* ID-EX segreg */
+    logic [31:0]    csr_rdata_ex;
+    logic [ 0:0]    csr_we_ex;
+    logic [ 4:0]    priv_vec_ex;
     SegReg_ID_EX # (
         .PC_RESET_VAL(PC_RESET_VALUE)
     ) SegReg_ID_EX_inst (
@@ -143,6 +171,9 @@ module CPU#(
         .inst_id        (inst_id),
         .rdata1_id      (rf_rdata1_id),
         .rdata2_id      (rf_rdata2_id),
+        .csr_rdata_id   (csr_rdata_id),
+        .csr_we_id      (csr_we_id),
+        .priv_vec_id    (priv_vec_id),
         .imm_id         (imm_id),
         .mem_access_id  (mem_access_id),
         .op_id          (alu_op_id),
@@ -155,6 +186,9 @@ module CPU#(
         .inst_ex        (inst_ex),
         .rdata1_ex      (rf_rdata1_ex),
         .rdata2_ex      (rf_rdata2_ex),
+        .csr_rdata_ex   (csr_rdata_ex),
+        .csr_we_ex      (csr_we_ex),
+        .priv_vec_ex    (priv_vec_ex),
         .imm_ex         (imm_ex),
         .mem_access_ex  (mem_access_ex),
         .op_ex          (alu_op_ex),
@@ -201,7 +235,7 @@ module CPU#(
         .din1           (alu_rf_data2),
         .din2           (imm_ex),
         .din3           (32'h4),
-        .din4           (32'h0),
+        .din4           (csr_rdata_ex),
         .sel            (alu_rs2_sel_ex),
         .dout           (alu_rs2)
     );
@@ -211,6 +245,15 @@ module CPU#(
         .sr2            (alu_rs2),
         .alu_op         (alu_op_ex),
         .result         (alu_result_ex)
+    );
+
+    logic [31:0]    csr_wdata_ex;
+    Priv Priv_inst (
+        .csr_op         (inst_ex[14:12]),
+        .csr_rdata      (csr_rdata_ex),
+        .rf_rdata1      (rf_rdata1_ex),
+        .zimm           (imm_ex),
+        .csr_wdata      (csr_wdata_ex)
     );
 
     Branch  Branch_inst (
@@ -224,6 +267,9 @@ module CPU#(
     );
 
     /* EX-LS segreg */
+    logic [31:0]    csr_wdata_ls;
+    logic [ 0:0]    csr_we_ls;
+    logic [ 4:0]    priv_vec_ls;
     SegReg_EX_LS # (
         .PC_RESET_VAL(PC_RESET_VALUE)
     ) SegReg_EX_LS_inst (
@@ -233,12 +279,18 @@ module CPU#(
         .flush          (EX_LS_flush),
         .pc_ex          (pc_ex),
         .inst_ex        (inst_ex),
+        .csr_wdata_ex   (csr_wdata_ex),
+        .csr_we_ex      (csr_we_ex),
+        .priv_vec_ex    (priv_vec_ex),
         .alu_result_ex  (alu_result_ex),
         .mem_access_ex  (mem_access_ex),
         .wb_rf_sel_ex   (wb_rf_sel_ex),
         .rf_we_ex       (rf_we_ex),
         .pc_ls          (pc_ls),
         .inst_ls        (inst_ls),
+        .csr_wdata_ls   (csr_wdata_ls),
+        .csr_we_ls      (csr_we_ls),
+        .priv_vec_ls    (priv_vec_ls),
         .alu_result_ls  (alu_result_ls),
         .mem_access_ls  (mem_access_ls),
         .wb_rf_sel_ls   (wb_rf_sel_ls),
@@ -269,6 +321,9 @@ module CPU#(
     );
 
     /* LS-WB segreg */
+    // logic [31:0]    csr_wdata_wb;
+    // logic [ 0:0]    csr_we_wb;
+    logic [ 4:0]    priv_vec_wb;
     SegReg_LS_WB # (
         .PC_RESET_VAL(PC_RESET_VALUE)
     ) SegReg_LS_WB_inst (
@@ -278,12 +333,18 @@ module CPU#(
         .flush              (LS_WB_flush),
         .pc_ls              (pc_ls),
         .inst_ls            (inst_ls),
+        .csr_wdata_ls       (csr_wdata_ls),
+        .csr_we_ls          (csr_we_ls),
+        .priv_vec_ls        (priv_vec_ls),
         .alu_result_ls      (alu_result_ls),
         .mem_rdata_ls       (mem_rdata_ls),
         .wb_rf_sel_ls       (wb_rf_sel_ls),
         .rf_we_ls           (rf_we_ls),
         .pc_wb              (pc_wb),
         .inst_wb            (inst_wb),
+        .csr_wdata_wb       (csr_wdata_wb),
+        .csr_we_wb          (csr_we_wb),
+        .priv_vec_wb        (priv_vec_wb),
         .alu_result_wb      (alu_result_wb),
         .mem_rdata_wb       (mem_rdata_wb),
         .wb_rf_sel_wb       (wb_rf_sel_wb),
@@ -295,6 +356,18 @@ module CPU#(
     );
 
     /* WB stage */
+
+    //exp
+    always_comb begin
+        if(priv_vec_wb[`ECALL]) begin
+            csr_mcause_in = 32'hb;
+        end
+        else begin
+            csr_mcause_in = 32'h0;
+        end
+    end
+
+
     Mux2_1 # (
         .WIDTH(32)
     )   WB_rf_wdata_mux (
@@ -326,6 +399,13 @@ module CPU#(
         .rf_rs2_id          (inst_id[24:20]),
         .jump               (jump),
         .jump_target        (jump_target),
+        .priv_vec_ex        (priv_vec_ex),
+        .pc_ex              (pc_ex),
+        .priv_vec_wb        (priv_vec_wb),
+        .pc_wb              (pc_wb),
+        .mepc               (csr_mepc_out),
+        .mtvec              (csr_mtvec_out),
+        .mcause             (csr_mcause_in),
 
         .pc_set             (pc_set),
         .IF1_IF2_flush      (IF1_IF2_flush),
