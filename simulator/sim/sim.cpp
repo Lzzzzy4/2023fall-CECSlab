@@ -48,7 +48,8 @@ void single_cycle() {
   dut->eval();
   dut->clk = 0;
   dut->eval();
-  // m_trace->dump(sim_time++); 
+  sim_time++;
+  m_trace->dump(sim_time); 
   if(dut->commit_wb == 1) set_state();
 }
 
@@ -117,12 +118,17 @@ void cpu_exec(unsigned int n){
   bool npc_cpu_uncache_pre = 0;
   while (n--) {
     // execute single instruction
+    // if(n%100 == 0 && sim_time<10000)printf("pc:%08lx inst:%08lx time:%d\n",dut->pc_cur,dut->inst,sim_time);
     if(test_break()) {
       // set the end state
       sim_state.halt_pc = dut->pc_cur;
       sim_state.halt_ret = cpu_gpr[10];
       sim_state.state = SIM_END;
       break;
+    }
+    if(sim_time > 1000000){
+      sim_state.state = SIM_ABORT;
+      printf("time out\n");
     }
 
     if (dut->commit_wb) {
@@ -147,7 +153,6 @@ void cpu_exec(unsigned int n){
 #endif
     if(sim_state.state != SIM_RUNNING) break;
   }
-
   switch (sim_state.state) {
     case SIM_RUNNING: sim_state.state = SIM_STOP; break;
     case SIM_END: case SIM_ABORT:

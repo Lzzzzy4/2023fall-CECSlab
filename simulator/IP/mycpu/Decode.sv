@@ -16,6 +16,7 @@ module Decode(
     wire [4:0] rd = inst[11:7];
     wire [2:0] funct3 = inst[14:12];
     always_comb begin
+        csr_we = 0;
         case(inst[6:0])
         'h37: begin
             // lui, U_TYPE
@@ -135,10 +136,6 @@ module Decode(
             alu_rs2_sel = `SRC2_CSR;
             wb_rf_sel   = `FROM_ALU;
             br_type     = {1'b0, inst[2], funct3};
-
-            priv_vec[`CSR_RW] = funct3 != 3'h0;
-            priv_vec[`ECALL]  = funct3 == 3'h0 && inst[31:20] == 12'h0;
-            priv_vec[`MRET]   = funct3 == 3'h0 && inst[31:20] == 12'h302;
         end
         default: begin
             imm         = 0;
@@ -153,5 +150,27 @@ module Decode(
         endcase
     end
     // Lab4 TODO: you may need to decode for ecall and mret specially here
-    assign priv_vec[`FENCEI] = inst[6:0] == 7'b1111111  && funct3 == 3'h1;
+    assign priv_vec[`FENCEI] = inst[6:0] == 7'hf  && funct3 == 3'h1;
+    always_comb begin
+        case (inst[6:0])
+            7'h73:begin
+                priv_vec[`CSR_RW] = funct3 != 3'h0;
+                priv_vec[`ECALL]  = funct3 == 3'h0 && inst[31:20] == 12'h0;
+                priv_vec[`MRET]   = funct3 == 3'h0 && inst[31:20] == 12'h302;
+                priv_vec[`FENCEI] = 0;
+            end 
+            7'hf:begin
+                priv_vec[`CSR_RW] = 0;
+                priv_vec[`ECALL]  = 0;
+                priv_vec[`MRET]   = 0;
+                priv_vec[`FENCEI] = funct3 == 3'h1;
+            end
+            default: begin
+                priv_vec[`CSR_RW] = 0;
+                priv_vec[`ECALL]  = 0;
+                priv_vec[`MRET]   = 0;
+                priv_vec[`FENCEI] = 0;
+            end
+        endcase
+    end
 endmodule

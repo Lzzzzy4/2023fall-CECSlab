@@ -251,7 +251,7 @@ module CPU#(
     Priv Priv_inst (
         .csr_op         (inst_ex[14:12]),
         .csr_rdata      (csr_rdata_ex),
-        .rf_rdata1      (rf_rdata1_ex),
+        .rf_rdata1      (alu_rf_data1),
         .zimm           (imm_ex),
         .csr_wdata      (csr_wdata_ex)
     );

@@ -1,0 +1,51 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sat Nov  4 13:28:11 2023
+[*]
+[dumpfile] "/home/user/cpu/2023fall-CECSlab/simulator/waveform.vcd"
+[dumpfile_mtime] "Sat Nov  4 13:27:36 2023"
+[dumpfile_size] 18039895
+[savefile] "/home/user/cpu/2023fall-CECSlab/simulator/mywave.gtkw"
+[timestart] 13578
+[size] 2548 1367
+[pos] -600 -41
+*0.000000 13580 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.CPU.
+[sst_width] 374
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 421
+@22
+TOP.CPU.inst_wb[31:0]
+TOP.CPU.pc_wb[31:0]
+@28
+TOP.CPU.commit_wb[0]
+@200
+-
+@22
+TOP.CPU.CSR_inst.mstatus[31:0]
+TOP.CPU.CSR_inst.mepc[31:0]
+TOP.CPU.CSR_inst.mcause[31:0]
+TOP.CPU.CSR_inst.mtvec[31:0]
+@200
+-
+@22
+TOP.CPU.PC_inst.pc[31:0]
+TOP.CPU.PC_inst.next_pc[31:0]
+@28
+TOP.CPU.NPC_Mux_inst.pc_set[0]
+@22
+TOP.CPU.NPC_Mux_inst.pc_target[31:0]
+@200
+-
+@28
+TOP.CPU.Hazard_inst.flush_by_exp
+TOP.CPU.Hazard_inst.flush_by_jump
+TOP.CPU.Hazard_inst.flush_by_priv_ex
+@29
+TOP.CPU.Hazard_inst.flush_by_priv_wb
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0
