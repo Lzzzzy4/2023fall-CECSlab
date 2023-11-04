@@ -45,7 +45,6 @@ class alignas(VL_CACHE_LINE_BYTES) VCPU___024root final : public VerilatedModule
         CData/*0:0*/ CPU__DOT__jump;
         CData/*0:0*/ CPU__DOT__pc_set;
         CData/*0:0*/ CPU__DOT__ID_EX_flush;
-        CData/*0:0*/ CPU__DOT__EX_LS_flush;
         CData/*0:0*/ CPU__DOT__commit_if2;
         CData/*0:0*/ CPU__DOT__commit_id;
         CData/*0:0*/ CPU__DOT__commit_ex;
@@ -62,6 +61,7 @@ class alignas(VL_CACHE_LINE_BYTES) VCPU___024root final : public VerilatedModule
         CData/*0:0*/ CPU__DOT__Branch_inst__DOT__is_jalr;
         CData/*0:0*/ CPU__DOT__Branch_inst__DOT____VdfgTmp_h8a7e5af4__0;
         CData/*0:0*/ CPU__DOT__Hazard_inst__DOT__stall_by_load_use;
+        CData/*0:0*/ CPU__DOT__Hazard_inst__DOT__flush_by_exp;
         CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
         CData/*0:0*/ __VactContinue;
         VL_OUT(pc_cur,31,0);

@@ -48,5 +48,6 @@ int main(int argc, char** argv, char** env) {
     // close wave trace
     m_trace->close();
     delete dut;
+    printf("sim_state:%d\n",sim_state.state);
     return sim_state.state == SIM_ABORT;
 }

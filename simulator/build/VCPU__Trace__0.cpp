@@ -171,11 +171,11 @@ void VCPU___024root__trace_chg_sub_0(VCPU___024root* vlSelf, VerilatedVcd::Buffe
                                  ((0x2000U & vlSelf->CPU__DOT__inst_ex)
                                    ? ((0x1000U & vlSelf->CPU__DOT__inst_ex)
                                        ? (vlSelf->CPU__DOT__csr_rdata_ex 
-                                          & (~ vlSelf->CPU__DOT__rf_rdata1_ex))
+                                          & (~ vlSelf->CPU__DOT__alu_rf_data1))
                                        : (vlSelf->CPU__DOT__csr_rdata_ex 
-                                          | vlSelf->CPU__DOT__rf_rdata1_ex))
+                                          | vlSelf->CPU__DOT__alu_rf_data1))
                                    : ((0x1000U & vlSelf->CPU__DOT__inst_ex)
-                                       ? vlSelf->CPU__DOT__rf_rdata1_ex
+                                       ? vlSelf->CPU__DOT__alu_rf_data1
                                        : 0U)))),32);
         bufp->chgIData(oldp+76,(vlSelf->CPU__DOT__csr_wdata_ls),32);
         bufp->chgBit(oldp+77,(vlSelf->CPU__DOT__csr_we_ls));

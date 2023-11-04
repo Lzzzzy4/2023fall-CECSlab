@@ -142,11 +142,24 @@ static void checkmem(uint8_t *ref_m, vaddr_t pc) {
   }
 }
 
+int last_pc ;
+int cnt = 0;
 void difftest_step() {
   CPU_state ref_r;
   difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
   // difftest_memcpy(CONFIG_MBASE, ref_pmem, CONFIG_MSIZE, DIFFTEST_TO_DUT);
   checkregs(&ref_r, sim_cpu.pc);
+  // if(sim_cpu.pc == last_pc){
+  //   cnt ++;
+  // }
+  // else cnt = 0;
+  // if(cnt == 10){
+  //   printf("pc:0x%08x\n",sim_cpu.pc);
+  //   isa_reg_display();
+  // }
+  // last_pc = sim_cpu.pc;
   difftest_exec(1);
+  // cnt++;
+  // if(cnt%100 == 0)printf("pc:0x%08x\n",sim_cpu.pc);
   // checkmem(ref_pmem, sim_cpu.pc);
 }

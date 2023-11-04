@@ -71,6 +71,10 @@ VL_ATTR_COLD void VCPU___024root___eval_initial__TOP(VCPU___024root* vlSelf) {
     vlSelf->CPU__DOT__Regfile_inst__DOT__rf[0x1fU] = 0U;
     vlSelf->CPU__DOT__Regfile_inst__DOT__unnamedblk1__DOT__i = 0x20U;
     VCPU___024root____Vdpiimwrap_CPU__DOT__CSR_inst__DOT__set_csr_ptr__Vdpioc2_TOP(vlSelf->CPU__DOT__CSR_inst__DOT__mstatus, vlSelf->CPU__DOT__CSR_inst__DOT__mtvec, vlSelf->CPU__DOT__CSR_inst__DOT__mepc, vlSelf->CPU__DOT__CSR_inst__DOT__mcause);
+    vlSelf->CPU__DOT__CSR_inst__DOT__mstatus = 0U;
+    vlSelf->CPU__DOT__CSR_inst__DOT__mtvec = 0U;
+    vlSelf->CPU__DOT__CSR_inst__DOT__mcause = 0U;
+    vlSelf->CPU__DOT__CSR_inst__DOT__mepc = 0U;
 }
 
 VL_ATTR_COLD void VCPU___024root___eval_final(VCPU___024root* vlSelf) {
@@ -144,33 +148,30 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
          | (0x13U == (0x7fU & vlSelf->CPU__DOT__inst_id)))) {
         if ((0x37U == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
             vlSelf->CPU__DOT__alu_rs1_sel_id = 2U;
-            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
-                                                 & (vlSelf->CPU__DOT__inst_id 
-                                                    >> 7U)));
             vlSelf->CPU__DOT__br_type_id = (7U & (vlSelf->CPU__DOT__inst_id 
                                                   >> 0xcU));
             vlSelf->CPU__DOT__alu_op_id = 0U;
             vlSelf->CPU__DOT__mem_access_id = 0U;
+            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
+                                                 & (vlSelf->CPU__DOT__inst_id 
+                                                    >> 7U)));
             vlSelf->CPU__DOT__alu_rs2_sel_id = 1U;
             vlSelf->CPU__DOT__imm_id = (0xfffff000U 
                                         & vlSelf->CPU__DOT__inst_id);
         } else if ((0x17U == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
             vlSelf->CPU__DOT__alu_rs1_sel_id = 1U;
-            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
-                                                 & (vlSelf->CPU__DOT__inst_id 
-                                                    >> 7U)));
             vlSelf->CPU__DOT__br_type_id = (7U & (vlSelf->CPU__DOT__inst_id 
                                                   >> 0xcU));
             vlSelf->CPU__DOT__alu_op_id = 0U;
             vlSelf->CPU__DOT__mem_access_id = 0U;
+            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
+                                                 & (vlSelf->CPU__DOT__inst_id 
+                                                    >> 7U)));
             vlSelf->CPU__DOT__alu_rs2_sel_id = 1U;
             vlSelf->CPU__DOT__imm_id = (0xfffff000U 
                                         & vlSelf->CPU__DOT__inst_id);
         } else if ((0x6fU == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
             vlSelf->CPU__DOT__alu_rs1_sel_id = 1U;
-            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
-                                                 & (vlSelf->CPU__DOT__inst_id 
-                                                    >> 7U)));
             vlSelf->CPU__DOT__br_type_id = (0x10U | 
                                             ((8U & 
                                               (vlSelf->CPU__DOT__inst_id 
@@ -182,6 +183,9 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                                                    & vlSelf->CPU__DOT__inst_id))));
             vlSelf->CPU__DOT__alu_op_id = 0U;
             vlSelf->CPU__DOT__mem_access_id = 0U;
+            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
+                                                 & (vlSelf->CPU__DOT__inst_id 
+                                                    >> 7U)));
             vlSelf->CPU__DOT__alu_rs2_sel_id = 2U;
             vlSelf->CPU__DOT__imm_id = (((- (IData)(
                                                     (vlSelf->CPU__DOT__inst_id 
@@ -197,9 +201,6 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                                                     >> 0x14U)))));
         } else if ((0x67U == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
             vlSelf->CPU__DOT__alu_rs1_sel_id = 1U;
-            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
-                                                 & (vlSelf->CPU__DOT__inst_id 
-                                                    >> 7U)));
             vlSelf->CPU__DOT__br_type_id = (0x10U | 
                                             ((8U & 
                                               (vlSelf->CPU__DOT__inst_id 
@@ -209,6 +210,9 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                                                    >> 0xcU))));
             vlSelf->CPU__DOT__alu_op_id = 0U;
             vlSelf->CPU__DOT__mem_access_id = 0U;
+            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
+                                                 & (vlSelf->CPU__DOT__inst_id 
+                                                    >> 7U)));
             vlSelf->CPU__DOT__alu_rs2_sel_id = 2U;
             vlSelf->CPU__DOT__imm_id = (((- (IData)(
                                                     (vlSelf->CPU__DOT__inst_id 
@@ -218,25 +222,6 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                                          >> 0x14U));
         } else {
             vlSelf->CPU__DOT__alu_rs1_sel_id = 0U;
-            vlSelf->CPU__DOT__rf_we_id = ((0x63U != 
-                                           (0x7fU & vlSelf->CPU__DOT__inst_id)) 
-                                          & ((3U == 
-                                              (0x7fU 
-                                               & vlSelf->CPU__DOT__inst_id))
-                                              ? (0U 
-                                                 != 
-                                                 (0x1fU 
-                                                  & (vlSelf->CPU__DOT__inst_id 
-                                                     >> 7U)))
-                                              : ((0x23U 
-                                                  != 
-                                                  (0x7fU 
-                                                   & vlSelf->CPU__DOT__inst_id)) 
-                                                 & (0U 
-                                                    != 
-                                                    (0x1fU 
-                                                     & (vlSelf->CPU__DOT__inst_id 
-                                                        >> 7U))))));
             if ((0x63U == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
                 vlSelf->CPU__DOT__br_type_id = (0x10U 
                                                 | ((8U 
@@ -321,13 +306,50 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                 }
                 vlSelf->CPU__DOT__alu_rs2_sel_id = 1U;
             }
+            vlSelf->CPU__DOT__rf_we_id = ((0x63U != 
+                                           (0x7fU & vlSelf->CPU__DOT__inst_id)) 
+                                          & ((3U == 
+                                              (0x7fU 
+                                               & vlSelf->CPU__DOT__inst_id))
+                                              ? (0U 
+                                                 != 
+                                                 (0x1fU 
+                                                  & (vlSelf->CPU__DOT__inst_id 
+                                                     >> 7U)))
+                                              : ((0x23U 
+                                                  != 
+                                                  (0x7fU 
+                                                   & vlSelf->CPU__DOT__inst_id)) 
+                                                 & (0U 
+                                                    != 
+                                                    (0x1fU 
+                                                     & (vlSelf->CPU__DOT__inst_id 
+                                                        >> 7U))))));
         }
+        vlSelf->CPU__DOT__wb_rf_sel_id = ((0x37U != 
+                                           (0x7fU & vlSelf->CPU__DOT__inst_id)) 
+                                          & ((0x17U 
+                                              != (0x7fU 
+                                                  & vlSelf->CPU__DOT__inst_id)) 
+                                             & ((0x6fU 
+                                                 != 
+                                                 (0x7fU 
+                                                  & vlSelf->CPU__DOT__inst_id)) 
+                                                & ((0x67U 
+                                                    != 
+                                                    (0x7fU 
+                                                     & vlSelf->CPU__DOT__inst_id)) 
+                                                   & ((0x63U 
+                                                       != 
+                                                       (0x7fU 
+                                                        & vlSelf->CPU__DOT__inst_id)) 
+                                                      & (3U 
+                                                         == 
+                                                         (0x7fU 
+                                                          & vlSelf->CPU__DOT__inst_id)))))));
     } else {
         if ((0x33U == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
             vlSelf->CPU__DOT__alu_rs1_sel_id = 0U;
-            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
-                                                 & (vlSelf->CPU__DOT__inst_id 
-                                                    >> 7U)));
             vlSelf->CPU__DOT__br_type_id = ((8U & (vlSelf->CPU__DOT__inst_id 
                                                    << 1U)) 
                                             | (7U & 
@@ -342,41 +364,41 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                                               | (7U 
                                                  & (vlSelf->CPU__DOT__inst_id 
                                                     >> 0xcU))));
+            vlSelf->CPU__DOT__rf_we_id = (0U != (0x1fU 
+                                                 & (vlSelf->CPU__DOT__inst_id 
+                                                    >> 7U)));
             vlSelf->CPU__DOT__alu_rs2_sel_id = 0U;
             vlSelf->CPU__DOT__imm_id = 0U;
-        } else {
-            if ((0x73U == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
-                vlSelf->CPU__DOT__alu_rs1_sel_id = 2U;
-                vlSelf->CPU__DOT__br_type_id = ((8U 
-                                                 & (vlSelf->CPU__DOT__inst_id 
-                                                    << 1U)) 
-                                                | (7U 
-                                                   & (vlSelf->CPU__DOT__inst_id 
-                                                      >> 0xcU)));
-                vlSelf->CPU__DOT__alu_rs2_sel_id = 3U;
-                vlSelf->CPU__DOT__imm_id = (0x1fU & 
-                                            (vlSelf->CPU__DOT__inst_id 
-                                             >> 0xfU));
-                vlSelf->CPU__DOT__rf_we_id = ((0U != 
-                                               (0x1fU 
-                                                & (vlSelf->CPU__DOT__inst_id 
-                                                   >> 7U))) 
-                                              & (0U 
-                                                 != 
-                                                 (7U 
-                                                  & (vlSelf->CPU__DOT__inst_id 
-                                                     >> 0xcU))));
-            } else {
-                vlSelf->CPU__DOT__alu_rs1_sel_id = 0U;
-                vlSelf->CPU__DOT__br_type_id = 0U;
-                vlSelf->CPU__DOT__alu_rs2_sel_id = 0U;
-                vlSelf->CPU__DOT__imm_id = 0U;
-                vlSelf->CPU__DOT__rf_we_id = 0U;
-            }
+        } else if ((0x73U == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
+            vlSelf->CPU__DOT__alu_rs1_sel_id = 2U;
+            vlSelf->CPU__DOT__br_type_id = ((8U & (vlSelf->CPU__DOT__inst_id 
+                                                   << 1U)) 
+                                            | (7U & 
+                                               (vlSelf->CPU__DOT__inst_id 
+                                                >> 0xcU)));
+            vlSelf->CPU__DOT__alu_rs2_sel_id = 3U;
+            vlSelf->CPU__DOT__imm_id = (0x1fU & (vlSelf->CPU__DOT__inst_id 
+                                                 >> 0xfU));
             vlSelf->CPU__DOT__alu_op_id = 0U;
+            vlSelf->CPU__DOT__rf_we_id = ((0U != (0x1fU 
+                                                  & (vlSelf->CPU__DOT__inst_id 
+                                                     >> 7U))) 
+                                          & (0U != 
+                                             (7U & 
+                                              (vlSelf->CPU__DOT__inst_id 
+                                               >> 0xcU))));
+        } else {
+            vlSelf->CPU__DOT__alu_rs1_sel_id = 0U;
+            vlSelf->CPU__DOT__br_type_id = 0U;
+            vlSelf->CPU__DOT__alu_rs2_sel_id = 0U;
+            vlSelf->CPU__DOT__imm_id = 0U;
+            vlSelf->CPU__DOT__alu_op_id = 0U;
+            vlSelf->CPU__DOT__rf_we_id = 0U;
         }
         vlSelf->CPU__DOT__mem_access_id = 0U;
+        vlSelf->CPU__DOT__wb_rf_sel_id = 0U;
     }
+    vlSelf->CPU__DOT__csr_we_id = 0U;
     if ((1U & (~ ((((((((0x37U == (0x7fU & vlSelf->CPU__DOT__inst_id)) 
                         | (0x17U == (0x7fU & vlSelf->CPU__DOT__inst_id))) 
                        | (0x6fU == (0x7fU & vlSelf->CPU__DOT__inst_id))) 
@@ -391,80 +413,49 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                                                (7U 
                                                 & (vlSelf->CPU__DOT__inst_id 
                                                    >> 0xcU)));
-                vlSelf->CPU__DOT__priv_vec_id = ((0x17U 
-                                                  & (IData)(vlSelf->CPU__DOT__priv_vec_id)) 
-                                                 | ((0U 
-                                                     != 
-                                                     (7U 
-                                                      & (vlSelf->CPU__DOT__inst_id 
-                                                         >> 0xcU))) 
-                                                    << 3U));
-                vlSelf->CPU__DOT__priv_vec_id = ((0x1eU 
-                                                  & (IData)(vlSelf->CPU__DOT__priv_vec_id)) 
-                                                 | (IData)(
-                                                           (0U 
-                                                            == 
-                                                            (0xfff07000U 
-                                                             & vlSelf->CPU__DOT__inst_id))));
-                vlSelf->CPU__DOT__priv_vec_id = ((0x1dU 
-                                                  & (IData)(vlSelf->CPU__DOT__priv_vec_id)) 
-                                                 | ((IData)(
-                                                            (0x30200000U 
-                                                             == 
-                                                             (0xfff07000U 
-                                                              & vlSelf->CPU__DOT__inst_id))) 
-                                                    << 1U));
             }
         }
     }
-    vlSelf->CPU__DOT__wb_rf_sel_id = (((((((((0x37U 
-                                              == (0x7fU 
-                                                  & vlSelf->CPU__DOT__inst_id)) 
-                                             | (0x17U 
-                                                == 
-                                                (0x7fU 
-                                                 & vlSelf->CPU__DOT__inst_id))) 
-                                            | (0x6fU 
-                                               == (0x7fU 
-                                                   & vlSelf->CPU__DOT__inst_id))) 
-                                           | (0x67U 
-                                              == (0x7fU 
-                                                  & vlSelf->CPU__DOT__inst_id))) 
-                                          | (0x63U 
-                                             == (0x7fU 
-                                                 & vlSelf->CPU__DOT__inst_id))) 
-                                         | (3U == (0x7fU 
-                                                   & vlSelf->CPU__DOT__inst_id))) 
-                                        | (0x23U == 
-                                           (0x7fU & vlSelf->CPU__DOT__inst_id))) 
-                                       | (0x13U == 
-                                          (0x7fU & vlSelf->CPU__DOT__inst_id))) 
-                                      & ((0x37U != 
-                                          (0x7fU & vlSelf->CPU__DOT__inst_id)) 
-                                         & ((0x17U 
-                                             != (0x7fU 
-                                                 & vlSelf->CPU__DOT__inst_id)) 
-                                            & ((0x6fU 
-                                                != 
-                                                (0x7fU 
-                                                 & vlSelf->CPU__DOT__inst_id)) 
-                                               & ((0x67U 
-                                                   != 
-                                                   (0x7fU 
-                                                    & vlSelf->CPU__DOT__inst_id)) 
-                                                  & ((0x63U 
-                                                      != 
-                                                      (0x7fU 
-                                                       & vlSelf->CPU__DOT__inst_id)) 
-                                                     & (3U 
-                                                        == 
-                                                        (0x7fU 
-                                                         & vlSelf->CPU__DOT__inst_id))))))));
     vlSelf->pc_cur = vlSelf->CPU__DOT__pc_wb;
     vlSelf->inst = vlSelf->CPU__DOT__inst_wb;
-    vlSelf->CPU__DOT__EX_LS_flush = (1U & (IData)(vlSelf->CPU__DOT__priv_vec_wb));
+    vlSelf->CPU__DOT__Hazard_inst__DOT__flush_by_exp 
+        = (1U & (IData)(vlSelf->CPU__DOT__priv_vec_wb));
+    if ((0x73U == (0x7fU & vlSelf->CPU__DOT__inst_id))) {
+        vlSelf->CPU__DOT__priv_vec_id = ((0x17U & (IData)(vlSelf->CPU__DOT__priv_vec_id)) 
+                                         | ((0U != 
+                                             (7U & 
+                                              (vlSelf->CPU__DOT__inst_id 
+                                               >> 0xcU))) 
+                                            << 3U));
+        vlSelf->CPU__DOT__priv_vec_id = ((0x1eU & (IData)(vlSelf->CPU__DOT__priv_vec_id)) 
+                                         | (IData)(
+                                                   (0U 
+                                                    == 
+                                                    (0xfff07000U 
+                                                     & vlSelf->CPU__DOT__inst_id))));
+        vlSelf->CPU__DOT__priv_vec_id = ((0x1dU & (IData)(vlSelf->CPU__DOT__priv_vec_id)) 
+                                         | ((IData)(
+                                                    (0x30200000U 
+                                                     == 
+                                                     (0xfff07000U 
+                                                      & vlSelf->CPU__DOT__inst_id))) 
+                                            << 1U));
+        vlSelf->CPU__DOT__priv_vec_id = (0x1bU & (IData)(vlSelf->CPU__DOT__priv_vec_id));
+    } else {
+        vlSelf->CPU__DOT__priv_vec_id = ((0x10U & (IData)(vlSelf->CPU__DOT__priv_vec_id)) 
+                                         | ((0xfU == 
+                                             (0x7fU 
+                                              & vlSelf->CPU__DOT__inst_id))
+                                             ? ((1U 
+                                                 == 
+                                                 (7U 
+                                                  & (vlSelf->CPU__DOT__inst_id 
+                                                     >> 0xcU))) 
+                                                << 2U)
+                                             : 0U));
+    }
     vlSelf->CPU__DOT__priv_vec_id = ((0x1bU & (IData)(vlSelf->CPU__DOT__priv_vec_id)) 
-                                     | ((IData)((0x107fU 
+                                     | ((IData)((0x100fU 
                                                  == 
                                                  (0x707fU 
                                                   & vlSelf->CPU__DOT__inst_id))) 
@@ -600,9 +591,9 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
     } else if (vlSelf->CPU__DOT__jump) {
         vlSelf->CPU__DOT__pc_target = vlSelf->CPU__DOT__jump_target;
     }
-    vlSelf->CPU__DOT__pc_set = (1U & ((IData)(vlSelf->CPU__DOT__jump) 
-                                      | ((0U != (IData)(vlSelf->CPU__DOT__priv_vec_ex)) 
-                                         | (IData)(vlSelf->CPU__DOT__priv_vec_wb))));
+    vlSelf->CPU__DOT__pc_set = (1U & ((IData)(vlSelf->CPU__DOT__priv_vec_wb) 
+                                      | ((IData)(vlSelf->CPU__DOT__jump) 
+                                         | (0U != (IData)(vlSelf->CPU__DOT__priv_vec_ex)))));
     vlSelf->CPU__DOT__ALU_inst__DOT____VdfgTmp_h175d6d08__0 
         = ((vlSelf->CPU__DOT__alu_rs1 ^ vlSelf->CPU__DOT__alu_rs2) 
            >> 0x1fU);
@@ -906,7 +897,6 @@ VL_ATTR_COLD void VCPU___024root___ctor_var_reset(VCPU___024root* vlSelf) {
     vlSelf->CPU__DOT__jump = VL_RAND_RESET_I(1);
     vlSelf->CPU__DOT__pc_set = VL_RAND_RESET_I(1);
     vlSelf->CPU__DOT__ID_EX_flush = VL_RAND_RESET_I(1);
-    vlSelf->CPU__DOT__EX_LS_flush = VL_RAND_RESET_I(1);
     vlSelf->CPU__DOT__commit_if2 = VL_RAND_RESET_I(1);
     vlSelf->CPU__DOT__commit_id = VL_RAND_RESET_I(1);
     vlSelf->CPU__DOT__commit_ex = VL_RAND_RESET_I(1);
@@ -944,6 +934,7 @@ VL_ATTR_COLD void VCPU___024root___ctor_var_reset(VCPU___024root* vlSelf) {
     vlSelf->CPU__DOT__Branch_inst__DOT____VdfgTmp_h8a7e5af4__0 = 0;
     vlSelf->CPU__DOT__DCache_inst__DOT__rdata_temp = VL_RAND_RESET_I(32);
     vlSelf->CPU__DOT__Hazard_inst__DOT__stall_by_load_use = VL_RAND_RESET_I(1);
+    vlSelf->CPU__DOT__Hazard_inst__DOT__flush_by_exp = VL_RAND_RESET_I(1);
     vlSelf->__Vtask_CPU__DOT__ICache_inst__DOT__pmem_read__0__rword = 0;
     vlSelf->__Vtask_CPU__DOT__DCache_inst__DOT__pmem_read__3__rword = 0;
     vlSelf->__Vtrigprevexpr___TOP__clk__0 = VL_RAND_RESET_I(1);

@@ -15,8 +15,19 @@ module CSR(
     // Lab4 TODO: you need to add some input or output pors to implement CSRs' special functions
 );
     import "DPI-C" function void set_csr_ptr(input logic [31:0] m1 [], input logic [31:0] m2 [], input logic [31:0] m3 [], input logic [31:0] m4 []);
-
     logic [31:0] mstatus;
+    logic [31:0] mtvec;
+    logic [31:0] mcause;
+    logic [31:0] mepc;
+    initial begin
+        set_csr_ptr(mstatus, mtvec, mepc, mcause);
+        mstatus = 0;
+        mtvec   = 0;
+        mcause  = 0;
+        mepc    = 0;
+    end
+
+    
     always_ff @(posedge clk) begin
         if(!rstn) begin
             mstatus <= 32'h0;
@@ -32,7 +43,7 @@ module CSR(
         end
     end
 
-    logic [31:0] mtvec;
+    
     assign mtvec_out = mtvec;
     always_ff @(posedge clk) begin
         if(!rstn) begin
@@ -43,7 +54,7 @@ module CSR(
         end
     end
 
-    logic [31:0] mcause;
+    
     always_ff @(posedge clk) begin
         if(!rstn) begin
             mcause <= 32'h0;
@@ -56,7 +67,7 @@ module CSR(
         end
     end
 
-    logic [31:0] mepc;
+    
     assign mepc_out = mepc;
     always_ff @(posedge clk) begin
         if(!rstn) begin
@@ -80,7 +91,4 @@ module CSR(
         endcase
     end
     
-    initial begin
-        set_csr_ptr(mstatus, mtvec, mepc, mcause);
-    end
 endmodule
