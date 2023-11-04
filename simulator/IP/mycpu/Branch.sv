@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 `include "./include/config.sv"
 module Branch(
     input  logic [ 4:0] br_type,
@@ -14,13 +15,12 @@ module Branch(
     always_comb begin
         if(is_branch) begin
             case(br_type[2:0])
-            `BEQ: jump =    sr1 == sr2;
-            // Lab3 TODO: implement other branch instructions
-            `BNE: jump =    sr1 != sr2;
-            `BLT: jump =    $signed(sr1) < $signed(sr2);
-            `BGE: jump =    $signed(sr1) >= $signed(sr2);
-            `BLTU: jump =   sr1 < sr2;
-            `BGEU: jump =   sr1 >= sr2;
+            `BEQ: jump = sr1 == sr2;
+            `BNE: jump = sr1 != sr2;
+            `BLT: jump = $signed(sr1) < $signed(sr2);
+            `BGE: jump = $signed(sr1) >= $signed(sr2);
+            `BLTU: jump = sr1 < sr2;
+            `BGEU: jump = sr1 >= sr2;
             default: jump = 0;
             endcase
         end
