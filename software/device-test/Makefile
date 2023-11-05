@@ -1,6 +1,6 @@
 
 
-NAMES = video
+NAMES = hello
 SRCS = src/$(NAMES)
 BASE_PORT = $(abspath ../base-port)
 SIM_PATH = $(abspath ../../simulator)
