@@ -14,10 +14,35 @@ VCPU::VCPU(VerilatedContext* _vcontextp__, const char* _vcname__)
     , vlSymsp{new VCPU__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , rstn{vlSymsp->TOP.rstn}
+    , arvalid{vlSymsp->TOP.arvalid}
+    , arready{vlSymsp->TOP.arready}
+    , arlen{vlSymsp->TOP.arlen}
+    , arsize{vlSymsp->TOP.arsize}
+    , arburst{vlSymsp->TOP.arburst}
+    , rresp{vlSymsp->TOP.rresp}
+    , rvalid{vlSymsp->TOP.rvalid}
+    , rready{vlSymsp->TOP.rready}
+    , rlast{vlSymsp->TOP.rlast}
+    , awvalid{vlSymsp->TOP.awvalid}
+    , awready{vlSymsp->TOP.awready}
+    , awlen{vlSymsp->TOP.awlen}
+    , awsize{vlSymsp->TOP.awsize}
+    , awburst{vlSymsp->TOP.awburst}
+    , wstrb{vlSymsp->TOP.wstrb}
+    , wvalid{vlSymsp->TOP.wvalid}
+    , wready{vlSymsp->TOP.wready}
+    , wlast{vlSymsp->TOP.wlast}
+    , bresp{vlSymsp->TOP.bresp}
+    , bvalid{vlSymsp->TOP.bvalid}
+    , bready{vlSymsp->TOP.bready}
     , commit_wb{vlSymsp->TOP.commit_wb}
     , uncache_read_wb{vlSymsp->TOP.uncache_read_wb}
-    , pc_cur{vlSymsp->TOP.pc_cur}
+    , araddr{vlSymsp->TOP.araddr}
+    , rdata{vlSymsp->TOP.rdata}
+    , awaddr{vlSymsp->TOP.awaddr}
+    , wdata{vlSymsp->TOP.wdata}
     , inst{vlSymsp->TOP.inst}
+    , pc_cur{vlSymsp->TOP.pc_cur}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

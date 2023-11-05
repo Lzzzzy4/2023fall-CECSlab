@@ -28,10 +28,35 @@ class alignas(VL_CACHE_LINE_BYTES) VCPU VL_NOT_FINAL : public VerilatedModel {
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clk,0,0);
     VL_IN8(&rstn,0,0);
+    VL_OUT8(&arvalid,0,0);
+    VL_IN8(&arready,0,0);
+    VL_OUT8(&arlen,7,0);
+    VL_OUT8(&arsize,2,0);
+    VL_OUT8(&arburst,1,0);
+    VL_IN8(&rresp,1,0);
+    VL_IN8(&rvalid,0,0);
+    VL_OUT8(&rready,0,0);
+    VL_IN8(&rlast,0,0);
+    VL_OUT8(&awvalid,0,0);
+    VL_IN8(&awready,0,0);
+    VL_OUT8(&awlen,7,0);
+    VL_OUT8(&awsize,2,0);
+    VL_OUT8(&awburst,1,0);
+    VL_OUT8(&wstrb,3,0);
+    VL_OUT8(&wvalid,0,0);
+    VL_IN8(&wready,0,0);
+    VL_OUT8(&wlast,0,0);
+    VL_IN8(&bresp,1,0);
+    VL_IN8(&bvalid,0,0);
+    VL_OUT8(&bready,0,0);
     VL_OUT8(&commit_wb,0,0);
     VL_OUT8(&uncache_read_wb,0,0);
-    VL_OUT(&pc_cur,31,0);
+    VL_OUT(&araddr,31,0);
+    VL_IN(&rdata,31,0);
+    VL_OUT(&awaddr,31,0);
+    VL_OUT(&wdata,31,0);
     VL_OUT(&inst,31,0);
+    VL_OUT(&pc_cur,31,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.

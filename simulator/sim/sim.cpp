@@ -47,6 +47,10 @@ void single_cycle() {
   dut->clk = 1;
   dut->eval();
   dut->clk = 0;
+  #ifdef AXI
+    pmem_write();
+    pmem_read();
+  #endif
   dut->eval();
   sim_time++;
   m_trace->dump(sim_time); 
