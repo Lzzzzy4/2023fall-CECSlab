@@ -1,6 +1,6 @@
 ARGS ?= -b
 
-APP ?= hello
+APP ?= video
 APP_IMG = $(addprefix $(TEST_DIR)/app/, $(addsuffix -riscv32.bin, $(APP)))
 IMG ?= $(APP_IMG)
 

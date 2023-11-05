@@ -58,7 +58,7 @@ void pmem_read(){
     if(dut->arvalid == 1){
       // Lab5 TODO: implement the read request
       araddr = dut->araddr;
-      assert(araddr >= 0x80000000);
+      // assert(araddr >= 0x80000000);
       arlen = dut->arlen;
       arsize = 1 << dut->arsize;
       // if(arsize == 8)araddr = araddr & 0xfffffff8;

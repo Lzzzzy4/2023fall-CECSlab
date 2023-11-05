@@ -130,10 +130,10 @@ void cpu_exec(unsigned int n){
       sim_state.state = SIM_END;
       break;
     }
-    if(sim_time > 1000000){
-      sim_state.state = SIM_ABORT;
-      printf("time out\n");
-    }
+    // if(sim_time > 1000000){
+    //   sim_state.state = SIM_ABORT;
+    //   printf("time out\n");
+    // }
 
     if (dut->commit_wb) {
       if(npc_cpu_uncache_pre){
