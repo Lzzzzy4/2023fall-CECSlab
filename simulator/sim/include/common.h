@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
-#include <generated/autoconf.h>
+#include "generated/autoconf.h"
 #include "macro.h"
 
 #define MAX_SIM_TIME 40000000
