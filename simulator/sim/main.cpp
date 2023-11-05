@@ -40,6 +40,7 @@ int main(int argc, char** argv, char** env) {
     reset(1);
     
     // start running
+    printf("Start running!\n");
     sdb_mainloop();
     // end
 

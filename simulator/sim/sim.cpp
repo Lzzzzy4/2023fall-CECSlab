@@ -145,9 +145,8 @@ void cpu_exec(unsigned int n){
       
       g_nr_guest_inst++;
       npc_cpu_uncache_pre = dut->uncache_read_wb;
+      DeQ(dut->pc_cur, dut->inst);
     }
-
-    DeQ(dut->pc_cur, dut->inst);
 
     // your cpu step a cycle
     single_cycle();
@@ -165,7 +164,7 @@ void cpu_exec(unsigned int n){
            (sim_state.halt_ret == 0 ? ANSI_FMT("HIT GOOD TRAP", ANSI_FG_GREEN) :
             ANSI_FMT("HIT BAD TRAP", ANSI_FG_RED))),
           sim_state.halt_pc);
-      if(sim_state.state == SIM_ABORT)print_itrace();
+      // if(sim_state.state == SIM_ABORT)print_itrace();
       // fall through
     case SIM_QUIT: statistic();
   }
