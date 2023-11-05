@@ -106,7 +106,7 @@ module axi_arbiter(
             if(rready && rlast) r_nxt = R_IDLE;
             else r_nxt = D_R;
         end
-        default :                   r_nxt = R_IDLE;    
+        default : r_nxt = R_IDLE;    
         endcase
     end
     
