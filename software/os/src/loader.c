@@ -9,6 +9,25 @@
 
 static uintptr_t elf_load(const char *filename) {
     // Lab7 TODO: implement the loader
+    Elf_Ehdr elf_h;
+    int fd = fs_open(filename, 0, 0);
+    fs_read(fd, &elf_h, sizeof(Elf_Ehdr));
+    assert(*((int *)elf_h.e_ident) == 0x464c457f);
+    assert(elf_h.e_machine == EM_RISCV);
+    Elf_Phdr elf_ph;
+    for (int i = 0; i < elf_h.e_phnum; i++) {
+        fs_lseek(fd, elf_h.e_phoff + i * elf_h.e_phentsize, SEEK_SET);
+        fs_read(fd, &elf_ph, sizeof(Elf_Phdr));
+        if (elf_ph.p_type == PT_LOAD) {
+            fs_lseek(fd, elf_ph.p_offset, SEEK_SET);
+            fs_read(fd, (void *)elf_ph.p_vaddr, elf_ph.p_filesz);
+            memset((void *)(elf_ph.p_vaddr + elf_ph.p_filesz), 0, elf_ph.p_memsz - elf_ph.p_filesz);
+        }
+    }
+    fs_close(fd);
+    asm volatile("fence.i");
+    return elf_h.e_entry;
+
 }
 
 void user_naive_load(const char *filename) {
