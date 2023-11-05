@@ -1,4 +1,3 @@
-[33m[VERILATE][0m build/VCPU
 [33m[Run IMG][0m add-longlong-riscv32.bin
 [1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/add-longlong-riscv32.bin
 [0mLoad IMG complete!
@@ -11,9 +10,8 @@
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
-aaa
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:153 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x800001e0[0m
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:73 statistic] total guest instructions = 5174[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x800001e0[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 5174[0m
 [1;32mTestcase end!
 [0msim_state:2
 [33m[Run IMG][0m add-riscv32.bin
@@ -28,9 +26,8 @@ aaa
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
-aaa
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:153 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x800001b8[0m
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:73 statistic] total guest instructions = 4180[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x800001b8[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 4180[0m
 [1;32mTestcase end!
 [0msim_state:2
 [33m[Run IMG][0m bit-riscv32.bin
@@ -45,9 +42,8 @@ aaa
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
-aaa
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:153 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x80000390[0m
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:73 statistic] total guest instructions = 785[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x80000390[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 785[0m
 [1;32mTestcase end!
 [0msim_state:2
 [33m[Run IMG][0m bubble-sort-riscv32.bin
@@ -62,9 +58,8 @@ aaa
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
-aaa
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:153 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x80000280[0m
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:73 statistic] total guest instructions = 13086[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x80000280[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 13086[0m
 [1;32mTestcase end!
 [0msim_state:2
 [33m[Run IMG][0m crc32-riscv32.bin
@@ -79,7 +74,216 @@ aaa
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
 [1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
-aaa
-[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:73 statistic] total guest instructions = 2445[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x80000238[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 36868[0m
 [1;32mTestcase end!
-[0msim_state:4
+[0msim_state:2
+[33m[Run IMG][0m div-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/div-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x8000021c[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 4710[0m
+[1;32mTestcase end!
+[0msim_state:2
+[33m[Run IMG][0m dummy-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/dummy-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x80000058[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 18[0m
+[1;32mTestcase end!
+[0msim_state:2
+[33m[Run IMG][0m fact-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/fact-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x80000180[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 2267[0m
+[1;32mTestcase end!
+[0msim_state:2
+[33m[Run IMG][0m fib-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/fib-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x8000016c[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 2172[0m
+[1;32mTestcase end!
+[0msim_state:2
+[33m[Run IMG][0m goldbach-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/goldbach-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x800001d4[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 4600[0m
+[1;32mTestcase end!
+[0msim_state:2
+[33m[Run IMG][0m hello-str-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/hello-str-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x8000016c[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 1749[0m
+[1;32mTestcase end!
+[0msim_state:2
+[33m[Run IMG][0m if-else-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/if-else-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x800001b4[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 896[0m
+[1;32mTestcase end!
+[0msim_state:2
+[33m[Run IMG][0m leap-year-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/leap-year-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;32mHIT GOOD TRAP[0m at pc = 0x80000150[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 6313[0m
+[1;32mTestcase end!
+[0msim_state:2
+[33m[Run IMG][0m load-store-riscv32.bin
+[1;32mLoad img: /home/user/cpu/2023fall-CECSlab/software/functest/build/load-store-riscv32.bin
+[0mLoad IMG complete!
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:43 init_difftest] open dl: /home/user/cpu/2023fall-CECSlab/simulator/nemu/build/riscv32-nemu-interpreter-so[0m
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/difftest/difftest.cpp:60 init_difftest] Differential testing: [1;32mON[0m[0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'serial' at [0xa00003f8, 0xa00003ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'rtc' at [0xa0000040, 0xa000005f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vgactl' at [0xa0000100, 0xa0000107][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'vmem' at [0xa1000000, 0xa10752ff][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_mem' at [0xa2000000, 0xa200001b][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'ffb_draw' at [0xa200001c, 0xa200001f][0m
+[1;36m[/home/user/cpu/CECS-Lab/simulator/sim/device/io/mmio.c:45 add_mmio_map] Add mmio map 'keyboard' at [0xa0000060, 0xa0000063][0m
+r15 different at 0x80000154,wrong:0x00025800,rignt:0xbc025800
+gpr[0]($0) = 0x00000000
+gpr[1](ra) = 0x80000118
+gpr[2](sp) = 0x80008fd0
+gpr[3](gp) = 0x00000000
+gpr[4](tp) = 0x00000000
+gpr[5](t0) = 0x00000000
+gpr[6](t1) = 0x00000000
+gpr[7](t2) = 0x00000000
+gpr[8](s0) = 0x80008ff0
+gpr[9](s1) = 0x00000000
+gpr[10](a0) = 0x00000001
+gpr[11](a1) = 0x00000000
+gpr[12](a2) = 0x00000000
+gpr[13](a3) = 0x0000ffff
+gpr[14](a4) = 0x00000001
+gpr[15](a5) = 0x00025800
+gpr[16](a6) = 0x00000000
+gpr[17](a7) = 0x00000000
+gpr[18](s2) = 0x00000000
+gpr[19](s3) = 0x00000000
+gpr[20](s4) = 0x00000000
+gpr[21](s5) = 0x00000000
+gpr[22](s6) = 0x00000000
+gpr[23](s7) = 0x00000000
+gpr[24](s8) = 0x00000000
+gpr[25](s9) = 0x00000000
+gpr[26](s10) = 0x00000000
+gpr[27](s11) = 0x00000000
+gpr[28](t3) = 0x00000000
+gpr[29](t4) = 0x00000000
+gpr[30](t5) = 0x00000000
+gpr[31](t6) = 0x00000000
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:163 cpu_exec] sim: [1;31mABORT[0m at pc = 0x80000154[0m
+pc:8000013c inst:00279793
+slli	a5, a5, 2
+pc:80000140 inst:00178713
+addi	a4, a5, 1
+pc:80000144 inst:800007b7
+lui	a5, 524288
+pc:80000148 inst:29478793
+addi	a5, a5, 660
+pc:8000014c inst:00f707b3
+add	a5, a4, a5
+pc:80000000 inst:00000013
+nop
+pc:80000000 inst:00000013
+nop
+pc:80000000 inst:00000013
+nop
+pc:80000000 inst:00000013
+nop
+pc:80000000 inst:00000013
+nop
+pc:80000000 inst:00000013
+nop
+pc:80000000 inst:00000013
+nop
+pc:80000150 inst:0007a783
+lw	a5, 0(a5)
+pc:80000000 inst:00000013
+nop
+pc:80000154 inst:fef42423
+sw	a5, -24(s0)
+pc:80000000 inst:00000013
+nop
+[1;36m[/home/user/cpu/2023fall-CECSlab/simulator/sim/sim.cpp:78 statistic] total guest instructions = 628[0m
+[1;32mTestcase end!
+[0msim_state:3

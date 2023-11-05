@@ -1,4 +1,4 @@
-ARGS ?= 
+ARGS ?= -b
 
 APP ?= hello
 APP_IMG = $(addprefix $(TEST_DIR)/app/, $(addsuffix -riscv32.bin, $(APP)))
