@@ -53,7 +53,7 @@ void single_cycle() {
   #endif
   dut->eval();
   sim_time++;
-  m_trace->dump(sim_time); 
+  // m_trace->dump(sim_time); 
   if(dut->commit_wb == 1) set_state();
 }
 
