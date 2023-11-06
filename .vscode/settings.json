@@ -13,6 +13,10 @@
         "cstdlib": "c",
         "future": "c",
         "typeindex": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "dev-mmio.h": "c",
+        "stdbool.h": "c",
+        "base.h": "c",
+        "sdl.h": "c"
     }
 }
