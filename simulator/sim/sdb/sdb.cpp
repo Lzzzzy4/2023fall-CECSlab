@@ -55,7 +55,7 @@ static int cmd_si(char *args) {
   if (arg == NULL) {
     cpu_exec(1);
   }
-  else if (k = checkint(arg)){
+  else if ((k = checkint(arg))){
     cpu_exec(k);
   }
   else {
