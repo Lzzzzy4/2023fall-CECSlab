@@ -1,6 +1,6 @@
 default: VCPU
 include VCPU.mk
-CXXFLAGS += -DAXI
+# CXXFLAGS += -DAXI
 CXXFLAGS += -MMD -O3 -std=c++14 -fno-exceptions -fPIE -Wno-unused-result
 CXXFLAGS += $(shell llvm-config-11 --cxxflags) -fPIC -DDEVICE
 LDFLAGS += -O3 -rdynamic -shared -fPIC

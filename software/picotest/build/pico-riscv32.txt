@@ -8,11 +8,11 @@ Disassembly of section .text:
 80000000:	00000413          	li	s0,0
 80000004:	00013117          	auipc	sp,0x13
 80000008:	ffc10113          	add	sp,sp,-4 # 80013000 <_end>
-8000000c:	4010a0ef          	jal	8000ac0c <call_main>
+8000000c:	4090a0ef          	jal	8000ac14 <call_main>
 
 80000010 <sb>:
 80000010:	0000bf97          	auipc	t6,0xb
-80000014:	c20f8f93          	add	t6,t6,-992 # 8000ac30 <tdat>
+80000014:	c28f8f93          	add	t6,t6,-984 # 8000ac38 <tdat>
 80000018:	faa00113          	li	sp,-86
 8000001c:	002f8023          	sb	sp,0(t6)
 80000020:	000f8183          	lb	gp,0(t6)
@@ -22,7 +22,7 @@ Disassembly of section .text:
 
 80000030 <test_3>:
 80000030:	0000bf97          	auipc	t6,0xb
-80000034:	c00f8f93          	add	t6,t6,-1024 # 8000ac30 <tdat>
+80000034:	c08f8f93          	add	t6,t6,-1016 # 8000ac38 <tdat>
 80000038:	00000113          	li	sp,0
 8000003c:	002f80a3          	sb	sp,1(t6)
 80000040:	001f8183          	lb	gp,1(t6)
@@ -32,7 +32,7 @@ Disassembly of section .text:
 
 80000050 <test_4>:
 80000050:	0000bf97          	auipc	t6,0xb
-80000054:	be0f8f93          	add	t6,t6,-1056 # 8000ac30 <tdat>
+80000054:	be8f8f93          	add	t6,t6,-1048 # 8000ac38 <tdat>
 80000058:	fffff137          	lui	sp,0xfffff
 8000005c:	fa010113          	add	sp,sp,-96 # ffffefa0 <_end+0x7ffebfa0>
 80000060:	002f8123          	sb	sp,2(t6)
@@ -44,7 +44,7 @@ Disassembly of section .text:
 
 80000078 <test_5>:
 80000078:	0000bf97          	auipc	t6,0xb
-8000007c:	bb8f8f93          	add	t6,t6,-1096 # 8000ac30 <tdat>
+8000007c:	bc0f8f93          	add	t6,t6,-1088 # 8000ac38 <tdat>
 80000080:	00a00113          	li	sp,10
 80000084:	002f81a3          	sb	sp,3(t6)
 80000088:	003f8183          	lb	gp,3(t6)
@@ -54,7 +54,7 @@ Disassembly of section .text:
 
 80000098 <test_6>:
 80000098:	0000bf97          	auipc	t6,0xb
-8000009c:	b9ff8f93          	add	t6,t6,-1121 # 8000ac37 <tdat8>
+8000009c:	ba7f8f93          	add	t6,t6,-1113 # 8000ac3f <tdat8>
 800000a0:	faa00113          	li	sp,-86
 800000a4:	fe2f8ea3          	sb	sp,-3(t6)
 800000a8:	ffdf8183          	lb	gp,-3(t6)
@@ -64,7 +64,7 @@ Disassembly of section .text:
 
 800000b8 <test_7>:
 800000b8:	0000bf97          	auipc	t6,0xb
-800000bc:	b7ff8f93          	add	t6,t6,-1153 # 8000ac37 <tdat8>
+800000bc:	b87f8f93          	add	t6,t6,-1145 # 8000ac3f <tdat8>
 800000c0:	00000113          	li	sp,0
 800000c4:	fe2f8f23          	sb	sp,-2(t6)
 800000c8:	ffef8183          	lb	gp,-2(t6)
@@ -74,7 +74,7 @@ Disassembly of section .text:
 
 800000d8 <test_8>:
 800000d8:	0000bf97          	auipc	t6,0xb
-800000dc:	b5ff8f93          	add	t6,t6,-1185 # 8000ac37 <tdat8>
+800000dc:	b67f8f93          	add	t6,t6,-1177 # 8000ac3f <tdat8>
 800000e0:	fa000113          	li	sp,-96
 800000e4:	fe2f8fa3          	sb	sp,-1(t6)
 800000e8:	ffff8183          	lb	gp,-1(t6)
@@ -84,7 +84,7 @@ Disassembly of section .text:
 
 800000f8 <test_9>:
 800000f8:	0000bf97          	auipc	t6,0xb
-800000fc:	b3ff8f93          	add	t6,t6,-1217 # 8000ac37 <tdat8>
+800000fc:	b47f8f93          	add	t6,t6,-1209 # 8000ac3f <tdat8>
 80000100:	00a00113          	li	sp,10
 80000104:	002f8023          	sb	sp,0(t6)
 80000108:	000f8183          	lb	gp,0(t6)
@@ -94,7 +94,7 @@ Disassembly of section .text:
 
 80000118 <test_10>:
 80000118:	0000bf97          	auipc	t6,0xb
-8000011c:	b20f8f93          	add	t6,t6,-1248 # 8000ac38 <tdat9>
+8000011c:	b28f8f93          	add	t6,t6,-1240 # 8000ac40 <tdat9>
 80000120:	12345137          	lui	sp,0x12345
 80000124:	67810113          	add	sp,sp,1656 # 12345678 <_entry_offset+0x12345678>
 80000128:	fe0f8213          	add	tp,t6,-32
@@ -106,13 +106,13 @@ Disassembly of section .text:
 
 80000140 <test_11>:
 80000140:	0000bf97          	auipc	t6,0xb
-80000144:	af8f8f93          	add	t6,t6,-1288 # 8000ac38 <tdat9>
+80000144:	b00f8f93          	add	t6,t6,-1280 # 8000ac40 <tdat9>
 80000148:	00003137          	lui	sp,0x3
 8000014c:	09810113          	add	sp,sp,152 # 3098 <_entry_offset+0x3098>
 80000150:	ffaf8f93          	add	t6,t6,-6
 80000154:	002f83a3          	sb	sp,7(t6)
 80000158:	0000b217          	auipc	tp,0xb
-8000015c:	ae120213          	add	tp,tp,-1311 # 8000ac39 <tdat10>
+8000015c:	ae920213          	add	tp,tp,-1303 # 8000ac41 <tdat10>
 80000160:	00020183          	lb	gp,0(tp) # 0 <_entry_offset>
 80000164:	f9800e93          	li	t4,-104
 80000168:	00b00e13          	li	t3,11
@@ -123,7 +123,7 @@ Disassembly of section .text:
 80000174:	00000213          	li	tp,0
 80000178:	fdd00f93          	li	t6,-35
 8000017c:	0000b117          	auipc	sp,0xb
-80000180:	ab410113          	add	sp,sp,-1356 # 8000ac30 <tdat>
+80000180:	abc10113          	add	sp,sp,-1348 # 8000ac38 <tdat>
 80000184:	01f10023          	sb	t6,0(sp)
 80000188:	00010183          	lb	gp,0(sp)
 8000018c:	fdd00e93          	li	t4,-35
@@ -137,7 +137,7 @@ Disassembly of section .text:
 800001a4:	00000213          	li	tp,0
 800001a8:	fcd00f93          	li	t6,-51
 800001ac:	0000b117          	auipc	sp,0xb
-800001b0:	a8410113          	add	sp,sp,-1404 # 8000ac30 <tdat>
+800001b0:	a8c10113          	add	sp,sp,-1396 # 8000ac38 <tdat>
 800001b4:	00000013          	nop
 800001b8:	01f100a3          	sb	t6,1(sp)
 800001bc:	00110183          	lb	gp,1(sp)
@@ -152,7 +152,7 @@ Disassembly of section .text:
 800001d8:	00000213          	li	tp,0
 800001dc:	fcc00f93          	li	t6,-52
 800001e0:	0000b117          	auipc	sp,0xb
-800001e4:	a5010113          	add	sp,sp,-1456 # 8000ac30 <tdat>
+800001e4:	a5810113          	add	sp,sp,-1448 # 8000ac38 <tdat>
 800001e8:	00000013          	nop
 800001ec:	00000013          	nop
 800001f0:	01f10123          	sb	t6,2(sp)
@@ -169,7 +169,7 @@ Disassembly of section .text:
 80000214:	fbc00f93          	li	t6,-68
 80000218:	00000013          	nop
 8000021c:	0000b117          	auipc	sp,0xb
-80000220:	a1410113          	add	sp,sp,-1516 # 8000ac30 <tdat>
+80000220:	a1c10113          	add	sp,sp,-1508 # 8000ac38 <tdat>
 80000224:	01f101a3          	sb	t6,3(sp)
 80000228:	00310183          	lb	gp,3(sp)
 8000022c:	fbc00e93          	li	t4,-68
@@ -184,7 +184,7 @@ Disassembly of section .text:
 80000248:	fbb00f93          	li	t6,-69
 8000024c:	00000013          	nop
 80000250:	0000b117          	auipc	sp,0xb
-80000254:	9e010113          	add	sp,sp,-1568 # 8000ac30 <tdat>
+80000254:	9e810113          	add	sp,sp,-1560 # 8000ac38 <tdat>
 80000258:	00000013          	nop
 8000025c:	01f10223          	sb	t6,4(sp)
 80000260:	00410183          	lb	gp,4(sp)
@@ -201,7 +201,7 @@ Disassembly of section .text:
 80000284:	00000013          	nop
 80000288:	00000013          	nop
 8000028c:	0000b117          	auipc	sp,0xb
-80000290:	9a410113          	add	sp,sp,-1628 # 8000ac30 <tdat>
+80000290:	9ac10113          	add	sp,sp,-1620 # 8000ac38 <tdat>
 80000294:	01f102a3          	sb	t6,5(sp)
 80000298:	00510183          	lb	gp,5(sp)
 8000029c:	fab00e93          	li	t4,-85
@@ -214,7 +214,7 @@ Disassembly of section .text:
 800002b0:	01200e13          	li	t3,18
 800002b4:	00000213          	li	tp,0
 800002b8:	0000b117          	auipc	sp,0xb
-800002bc:	97810113          	add	sp,sp,-1672 # 8000ac30 <tdat>
+800002bc:	98010113          	add	sp,sp,-1664 # 8000ac38 <tdat>
 800002c0:	03300f93          	li	t6,51
 800002c4:	01f10023          	sb	t6,0(sp)
 800002c8:	00010183          	lb	gp,0(sp)
@@ -228,7 +228,7 @@ Disassembly of section .text:
 800002e0:	01300e13          	li	t3,19
 800002e4:	00000213          	li	tp,0
 800002e8:	0000b117          	auipc	sp,0xb
-800002ec:	94810113          	add	sp,sp,-1720 # 8000ac30 <tdat>
+800002ec:	95010113          	add	sp,sp,-1712 # 8000ac38 <tdat>
 800002f0:	02300f93          	li	t6,35
 800002f4:	00000013          	nop
 800002f8:	01f100a3          	sb	t6,1(sp)
@@ -243,7 +243,7 @@ Disassembly of section .text:
 80000314:	01400e13          	li	t3,20
 80000318:	00000213          	li	tp,0
 8000031c:	0000b117          	auipc	sp,0xb
-80000320:	91410113          	add	sp,sp,-1772 # 8000ac30 <tdat>
+80000320:	91c10113          	add	sp,sp,-1764 # 8000ac38 <tdat>
 80000324:	02200f93          	li	t6,34
 80000328:	00000013          	nop
 8000032c:	00000013          	nop
@@ -259,7 +259,7 @@ Disassembly of section .text:
 8000034c:	01500e13          	li	t3,21
 80000350:	00000213          	li	tp,0
 80000354:	0000b117          	auipc	sp,0xb
-80000358:	8dc10113          	add	sp,sp,-1828 # 8000ac30 <tdat>
+80000358:	8e410113          	add	sp,sp,-1820 # 8000ac38 <tdat>
 8000035c:	00000013          	nop
 80000360:	01200f93          	li	t6,18
 80000364:	01f101a3          	sb	t6,3(sp)
@@ -274,7 +274,7 @@ Disassembly of section .text:
 80000380:	01600e13          	li	t3,22
 80000384:	00000213          	li	tp,0
 80000388:	0000b117          	auipc	sp,0xb
-8000038c:	8a810113          	add	sp,sp,-1880 # 8000ac30 <tdat>
+8000038c:	8b010113          	add	sp,sp,-1872 # 8000ac38 <tdat>
 80000390:	00000013          	nop
 80000394:	01100f93          	li	t6,17
 80000398:	00000013          	nop
@@ -290,7 +290,7 @@ Disassembly of section .text:
 800003b8:	01700e13          	li	t3,23
 800003bc:	00000213          	li	tp,0
 800003c0:	0000b117          	auipc	sp,0xb
-800003c4:	87010113          	add	sp,sp,-1936 # 8000ac30 <tdat>
+800003c4:	87810113          	add	sp,sp,-1928 # 8000ac38 <tdat>
 800003c8:	00000013          	nop
 800003cc:	00000013          	nop
 800003d0:	00100f93          	li	t6,1
@@ -303,7 +303,7 @@ Disassembly of section .text:
 800003ec:	fc521ae3          	bne	tp,t0,800003c0 <test_23+0x8>
 800003f0:	0ef00513          	li	a0,239
 800003f4:	0000b597          	auipc	a1,0xb
-800003f8:	83c58593          	add	a1,a1,-1988 # 8000ac30 <tdat>
+800003f8:	84458593          	add	a1,a1,-1980 # 8000ac38 <tdat>
 800003fc:	00a581a3          	sb	a0,3(a1)
 80000400:	0100006f          	j	80000410 <pass>
 
@@ -1352,7 +1352,7 @@ Disassembly of section .text:
 
 80001138 <lw>:
 80001138:	0000af97          	auipc	t6,0xa
-8000113c:	b04f8f93          	add	t6,t6,-1276 # 8000ac3c <tdat>
+8000113c:	b0cf8f93          	add	t6,t6,-1268 # 8000ac44 <tdat>
 80001140:	000fa183          	lw	gp,0(t6)
 80001144:	00ff0eb7          	lui	t4,0xff0
 80001148:	0ffe8e93          	add	t4,t4,255 # ff00ff <_entry_offset+0xff00ff>
@@ -1361,7 +1361,7 @@ Disassembly of section .text:
 
 80001154 <test_3>:
 80001154:	0000af97          	auipc	t6,0xa
-80001158:	ae8f8f93          	add	t6,t6,-1304 # 8000ac3c <tdat>
+80001158:	af0f8f93          	add	t6,t6,-1296 # 8000ac44 <tdat>
 8000115c:	004fa183          	lw	gp,4(t6)
 80001160:	ff010eb7          	lui	t4,0xff010
 80001164:	f00e8e93          	add	t4,t4,-256 # ff00ff00 <_end+0x7effcf00>
@@ -1370,7 +1370,7 @@ Disassembly of section .text:
 
 80001170 <test_4>:
 80001170:	0000af97          	auipc	t6,0xa
-80001174:	accf8f93          	add	t6,t6,-1332 # 8000ac3c <tdat>
+80001174:	ad4f8f93          	add	t6,t6,-1324 # 8000ac44 <tdat>
 80001178:	008fa183          	lw	gp,8(t6)
 8000117c:	0ff01eb7          	lui	t4,0xff01
 80001180:	ff0e8e93          	add	t4,t4,-16 # ff00ff0 <_entry_offset+0xff00ff0>
@@ -1379,7 +1379,7 @@ Disassembly of section .text:
 
 8000118c <test_5>:
 8000118c:	0000af97          	auipc	t6,0xa
-80001190:	ab0f8f93          	add	t6,t6,-1360 # 8000ac3c <tdat>
+80001190:	ab8f8f93          	add	t6,t6,-1352 # 8000ac44 <tdat>
 80001194:	00cfa183          	lw	gp,12(t6)
 80001198:	f00ffeb7          	lui	t4,0xf00ff
 8000119c:	00fe8e93          	add	t4,t4,15 # f00ff00f <_end+0x700ec00f>
@@ -1388,7 +1388,7 @@ Disassembly of section .text:
 
 800011a8 <test_6>:
 800011a8:	0000af97          	auipc	t6,0xa
-800011ac:	aa0f8f93          	add	t6,t6,-1376 # 8000ac48 <tdat4>
+800011ac:	aa8f8f93          	add	t6,t6,-1368 # 8000ac50 <tdat4>
 800011b0:	ff4fa183          	lw	gp,-12(t6)
 800011b4:	00ff0eb7          	lui	t4,0xff0
 800011b8:	0ffe8e93          	add	t4,t4,255 # ff00ff <_entry_offset+0xff00ff>
@@ -1397,7 +1397,7 @@ Disassembly of section .text:
 
 800011c4 <test_7>:
 800011c4:	0000af97          	auipc	t6,0xa
-800011c8:	a84f8f93          	add	t6,t6,-1404 # 8000ac48 <tdat4>
+800011c8:	a8cf8f93          	add	t6,t6,-1396 # 8000ac50 <tdat4>
 800011cc:	ff8fa183          	lw	gp,-8(t6)
 800011d0:	ff010eb7          	lui	t4,0xff010
 800011d4:	f00e8e93          	add	t4,t4,-256 # ff00ff00 <_end+0x7effcf00>
@@ -1406,7 +1406,7 @@ Disassembly of section .text:
 
 800011e0 <test_8>:
 800011e0:	0000af97          	auipc	t6,0xa
-800011e4:	a68f8f93          	add	t6,t6,-1432 # 8000ac48 <tdat4>
+800011e4:	a70f8f93          	add	t6,t6,-1424 # 8000ac50 <tdat4>
 800011e8:	ffcfa183          	lw	gp,-4(t6)
 800011ec:	0ff01eb7          	lui	t4,0xff01
 800011f0:	ff0e8e93          	add	t4,t4,-16 # ff00ff0 <_entry_offset+0xff00ff0>
@@ -1415,7 +1415,7 @@ Disassembly of section .text:
 
 800011fc <test_9>:
 800011fc:	0000af97          	auipc	t6,0xa
-80001200:	a4cf8f93          	add	t6,t6,-1460 # 8000ac48 <tdat4>
+80001200:	a54f8f93          	add	t6,t6,-1452 # 8000ac50 <tdat4>
 80001204:	000fa183          	lw	gp,0(t6)
 80001208:	f00ffeb7          	lui	t4,0xf00ff
 8000120c:	00fe8e93          	add	t4,t4,15 # f00ff00f <_end+0x700ec00f>
@@ -1424,7 +1424,7 @@ Disassembly of section .text:
 
 80001218 <test_10>:
 80001218:	0000af97          	auipc	t6,0xa
-8000121c:	a24f8f93          	add	t6,t6,-1500 # 8000ac3c <tdat>
+8000121c:	a2cf8f93          	add	t6,t6,-1492 # 8000ac44 <tdat>
 80001220:	fe0f8f93          	add	t6,t6,-32
 80001224:	020fa183          	lw	gp,32(t6)
 80001228:	00ff0eb7          	lui	t4,0xff0
@@ -1434,7 +1434,7 @@ Disassembly of section .text:
 
 80001238 <test_11>:
 80001238:	0000af97          	auipc	t6,0xa
-8000123c:	a04f8f93          	add	t6,t6,-1532 # 8000ac3c <tdat>
+8000123c:	a0cf8f93          	add	t6,t6,-1524 # 8000ac44 <tdat>
 80001240:	ffdf8f93          	add	t6,t6,-3
 80001244:	007fa183          	lw	gp,7(t6)
 80001248:	ff010eb7          	lui	t4,0xff010
@@ -1446,7 +1446,7 @@ Disassembly of section .text:
 80001258:	00c00e13          	li	t3,12
 8000125c:	00000213          	li	tp,0
 80001260:	0000af97          	auipc	t6,0xa
-80001264:	9e0f8f93          	add	t6,t6,-1568 # 8000ac40 <tdat2>
+80001264:	9e8f8f93          	add	t6,t6,-1560 # 8000ac48 <tdat2>
 80001268:	004fa183          	lw	gp,4(t6)
 8000126c:	00018313          	mv	t1,gp
 80001270:	0ff01eb7          	lui	t4,0xff01
@@ -1460,7 +1460,7 @@ Disassembly of section .text:
 80001288:	00d00e13          	li	t3,13
 8000128c:	00000213          	li	tp,0
 80001290:	0000af97          	auipc	t6,0xa
-80001294:	9b4f8f93          	add	t6,t6,-1612 # 8000ac44 <tdat3>
+80001294:	9bcf8f93          	add	t6,t6,-1604 # 8000ac4c <tdat3>
 80001298:	004fa183          	lw	gp,4(t6)
 8000129c:	00000013          	nop
 800012a0:	00018313          	mv	t1,gp
@@ -1475,7 +1475,7 @@ Disassembly of section .text:
 800012bc:	00e00e13          	li	t3,14
 800012c0:	00000213          	li	tp,0
 800012c4:	0000af97          	auipc	t6,0xa
-800012c8:	978f8f93          	add	t6,t6,-1672 # 8000ac3c <tdat>
+800012c8:	980f8f93          	add	t6,t6,-1664 # 8000ac44 <tdat>
 800012cc:	004fa183          	lw	gp,4(t6)
 800012d0:	00000013          	nop
 800012d4:	00000013          	nop
@@ -1491,7 +1491,7 @@ Disassembly of section .text:
 800012f4:	00f00e13          	li	t3,15
 800012f8:	00000213          	li	tp,0
 800012fc:	0000af97          	auipc	t6,0xa
-80001300:	944f8f93          	add	t6,t6,-1724 # 8000ac40 <tdat2>
+80001300:	94cf8f93          	add	t6,t6,-1716 # 8000ac48 <tdat2>
 80001304:	004fa183          	lw	gp,4(t6)
 80001308:	0ff01eb7          	lui	t4,0xff01
 8000130c:	ff0e8e93          	add	t4,t4,-16 # ff00ff0 <_entry_offset+0xff00ff0>
@@ -1504,7 +1504,7 @@ Disassembly of section .text:
 80001320:	01000e13          	li	t3,16
 80001324:	00000213          	li	tp,0
 80001328:	0000af97          	auipc	t6,0xa
-8000132c:	91cf8f93          	add	t6,t6,-1764 # 8000ac44 <tdat3>
+8000132c:	924f8f93          	add	t6,t6,-1756 # 8000ac4c <tdat3>
 80001330:	00000013          	nop
 80001334:	004fa183          	lw	gp,4(t6)
 80001338:	f00ffeb7          	lui	t4,0xf00ff
@@ -1518,7 +1518,7 @@ Disassembly of section .text:
 80001350:	01100e13          	li	t3,17
 80001354:	00000213          	li	tp,0
 80001358:	0000af97          	auipc	t6,0xa
-8000135c:	8e4f8f93          	add	t6,t6,-1820 # 8000ac3c <tdat>
+8000135c:	8ecf8f93          	add	t6,t6,-1812 # 8000ac44 <tdat>
 80001360:	00000013          	nop
 80001364:	00000013          	nop
 80001368:	004fa183          	lw	gp,4(t6)
@@ -1531,7 +1531,7 @@ Disassembly of section .text:
 
 80001384 <test_18>:
 80001384:	0000a197          	auipc	gp,0xa
-80001388:	8b818193          	add	gp,gp,-1864 # 8000ac3c <tdat>
+80001388:	8c018193          	add	gp,gp,-1856 # 8000ac44 <tdat>
 8000138c:	0001a103          	lw	sp,0(gp)
 80001390:	00200113          	li	sp,2
 80001394:	00200e93          	li	t4,2
@@ -1540,7 +1540,7 @@ Disassembly of section .text:
 
 800013a0 <test_19>:
 800013a0:	0000a197          	auipc	gp,0xa
-800013a4:	89c18193          	add	gp,gp,-1892 # 8000ac3c <tdat>
+800013a4:	8a418193          	add	gp,gp,-1884 # 8000ac44 <tdat>
 800013a8:	0001a103          	lw	sp,0(gp)
 800013ac:	00000013          	nop
 800013b0:	00200113          	li	sp,2
@@ -3302,7 +3302,7 @@ Disassembly of section .text:
 
 80002970 <sh>:
 80002970:	00008f97          	auipc	t6,0x8
-80002974:	2dcf8f93          	add	t6,t6,732 # 8000ac4c <tdat>
+80002974:	2e4f8f93          	add	t6,t6,740 # 8000ac54 <tdat>
 80002978:	0aa00113          	li	sp,170
 8000297c:	002f9023          	sh	sp,0(t6)
 80002980:	000f9183          	lh	gp,0(t6)
@@ -3312,7 +3312,7 @@ Disassembly of section .text:
 
 80002990 <test_3>:
 80002990:	00008f97          	auipc	t6,0x8
-80002994:	2bcf8f93          	add	t6,t6,700 # 8000ac4c <tdat>
+80002994:	2c4f8f93          	add	t6,t6,708 # 8000ac54 <tdat>
 80002998:	ffffb137          	lui	sp,0xffffb
 8000299c:	a0010113          	add	sp,sp,-1536 # ffffaa00 <_end+0x7ffe7a00>
 800029a0:	002f9123          	sh	sp,2(t6)
@@ -3324,7 +3324,7 @@ Disassembly of section .text:
 
 800029b8 <test_4>:
 800029b8:	00008f97          	auipc	t6,0x8
-800029bc:	294f8f93          	add	t6,t6,660 # 8000ac4c <tdat>
+800029bc:	29cf8f93          	add	t6,t6,668 # 8000ac54 <tdat>
 800029c0:	beef1137          	lui	sp,0xbeef1
 800029c4:	aa010113          	add	sp,sp,-1376 # beef0aa0 <_end+0x3eeddaa0>
 800029c8:	002f9223          	sh	sp,4(t6)
@@ -3336,7 +3336,7 @@ Disassembly of section .text:
 
 800029e0 <test_5>:
 800029e0:	00008f97          	auipc	t6,0x8
-800029e4:	26cf8f93          	add	t6,t6,620 # 8000ac4c <tdat>
+800029e4:	274f8f93          	add	t6,t6,628 # 8000ac54 <tdat>
 800029e8:	ffffa137          	lui	sp,0xffffa
 800029ec:	00a10113          	add	sp,sp,10 # ffffa00a <_end+0x7ffe700a>
 800029f0:	002f9323          	sh	sp,6(t6)
@@ -3348,7 +3348,7 @@ Disassembly of section .text:
 
 80002a08 <test_6>:
 80002a08:	00008f97          	auipc	t6,0x8
-80002a0c:	252f8f93          	add	t6,t6,594 # 8000ac5a <tdat8>
+80002a0c:	25af8f93          	add	t6,t6,602 # 8000ac62 <tdat8>
 80002a10:	0aa00113          	li	sp,170
 80002a14:	fe2f9d23          	sh	sp,-6(t6)
 80002a18:	ffaf9183          	lh	gp,-6(t6)
@@ -3358,7 +3358,7 @@ Disassembly of section .text:
 
 80002a28 <test_7>:
 80002a28:	00008f97          	auipc	t6,0x8
-80002a2c:	232f8f93          	add	t6,t6,562 # 8000ac5a <tdat8>
+80002a2c:	23af8f93          	add	t6,t6,570 # 8000ac62 <tdat8>
 80002a30:	ffffb137          	lui	sp,0xffffb
 80002a34:	a0010113          	add	sp,sp,-1536 # ffffaa00 <_end+0x7ffe7a00>
 80002a38:	fe2f9e23          	sh	sp,-4(t6)
@@ -3370,7 +3370,7 @@ Disassembly of section .text:
 
 80002a50 <test_8>:
 80002a50:	00008f97          	auipc	t6,0x8
-80002a54:	20af8f93          	add	t6,t6,522 # 8000ac5a <tdat8>
+80002a54:	212f8f93          	add	t6,t6,530 # 8000ac62 <tdat8>
 80002a58:	00001137          	lui	sp,0x1
 80002a5c:	aa010113          	add	sp,sp,-1376 # aa0 <_entry_offset+0xaa0>
 80002a60:	fe2f9f23          	sh	sp,-2(t6)
@@ -3382,7 +3382,7 @@ Disassembly of section .text:
 
 80002a78 <test_9>:
 80002a78:	00008f97          	auipc	t6,0x8
-80002a7c:	1e2f8f93          	add	t6,t6,482 # 8000ac5a <tdat8>
+80002a7c:	1eaf8f93          	add	t6,t6,490 # 8000ac62 <tdat8>
 80002a80:	ffffa137          	lui	sp,0xffffa
 80002a84:	00a10113          	add	sp,sp,10 # ffffa00a <_end+0x7ffe700a>
 80002a88:	002f9023          	sh	sp,0(t6)
@@ -3394,7 +3394,7 @@ Disassembly of section .text:
 
 80002aa0 <test_10>:
 80002aa0:	00008f97          	auipc	t6,0x8
-80002aa4:	1bcf8f93          	add	t6,t6,444 # 8000ac5c <tdat9>
+80002aa4:	1c4f8f93          	add	t6,t6,452 # 8000ac64 <tdat9>
 80002aa8:	12345137          	lui	sp,0x12345
 80002aac:	67810113          	add	sp,sp,1656 # 12345678 <_entry_offset+0x12345678>
 80002ab0:	fe0f8213          	add	tp,t6,-32
@@ -3407,13 +3407,13 @@ Disassembly of section .text:
 
 80002acc <test_11>:
 80002acc:	00008f97          	auipc	t6,0x8
-80002ad0:	190f8f93          	add	t6,t6,400 # 8000ac5c <tdat9>
+80002ad0:	198f8f93          	add	t6,t6,408 # 8000ac64 <tdat9>
 80002ad4:	00003137          	lui	sp,0x3
 80002ad8:	09810113          	add	sp,sp,152 # 3098 <_entry_offset+0x3098>
 80002adc:	ffbf8f93          	add	t6,t6,-5
 80002ae0:	002f93a3          	sh	sp,7(t6)
 80002ae4:	00008217          	auipc	tp,0x8
-80002ae8:	17a20213          	add	tp,tp,378 # 8000ac5e <tdat10>
+80002ae8:	18220213          	add	tp,tp,386 # 8000ac66 <tdat10>
 80002aec:	00021183          	lh	gp,0(tp) # 0 <_entry_offset>
 80002af0:	00003eb7          	lui	t4,0x3
 80002af4:	098e8e93          	add	t4,t4,152 # 3098 <_entry_offset+0x3098>
@@ -3426,7 +3426,7 @@ Disassembly of section .text:
 80002b08:	ffffdfb7          	lui	t6,0xffffd
 80002b0c:	cddf8f93          	add	t6,t6,-803 # ffffccdd <_end+0x7ffe9cdd>
 80002b10:	00008117          	auipc	sp,0x8
-80002b14:	13c10113          	add	sp,sp,316 # 8000ac4c <tdat>
+80002b14:	14410113          	add	sp,sp,324 # 8000ac54 <tdat>
 80002b18:	01f11023          	sh	t6,0(sp)
 80002b1c:	00011183          	lh	gp,0(sp)
 80002b20:	ffffdeb7          	lui	t4,0xffffd
@@ -3442,7 +3442,7 @@ Disassembly of section .text:
 80002b40:	ffffcfb7          	lui	t6,0xffffc
 80002b44:	ccdf8f93          	add	t6,t6,-819 # ffffbccd <_end+0x7ffe8ccd>
 80002b48:	00008117          	auipc	sp,0x8
-80002b4c:	10410113          	add	sp,sp,260 # 8000ac4c <tdat>
+80002b4c:	10c10113          	add	sp,sp,268 # 8000ac54 <tdat>
 80002b50:	00000013          	nop
 80002b54:	01f11123          	sh	t6,2(sp)
 80002b58:	00211183          	lh	gp,2(sp)
@@ -3459,7 +3459,7 @@ Disassembly of section .text:
 80002b7c:	ffffcfb7          	lui	t6,0xffffc
 80002b80:	bccf8f93          	add	t6,t6,-1076 # ffffbbcc <_end+0x7ffe8bcc>
 80002b84:	00008117          	auipc	sp,0x8
-80002b88:	0c810113          	add	sp,sp,200 # 8000ac4c <tdat>
+80002b88:	0d010113          	add	sp,sp,208 # 8000ac54 <tdat>
 80002b8c:	00000013          	nop
 80002b90:	00000013          	nop
 80002b94:	01f11223          	sh	t6,4(sp)
@@ -3478,7 +3478,7 @@ Disassembly of section .text:
 80002bc0:	bbcf8f93          	add	t6,t6,-1092 # ffffabbc <_end+0x7ffe7bbc>
 80002bc4:	00000013          	nop
 80002bc8:	00008117          	auipc	sp,0x8
-80002bcc:	08410113          	add	sp,sp,132 # 8000ac4c <tdat>
+80002bcc:	08c10113          	add	sp,sp,140 # 8000ac54 <tdat>
 80002bd0:	01f11323          	sh	t6,6(sp)
 80002bd4:	00611183          	lh	gp,6(sp)
 80002bd8:	ffffbeb7          	lui	t4,0xffffb
@@ -3495,7 +3495,7 @@ Disassembly of section .text:
 80002bfc:	abbf8f93          	add	t6,t6,-1349 # ffffaabb <_end+0x7ffe7abb>
 80002c00:	00000013          	nop
 80002c04:	00008117          	auipc	sp,0x8
-80002c08:	04810113          	add	sp,sp,72 # 8000ac4c <tdat>
+80002c08:	05010113          	add	sp,sp,80 # 8000ac54 <tdat>
 80002c0c:	00000013          	nop
 80002c10:	01f11423          	sh	t6,8(sp)
 80002c14:	00811183          	lh	gp,8(sp)
@@ -3514,7 +3514,7 @@ Disassembly of section .text:
 80002c40:	00000013          	nop
 80002c44:	00000013          	nop
 80002c48:	00008117          	auipc	sp,0x8
-80002c4c:	00410113          	add	sp,sp,4 # 8000ac4c <tdat>
+80002c4c:	00c10113          	add	sp,sp,12 # 8000ac54 <tdat>
 80002c50:	01f11523          	sh	t6,10(sp)
 80002c54:	00a11183          	lh	gp,10(sp)
 80002c58:	ffffeeb7          	lui	t4,0xffffe
@@ -3528,7 +3528,7 @@ Disassembly of section .text:
 80002c70:	01200e13          	li	t3,18
 80002c74:	00000213          	li	tp,0
 80002c78:	00008117          	auipc	sp,0x8
-80002c7c:	fd410113          	add	sp,sp,-44 # 8000ac4c <tdat>
+80002c7c:	fdc10113          	add	sp,sp,-36 # 8000ac54 <tdat>
 80002c80:	00002fb7          	lui	t6,0x2
 80002c84:	233f8f93          	add	t6,t6,563 # 2233 <_entry_offset+0x2233>
 80002c88:	01f11023          	sh	t6,0(sp)
@@ -3544,7 +3544,7 @@ Disassembly of section .text:
 80002ca8:	01300e13          	li	t3,19
 80002cac:	00000213          	li	tp,0
 80002cb0:	00008117          	auipc	sp,0x8
-80002cb4:	f9c10113          	add	sp,sp,-100 # 8000ac4c <tdat>
+80002cb4:	fa410113          	add	sp,sp,-92 # 8000ac54 <tdat>
 80002cb8:	00001fb7          	lui	t6,0x1
 80002cbc:	223f8f93          	add	t6,t6,547 # 1223 <_entry_offset+0x1223>
 80002cc0:	00000013          	nop
@@ -3561,7 +3561,7 @@ Disassembly of section .text:
 80002ce4:	01400e13          	li	t3,20
 80002ce8:	00000213          	li	tp,0
 80002cec:	00008117          	auipc	sp,0x8
-80002cf0:	f6010113          	add	sp,sp,-160 # 8000ac4c <tdat>
+80002cf0:	f6810113          	add	sp,sp,-152 # 8000ac54 <tdat>
 80002cf4:	00001fb7          	lui	t6,0x1
 80002cf8:	122f8f93          	add	t6,t6,290 # 1122 <_entry_offset+0x1122>
 80002cfc:	00000013          	nop
@@ -3579,7 +3579,7 @@ Disassembly of section .text:
 80002d24:	01500e13          	li	t3,21
 80002d28:	00000213          	li	tp,0
 80002d2c:	00008117          	auipc	sp,0x8
-80002d30:	f2010113          	add	sp,sp,-224 # 8000ac4c <tdat>
+80002d30:	f2810113          	add	sp,sp,-216 # 8000ac54 <tdat>
 80002d34:	00000013          	nop
 80002d38:	11200f93          	li	t6,274
 80002d3c:	01f11323          	sh	t6,6(sp)
@@ -3594,7 +3594,7 @@ Disassembly of section .text:
 80002d58:	01600e13          	li	t3,22
 80002d5c:	00000213          	li	tp,0
 80002d60:	00008117          	auipc	sp,0x8
-80002d64:	eec10113          	add	sp,sp,-276 # 8000ac4c <tdat>
+80002d64:	ef410113          	add	sp,sp,-268 # 8000ac54 <tdat>
 80002d68:	00000013          	nop
 80002d6c:	01100f93          	li	t6,17
 80002d70:	00000013          	nop
@@ -3610,7 +3610,7 @@ Disassembly of section .text:
 80002d90:	01700e13          	li	t3,23
 80002d94:	00000213          	li	tp,0
 80002d98:	00008117          	auipc	sp,0x8
-80002d9c:	eb410113          	add	sp,sp,-332 # 8000ac4c <tdat>
+80002d9c:	ebc10113          	add	sp,sp,-324 # 8000ac54 <tdat>
 80002da0:	00000013          	nop
 80002da4:	00000013          	nop
 80002da8:	00003fb7          	lui	t6,0x3
@@ -3626,7 +3626,7 @@ Disassembly of section .text:
 80002dd0:	0000c537          	lui	a0,0xc
 80002dd4:	eef50513          	add	a0,a0,-273 # beef <_entry_offset+0xbeef>
 80002dd8:	00008597          	auipc	a1,0x8
-80002ddc:	e7458593          	add	a1,a1,-396 # 8000ac4c <tdat>
+80002ddc:	e7c58593          	add	a1,a1,-388 # 8000ac54 <tdat>
 80002de0:	00a59323          	sh	a0,6(a1)
 80002de4:	0100006f          	j	80002df4 <pass>
 
@@ -5022,7 +5022,7 @@ Disassembly of section .text:
 
 80003f08 <lhu>:
 80003f08:	00007f97          	auipc	t6,0x7
-80003f0c:	d58f8f93          	add	t6,t6,-680 # 8000ac60 <tdat>
+80003f0c:	d60f8f93          	add	t6,t6,-672 # 8000ac68 <tdat>
 80003f10:	000fd183          	lhu	gp,0(t6)
 80003f14:	0ff00e93          	li	t4,255
 80003f18:	00200e13          	li	t3,2
@@ -5030,7 +5030,7 @@ Disassembly of section .text:
 
 80003f20 <test_3>:
 80003f20:	00007f97          	auipc	t6,0x7
-80003f24:	d40f8f93          	add	t6,t6,-704 # 8000ac60 <tdat>
+80003f24:	d48f8f93          	add	t6,t6,-696 # 8000ac68 <tdat>
 80003f28:	002fd183          	lhu	gp,2(t6)
 80003f2c:	00010eb7          	lui	t4,0x10
 80003f30:	f00e8e93          	add	t4,t4,-256 # ff00 <_entry_offset+0xff00>
@@ -5039,7 +5039,7 @@ Disassembly of section .text:
 
 80003f3c <test_4>:
 80003f3c:	00007f97          	auipc	t6,0x7
-80003f40:	d24f8f93          	add	t6,t6,-732 # 8000ac60 <tdat>
+80003f40:	d2cf8f93          	add	t6,t6,-724 # 8000ac68 <tdat>
 80003f44:	004fd183          	lhu	gp,4(t6)
 80003f48:	00001eb7          	lui	t4,0x1
 80003f4c:	ff0e8e93          	add	t4,t4,-16 # ff0 <_entry_offset+0xff0>
@@ -5048,7 +5048,7 @@ Disassembly of section .text:
 
 80003f58 <test_5>:
 80003f58:	00007f97          	auipc	t6,0x7
-80003f5c:	d08f8f93          	add	t6,t6,-760 # 8000ac60 <tdat>
+80003f5c:	d10f8f93          	add	t6,t6,-752 # 8000ac68 <tdat>
 80003f60:	006fd183          	lhu	gp,6(t6)
 80003f64:	0000feb7          	lui	t4,0xf
 80003f68:	00fe8e93          	add	t4,t4,15 # f00f <_entry_offset+0xf00f>
@@ -5057,7 +5057,7 @@ Disassembly of section .text:
 
 80003f74 <test_6>:
 80003f74:	00007f97          	auipc	t6,0x7
-80003f78:	cf2f8f93          	add	t6,t6,-782 # 8000ac66 <tdat4>
+80003f78:	cfaf8f93          	add	t6,t6,-774 # 8000ac6e <tdat4>
 80003f7c:	ffafd183          	lhu	gp,-6(t6)
 80003f80:	0ff00e93          	li	t4,255
 80003f84:	00600e13          	li	t3,6
@@ -5065,7 +5065,7 @@ Disassembly of section .text:
 
 80003f8c <test_7>:
 80003f8c:	00007f97          	auipc	t6,0x7
-80003f90:	cdaf8f93          	add	t6,t6,-806 # 8000ac66 <tdat4>
+80003f90:	ce2f8f93          	add	t6,t6,-798 # 8000ac6e <tdat4>
 80003f94:	ffcfd183          	lhu	gp,-4(t6)
 80003f98:	00010eb7          	lui	t4,0x10
 80003f9c:	f00e8e93          	add	t4,t4,-256 # ff00 <_entry_offset+0xff00>
@@ -5074,7 +5074,7 @@ Disassembly of section .text:
 
 80003fa8 <test_8>:
 80003fa8:	00007f97          	auipc	t6,0x7
-80003fac:	cbef8f93          	add	t6,t6,-834 # 8000ac66 <tdat4>
+80003fac:	cc6f8f93          	add	t6,t6,-826 # 8000ac6e <tdat4>
 80003fb0:	ffefd183          	lhu	gp,-2(t6)
 80003fb4:	00001eb7          	lui	t4,0x1
 80003fb8:	ff0e8e93          	add	t4,t4,-16 # ff0 <_entry_offset+0xff0>
@@ -5083,7 +5083,7 @@ Disassembly of section .text:
 
 80003fc4 <test_9>:
 80003fc4:	00007f97          	auipc	t6,0x7
-80003fc8:	ca2f8f93          	add	t6,t6,-862 # 8000ac66 <tdat4>
+80003fc8:	caaf8f93          	add	t6,t6,-854 # 8000ac6e <tdat4>
 80003fcc:	000fd183          	lhu	gp,0(t6)
 80003fd0:	0000feb7          	lui	t4,0xf
 80003fd4:	00fe8e93          	add	t4,t4,15 # f00f <_entry_offset+0xf00f>
@@ -5092,7 +5092,7 @@ Disassembly of section .text:
 
 80003fe0 <test_10>:
 80003fe0:	00007f97          	auipc	t6,0x7
-80003fe4:	c80f8f93          	add	t6,t6,-896 # 8000ac60 <tdat>
+80003fe4:	c88f8f93          	add	t6,t6,-888 # 8000ac68 <tdat>
 80003fe8:	fe0f8f93          	add	t6,t6,-32
 80003fec:	020fd183          	lhu	gp,32(t6)
 80003ff0:	0ff00e93          	li	t4,255
@@ -5101,7 +5101,7 @@ Disassembly of section .text:
 
 80003ffc <test_11>:
 80003ffc:	00007f97          	auipc	t6,0x7
-80004000:	c64f8f93          	add	t6,t6,-924 # 8000ac60 <tdat>
+80004000:	c6cf8f93          	add	t6,t6,-916 # 8000ac68 <tdat>
 80004004:	ffbf8f93          	add	t6,t6,-5
 80004008:	007fd183          	lhu	gp,7(t6)
 8000400c:	00010eb7          	lui	t4,0x10
@@ -5113,7 +5113,7 @@ Disassembly of section .text:
 8000401c:	00c00e13          	li	t3,12
 80004020:	00000213          	li	tp,0
 80004024:	00007f97          	auipc	t6,0x7
-80004028:	c3ef8f93          	add	t6,t6,-962 # 8000ac62 <tdat2>
+80004028:	c46f8f93          	add	t6,t6,-954 # 8000ac6a <tdat2>
 8000402c:	002fd183          	lhu	gp,2(t6)
 80004030:	00018313          	mv	t1,gp
 80004034:	00001eb7          	lui	t4,0x1
@@ -5127,7 +5127,7 @@ Disassembly of section .text:
 8000404c:	00d00e13          	li	t3,13
 80004050:	00000213          	li	tp,0
 80004054:	00007f97          	auipc	t6,0x7
-80004058:	c10f8f93          	add	t6,t6,-1008 # 8000ac64 <tdat3>
+80004058:	c18f8f93          	add	t6,t6,-1000 # 8000ac6c <tdat3>
 8000405c:	002fd183          	lhu	gp,2(t6)
 80004060:	00000013          	nop
 80004064:	00018313          	mv	t1,gp
@@ -5142,7 +5142,7 @@ Disassembly of section .text:
 80004080:	00e00e13          	li	t3,14
 80004084:	00000213          	li	tp,0
 80004088:	00007f97          	auipc	t6,0x7
-8000408c:	bd8f8f93          	add	t6,t6,-1064 # 8000ac60 <tdat>
+8000408c:	be0f8f93          	add	t6,t6,-1056 # 8000ac68 <tdat>
 80004090:	002fd183          	lhu	gp,2(t6)
 80004094:	00000013          	nop
 80004098:	00000013          	nop
@@ -5158,7 +5158,7 @@ Disassembly of section .text:
 800040b8:	00f00e13          	li	t3,15
 800040bc:	00000213          	li	tp,0
 800040c0:	00007f97          	auipc	t6,0x7
-800040c4:	ba2f8f93          	add	t6,t6,-1118 # 8000ac62 <tdat2>
+800040c4:	baaf8f93          	add	t6,t6,-1110 # 8000ac6a <tdat2>
 800040c8:	002fd183          	lhu	gp,2(t6)
 800040cc:	00001eb7          	lui	t4,0x1
 800040d0:	ff0e8e93          	add	t4,t4,-16 # ff0 <_entry_offset+0xff0>
@@ -5171,7 +5171,7 @@ Disassembly of section .text:
 800040e4:	01000e13          	li	t3,16
 800040e8:	00000213          	li	tp,0
 800040ec:	00007f97          	auipc	t6,0x7
-800040f0:	b78f8f93          	add	t6,t6,-1160 # 8000ac64 <tdat3>
+800040f0:	b80f8f93          	add	t6,t6,-1152 # 8000ac6c <tdat3>
 800040f4:	00000013          	nop
 800040f8:	002fd183          	lhu	gp,2(t6)
 800040fc:	0000feb7          	lui	t4,0xf
@@ -5185,7 +5185,7 @@ Disassembly of section .text:
 80004114:	01100e13          	li	t3,17
 80004118:	00000213          	li	tp,0
 8000411c:	00007f97          	auipc	t6,0x7
-80004120:	b44f8f93          	add	t6,t6,-1212 # 8000ac60 <tdat>
+80004120:	b4cf8f93          	add	t6,t6,-1204 # 8000ac68 <tdat>
 80004124:	00000013          	nop
 80004128:	00000013          	nop
 8000412c:	002fd183          	lhu	gp,2(t6)
@@ -5198,7 +5198,7 @@ Disassembly of section .text:
 
 80004148 <test_18>:
 80004148:	00007197          	auipc	gp,0x7
-8000414c:	b1818193          	add	gp,gp,-1256 # 8000ac60 <tdat>
+8000414c:	b2018193          	add	gp,gp,-1248 # 8000ac68 <tdat>
 80004150:	0001d103          	lhu	sp,0(gp)
 80004154:	00200113          	li	sp,2
 80004158:	00200e93          	li	t4,2
@@ -5207,7 +5207,7 @@ Disassembly of section .text:
 
 80004164 <test_19>:
 80004164:	00007197          	auipc	gp,0x7
-80004168:	afc18193          	add	gp,gp,-1284 # 8000ac60 <tdat>
+80004168:	b0418193          	add	gp,gp,-1276 # 8000ac68 <tdat>
 8000416c:	0001d103          	lhu	sp,0(gp)
 80004170:	00000013          	nop
 80004174:	00200113          	li	sp,2
@@ -7540,7 +7540,7 @@ Disassembly of section .text:
 
 80005ed0 <lbu>:
 80005ed0:	00005f97          	auipc	t6,0x5
-80005ed4:	d98f8f93          	add	t6,t6,-616 # 8000ac68 <tdat>
+80005ed4:	da0f8f93          	add	t6,t6,-608 # 8000ac70 <tdat>
 80005ed8:	000fc183          	lbu	gp,0(t6)
 80005edc:	0ff00e93          	li	t4,255
 80005ee0:	00200e13          	li	t3,2
@@ -7548,7 +7548,7 @@ Disassembly of section .text:
 
 80005ee8 <test_3>:
 80005ee8:	00005f97          	auipc	t6,0x5
-80005eec:	d80f8f93          	add	t6,t6,-640 # 8000ac68 <tdat>
+80005eec:	d88f8f93          	add	t6,t6,-632 # 8000ac70 <tdat>
 80005ef0:	001fc183          	lbu	gp,1(t6)
 80005ef4:	00000e93          	li	t4,0
 80005ef8:	00300e13          	li	t3,3
@@ -7556,7 +7556,7 @@ Disassembly of section .text:
 
 80005f00 <test_4>:
 80005f00:	00005f97          	auipc	t6,0x5
-80005f04:	d68f8f93          	add	t6,t6,-664 # 8000ac68 <tdat>
+80005f04:	d70f8f93          	add	t6,t6,-656 # 8000ac70 <tdat>
 80005f08:	002fc183          	lbu	gp,2(t6)
 80005f0c:	0f000e93          	li	t4,240
 80005f10:	00400e13          	li	t3,4
@@ -7564,7 +7564,7 @@ Disassembly of section .text:
 
 80005f18 <test_5>:
 80005f18:	00005f97          	auipc	t6,0x5
-80005f1c:	d50f8f93          	add	t6,t6,-688 # 8000ac68 <tdat>
+80005f1c:	d58f8f93          	add	t6,t6,-680 # 8000ac70 <tdat>
 80005f20:	003fc183          	lbu	gp,3(t6)
 80005f24:	00f00e93          	li	t4,15
 80005f28:	00500e13          	li	t3,5
@@ -7572,7 +7572,7 @@ Disassembly of section .text:
 
 80005f30 <test_6>:
 80005f30:	00005f97          	auipc	t6,0x5
-80005f34:	d3bf8f93          	add	t6,t6,-709 # 8000ac6b <tdat4>
+80005f34:	d43f8f93          	add	t6,t6,-701 # 8000ac73 <tdat4>
 80005f38:	ffdfc183          	lbu	gp,-3(t6)
 80005f3c:	0ff00e93          	li	t4,255
 80005f40:	00600e13          	li	t3,6
@@ -7580,7 +7580,7 @@ Disassembly of section .text:
 
 80005f48 <test_7>:
 80005f48:	00005f97          	auipc	t6,0x5
-80005f4c:	d23f8f93          	add	t6,t6,-733 # 8000ac6b <tdat4>
+80005f4c:	d2bf8f93          	add	t6,t6,-725 # 8000ac73 <tdat4>
 80005f50:	ffefc183          	lbu	gp,-2(t6)
 80005f54:	00000e93          	li	t4,0
 80005f58:	00700e13          	li	t3,7
@@ -7588,7 +7588,7 @@ Disassembly of section .text:
 
 80005f60 <test_8>:
 80005f60:	00005f97          	auipc	t6,0x5
-80005f64:	d0bf8f93          	add	t6,t6,-757 # 8000ac6b <tdat4>
+80005f64:	d13f8f93          	add	t6,t6,-749 # 8000ac73 <tdat4>
 80005f68:	ffffc183          	lbu	gp,-1(t6)
 80005f6c:	0f000e93          	li	t4,240
 80005f70:	00800e13          	li	t3,8
@@ -7596,7 +7596,7 @@ Disassembly of section .text:
 
 80005f78 <test_9>:
 80005f78:	00005f97          	auipc	t6,0x5
-80005f7c:	cf3f8f93          	add	t6,t6,-781 # 8000ac6b <tdat4>
+80005f7c:	cfbf8f93          	add	t6,t6,-773 # 8000ac73 <tdat4>
 80005f80:	000fc183          	lbu	gp,0(t6)
 80005f84:	00f00e93          	li	t4,15
 80005f88:	00900e13          	li	t3,9
@@ -7604,7 +7604,7 @@ Disassembly of section .text:
 
 80005f90 <test_10>:
 80005f90:	00005f97          	auipc	t6,0x5
-80005f94:	cd8f8f93          	add	t6,t6,-808 # 8000ac68 <tdat>
+80005f94:	ce0f8f93          	add	t6,t6,-800 # 8000ac70 <tdat>
 80005f98:	fe0f8f93          	add	t6,t6,-32
 80005f9c:	020fc183          	lbu	gp,32(t6)
 80005fa0:	0ff00e93          	li	t4,255
@@ -7613,7 +7613,7 @@ Disassembly of section .text:
 
 80005fac <test_11>:
 80005fac:	00005f97          	auipc	t6,0x5
-80005fb0:	cbcf8f93          	add	t6,t6,-836 # 8000ac68 <tdat>
+80005fb0:	cc4f8f93          	add	t6,t6,-828 # 8000ac70 <tdat>
 80005fb4:	ffaf8f93          	add	t6,t6,-6
 80005fb8:	007fc183          	lbu	gp,7(t6)
 80005fbc:	00000e93          	li	t4,0
@@ -7624,7 +7624,7 @@ Disassembly of section .text:
 80005fc8:	00c00e13          	li	t3,12
 80005fcc:	00000213          	li	tp,0
 80005fd0:	00005f97          	auipc	t6,0x5
-80005fd4:	c99f8f93          	add	t6,t6,-871 # 8000ac69 <tdat2>
+80005fd4:	ca1f8f93          	add	t6,t6,-863 # 8000ac71 <tdat2>
 80005fd8:	001fc183          	lbu	gp,1(t6)
 80005fdc:	00018313          	mv	t1,gp
 80005fe0:	0f000e93          	li	t4,240
@@ -7637,7 +7637,7 @@ Disassembly of section .text:
 80005ff4:	00d00e13          	li	t3,13
 80005ff8:	00000213          	li	tp,0
 80005ffc:	00005f97          	auipc	t6,0x5
-80006000:	c6ef8f93          	add	t6,t6,-914 # 8000ac6a <tdat3>
+80006000:	c76f8f93          	add	t6,t6,-906 # 8000ac72 <tdat3>
 80006004:	001fc183          	lbu	gp,1(t6)
 80006008:	00000013          	nop
 8000600c:	00018313          	mv	t1,gp
@@ -7651,7 +7651,7 @@ Disassembly of section .text:
 80006024:	00e00e13          	li	t3,14
 80006028:	00000213          	li	tp,0
 8000602c:	00005f97          	auipc	t6,0x5
-80006030:	c3cf8f93          	add	t6,t6,-964 # 8000ac68 <tdat>
+80006030:	c44f8f93          	add	t6,t6,-956 # 8000ac70 <tdat>
 80006034:	001fc183          	lbu	gp,1(t6)
 80006038:	00000013          	nop
 8000603c:	00000013          	nop
@@ -7666,7 +7666,7 @@ Disassembly of section .text:
 80006058:	00f00e13          	li	t3,15
 8000605c:	00000213          	li	tp,0
 80006060:	00005f97          	auipc	t6,0x5
-80006064:	c09f8f93          	add	t6,t6,-1015 # 8000ac69 <tdat2>
+80006064:	c11f8f93          	add	t6,t6,-1007 # 8000ac71 <tdat2>
 80006068:	001fc183          	lbu	gp,1(t6)
 8000606c:	0f000e93          	li	t4,240
 80006070:	0bd19663          	bne	gp,t4,8000611c <fail>
@@ -7678,7 +7678,7 @@ Disassembly of section .text:
 80006080:	01000e13          	li	t3,16
 80006084:	00000213          	li	tp,0
 80006088:	00005f97          	auipc	t6,0x5
-8000608c:	be2f8f93          	add	t6,t6,-1054 # 8000ac6a <tdat3>
+8000608c:	beaf8f93          	add	t6,t6,-1046 # 8000ac72 <tdat3>
 80006090:	00000013          	nop
 80006094:	001fc183          	lbu	gp,1(t6)
 80006098:	00f00e93          	li	t4,15
@@ -7691,7 +7691,7 @@ Disassembly of section .text:
 800060ac:	01100e13          	li	t3,17
 800060b0:	00000213          	li	tp,0
 800060b4:	00005f97          	auipc	t6,0x5
-800060b8:	bb4f8f93          	add	t6,t6,-1100 # 8000ac68 <tdat>
+800060b8:	bbcf8f93          	add	t6,t6,-1092 # 8000ac70 <tdat>
 800060bc:	00000013          	nop
 800060c0:	00000013          	nop
 800060c4:	001fc183          	lbu	gp,1(t6)
@@ -7703,7 +7703,7 @@ Disassembly of section .text:
 
 800060dc <test_18>:
 800060dc:	00005197          	auipc	gp,0x5
-800060e0:	b8c18193          	add	gp,gp,-1140 # 8000ac68 <tdat>
+800060e0:	b9418193          	add	gp,gp,-1132 # 8000ac70 <tdat>
 800060e4:	0001c103          	lbu	sp,0(gp)
 800060e8:	00200113          	li	sp,2
 800060ec:	00200e93          	li	t4,2
@@ -7712,7 +7712,7 @@ Disassembly of section .text:
 
 800060f8 <test_19>:
 800060f8:	00005197          	auipc	gp,0x5
-800060fc:	b7018193          	add	gp,gp,-1168 # 8000ac68 <tdat>
+800060fc:	b7818193          	add	gp,gp,-1160 # 8000ac70 <tdat>
 80006100:	0001c103          	lbu	sp,0(gp)
 80006104:	00000013          	nop
 80006108:	00200113          	li	sp,2
@@ -9051,7 +9051,7 @@ Disassembly of section .text:
 
 8000716c <lb>:
 8000716c:	00004f97          	auipc	t6,0x4
-80007170:	b00f8f93          	add	t6,t6,-1280 # 8000ac6c <tdat>
+80007170:	b08f8f93          	add	t6,t6,-1272 # 8000ac74 <tdat>
 80007174:	000f8183          	lb	gp,0(t6)
 80007178:	fff00e93          	li	t4,-1
 8000717c:	00200e13          	li	t3,2
@@ -9059,7 +9059,7 @@ Disassembly of section .text:
 
 80007184 <test_3>:
 80007184:	00004f97          	auipc	t6,0x4
-80007188:	ae8f8f93          	add	t6,t6,-1304 # 8000ac6c <tdat>
+80007188:	af0f8f93          	add	t6,t6,-1296 # 8000ac74 <tdat>
 8000718c:	001f8183          	lb	gp,1(t6)
 80007190:	00000e93          	li	t4,0
 80007194:	00300e13          	li	t3,3
@@ -9067,7 +9067,7 @@ Disassembly of section .text:
 
 8000719c <test_4>:
 8000719c:	00004f97          	auipc	t6,0x4
-800071a0:	ad0f8f93          	add	t6,t6,-1328 # 8000ac6c <tdat>
+800071a0:	ad8f8f93          	add	t6,t6,-1320 # 8000ac74 <tdat>
 800071a4:	002f8183          	lb	gp,2(t6)
 800071a8:	ff000e93          	li	t4,-16
 800071ac:	00400e13          	li	t3,4
@@ -9075,7 +9075,7 @@ Disassembly of section .text:
 
 800071b4 <test_5>:
 800071b4:	00004f97          	auipc	t6,0x4
-800071b8:	ab8f8f93          	add	t6,t6,-1352 # 8000ac6c <tdat>
+800071b8:	ac0f8f93          	add	t6,t6,-1344 # 8000ac74 <tdat>
 800071bc:	003f8183          	lb	gp,3(t6)
 800071c0:	00f00e93          	li	t4,15
 800071c4:	00500e13          	li	t3,5
@@ -9083,7 +9083,7 @@ Disassembly of section .text:
 
 800071cc <test_6>:
 800071cc:	00004f97          	auipc	t6,0x4
-800071d0:	aa3f8f93          	add	t6,t6,-1373 # 8000ac6f <tdat4>
+800071d0:	aabf8f93          	add	t6,t6,-1365 # 8000ac77 <tdat4>
 800071d4:	ffdf8183          	lb	gp,-3(t6)
 800071d8:	fff00e93          	li	t4,-1
 800071dc:	00600e13          	li	t3,6
@@ -9091,7 +9091,7 @@ Disassembly of section .text:
 
 800071e4 <test_7>:
 800071e4:	00004f97          	auipc	t6,0x4
-800071e8:	a8bf8f93          	add	t6,t6,-1397 # 8000ac6f <tdat4>
+800071e8:	a93f8f93          	add	t6,t6,-1389 # 8000ac77 <tdat4>
 800071ec:	ffef8183          	lb	gp,-2(t6)
 800071f0:	00000e93          	li	t4,0
 800071f4:	00700e13          	li	t3,7
@@ -9099,7 +9099,7 @@ Disassembly of section .text:
 
 800071fc <test_8>:
 800071fc:	00004f97          	auipc	t6,0x4
-80007200:	a73f8f93          	add	t6,t6,-1421 # 8000ac6f <tdat4>
+80007200:	a7bf8f93          	add	t6,t6,-1413 # 8000ac77 <tdat4>
 80007204:	ffff8183          	lb	gp,-1(t6)
 80007208:	ff000e93          	li	t4,-16
 8000720c:	00800e13          	li	t3,8
@@ -9107,7 +9107,7 @@ Disassembly of section .text:
 
 80007214 <test_9>:
 80007214:	00004f97          	auipc	t6,0x4
-80007218:	a5bf8f93          	add	t6,t6,-1445 # 8000ac6f <tdat4>
+80007218:	a63f8f93          	add	t6,t6,-1437 # 8000ac77 <tdat4>
 8000721c:	000f8183          	lb	gp,0(t6)
 80007220:	00f00e93          	li	t4,15
 80007224:	00900e13          	li	t3,9
@@ -9115,7 +9115,7 @@ Disassembly of section .text:
 
 8000722c <test_10>:
 8000722c:	00004f97          	auipc	t6,0x4
-80007230:	a40f8f93          	add	t6,t6,-1472 # 8000ac6c <tdat>
+80007230:	a48f8f93          	add	t6,t6,-1464 # 8000ac74 <tdat>
 80007234:	fe0f8f93          	add	t6,t6,-32
 80007238:	020f8183          	lb	gp,32(t6)
 8000723c:	fff00e93          	li	t4,-1
@@ -9124,7 +9124,7 @@ Disassembly of section .text:
 
 80007248 <test_11>:
 80007248:	00004f97          	auipc	t6,0x4
-8000724c:	a24f8f93          	add	t6,t6,-1500 # 8000ac6c <tdat>
+8000724c:	a2cf8f93          	add	t6,t6,-1492 # 8000ac74 <tdat>
 80007250:	ffaf8f93          	add	t6,t6,-6
 80007254:	007f8183          	lb	gp,7(t6)
 80007258:	00000e93          	li	t4,0
@@ -9135,7 +9135,7 @@ Disassembly of section .text:
 80007264:	00c00e13          	li	t3,12
 80007268:	00000213          	li	tp,0
 8000726c:	00004f97          	auipc	t6,0x4
-80007270:	a01f8f93          	add	t6,t6,-1535 # 8000ac6d <tdat2>
+80007270:	a09f8f93          	add	t6,t6,-1527 # 8000ac75 <tdat2>
 80007274:	001f8183          	lb	gp,1(t6)
 80007278:	00018313          	mv	t1,gp
 8000727c:	ff000e93          	li	t4,-16
@@ -9148,7 +9148,7 @@ Disassembly of section .text:
 80007290:	00d00e13          	li	t3,13
 80007294:	00000213          	li	tp,0
 80007298:	00004f97          	auipc	t6,0x4
-8000729c:	9d6f8f93          	add	t6,t6,-1578 # 8000ac6e <tdat3>
+8000729c:	9def8f93          	add	t6,t6,-1570 # 8000ac76 <tdat3>
 800072a0:	001f8183          	lb	gp,1(t6)
 800072a4:	00000013          	nop
 800072a8:	00018313          	mv	t1,gp
@@ -9162,7 +9162,7 @@ Disassembly of section .text:
 800072c0:	00e00e13          	li	t3,14
 800072c4:	00000213          	li	tp,0
 800072c8:	00004f97          	auipc	t6,0x4
-800072cc:	9a4f8f93          	add	t6,t6,-1628 # 8000ac6c <tdat>
+800072cc:	9acf8f93          	add	t6,t6,-1620 # 8000ac74 <tdat>
 800072d0:	001f8183          	lb	gp,1(t6)
 800072d4:	00000013          	nop
 800072d8:	00000013          	nop
@@ -9177,7 +9177,7 @@ Disassembly of section .text:
 800072f4:	00f00e13          	li	t3,15
 800072f8:	00000213          	li	tp,0
 800072fc:	00004f97          	auipc	t6,0x4
-80007300:	971f8f93          	add	t6,t6,-1679 # 8000ac6d <tdat2>
+80007300:	979f8f93          	add	t6,t6,-1671 # 8000ac75 <tdat2>
 80007304:	001f8183          	lb	gp,1(t6)
 80007308:	ff000e93          	li	t4,-16
 8000730c:	0bd19663          	bne	gp,t4,800073b8 <fail>
@@ -9189,7 +9189,7 @@ Disassembly of section .text:
 8000731c:	01000e13          	li	t3,16
 80007320:	00000213          	li	tp,0
 80007324:	00004f97          	auipc	t6,0x4
-80007328:	94af8f93          	add	t6,t6,-1718 # 8000ac6e <tdat3>
+80007328:	952f8f93          	add	t6,t6,-1710 # 8000ac76 <tdat3>
 8000732c:	00000013          	nop
 80007330:	001f8183          	lb	gp,1(t6)
 80007334:	00f00e93          	li	t4,15
@@ -9202,7 +9202,7 @@ Disassembly of section .text:
 80007348:	01100e13          	li	t3,17
 8000734c:	00000213          	li	tp,0
 80007350:	00004f97          	auipc	t6,0x4
-80007354:	91cf8f93          	add	t6,t6,-1764 # 8000ac6c <tdat>
+80007354:	924f8f93          	add	t6,t6,-1756 # 8000ac74 <tdat>
 80007358:	00000013          	nop
 8000735c:	00000013          	nop
 80007360:	001f8183          	lb	gp,1(t6)
@@ -9214,7 +9214,7 @@ Disassembly of section .text:
 
 80007378 <test_18>:
 80007378:	00004197          	auipc	gp,0x4
-8000737c:	8f418193          	add	gp,gp,-1804 # 8000ac6c <tdat>
+8000737c:	8fc18193          	add	gp,gp,-1796 # 8000ac74 <tdat>
 80007380:	00018103          	lb	sp,0(gp)
 80007384:	00200113          	li	sp,2
 80007388:	00200e93          	li	t4,2
@@ -9223,7 +9223,7 @@ Disassembly of section .text:
 
 80007394 <test_19>:
 80007394:	00004197          	auipc	gp,0x4
-80007398:	8d818193          	add	gp,gp,-1832 # 8000ac6c <tdat>
+80007398:	8e018193          	add	gp,gp,-1824 # 8000ac74 <tdat>
 8000739c:	00018103          	lb	sp,0(gp)
 800073a0:	00000013          	nop
 800073a4:	00200113          	li	sp,2
@@ -11904,7 +11904,7 @@ Disassembly of section .text:
 
 80009578 <sw>:
 80009578:	00001f97          	auipc	t6,0x1
-8000957c:	6f8f8f93          	add	t6,t6,1784 # 8000ac70 <tdat>
+8000957c:	700f8f93          	add	t6,t6,1792 # 8000ac78 <tdat>
 80009580:	00aa0137          	lui	sp,0xaa0
 80009584:	0aa10113          	add	sp,sp,170 # aa00aa <_entry_offset+0xaa00aa>
 80009588:	002fa023          	sw	sp,0(t6)
@@ -11916,7 +11916,7 @@ Disassembly of section .text:
 
 800095a0 <test_3>:
 800095a0:	00001f97          	auipc	t6,0x1
-800095a4:	6d0f8f93          	add	t6,t6,1744 # 8000ac70 <tdat>
+800095a4:	6d8f8f93          	add	t6,t6,1752 # 8000ac78 <tdat>
 800095a8:	aa00b137          	lui	sp,0xaa00b
 800095ac:	a0010113          	add	sp,sp,-1536 # aa00aa00 <_end+0x29ff7a00>
 800095b0:	002fa223          	sw	sp,4(t6)
@@ -11928,7 +11928,7 @@ Disassembly of section .text:
 
 800095c8 <test_4>:
 800095c8:	00001f97          	auipc	t6,0x1
-800095cc:	6a8f8f93          	add	t6,t6,1704 # 8000ac70 <tdat>
+800095cc:	6b0f8f93          	add	t6,t6,1712 # 8000ac78 <tdat>
 800095d0:	0aa01137          	lui	sp,0xaa01
 800095d4:	aa010113          	add	sp,sp,-1376 # aa00aa0 <_entry_offset+0xaa00aa0>
 800095d8:	002fa423          	sw	sp,8(t6)
@@ -11940,7 +11940,7 @@ Disassembly of section .text:
 
 800095f0 <test_5>:
 800095f0:	00001f97          	auipc	t6,0x1
-800095f4:	680f8f93          	add	t6,t6,1664 # 8000ac70 <tdat>
+800095f4:	688f8f93          	add	t6,t6,1672 # 8000ac78 <tdat>
 800095f8:	a00aa137          	lui	sp,0xa00aa
 800095fc:	00a10113          	add	sp,sp,10 # a00aa00a <_end+0x2009700a>
 80009600:	002fa623          	sw	sp,12(t6)
@@ -11952,7 +11952,7 @@ Disassembly of section .text:
 
 80009618 <test_6>:
 80009618:	00001f97          	auipc	t6,0x1
-8000961c:	674f8f93          	add	t6,t6,1652 # 8000ac8c <tdat8>
+8000961c:	67cf8f93          	add	t6,t6,1660 # 8000ac94 <tdat8>
 80009620:	00aa0137          	lui	sp,0xaa0
 80009624:	0aa10113          	add	sp,sp,170 # aa00aa <_entry_offset+0xaa00aa>
 80009628:	fe2faa23          	sw	sp,-12(t6)
@@ -11964,7 +11964,7 @@ Disassembly of section .text:
 
 80009640 <test_7>:
 80009640:	00001f97          	auipc	t6,0x1
-80009644:	64cf8f93          	add	t6,t6,1612 # 8000ac8c <tdat8>
+80009644:	654f8f93          	add	t6,t6,1620 # 8000ac94 <tdat8>
 80009648:	aa00b137          	lui	sp,0xaa00b
 8000964c:	a0010113          	add	sp,sp,-1536 # aa00aa00 <_end+0x29ff7a00>
 80009650:	fe2fac23          	sw	sp,-8(t6)
@@ -11976,7 +11976,7 @@ Disassembly of section .text:
 
 80009668 <test_8>:
 80009668:	00001f97          	auipc	t6,0x1
-8000966c:	624f8f93          	add	t6,t6,1572 # 8000ac8c <tdat8>
+8000966c:	62cf8f93          	add	t6,t6,1580 # 8000ac94 <tdat8>
 80009670:	0aa01137          	lui	sp,0xaa01
 80009674:	aa010113          	add	sp,sp,-1376 # aa00aa0 <_entry_offset+0xaa00aa0>
 80009678:	fe2fae23          	sw	sp,-4(t6)
@@ -11988,7 +11988,7 @@ Disassembly of section .text:
 
 80009690 <test_9>:
 80009690:	00001f97          	auipc	t6,0x1
-80009694:	5fcf8f93          	add	t6,t6,1532 # 8000ac8c <tdat8>
+80009694:	604f8f93          	add	t6,t6,1540 # 8000ac94 <tdat8>
 80009698:	a00aa137          	lui	sp,0xa00aa
 8000969c:	00a10113          	add	sp,sp,10 # a00aa00a <_end+0x2009700a>
 800096a0:	002fa023          	sw	sp,0(t6)
@@ -12000,7 +12000,7 @@ Disassembly of section .text:
 
 800096b8 <test_10>:
 800096b8:	00001f97          	auipc	t6,0x1
-800096bc:	5d8f8f93          	add	t6,t6,1496 # 8000ac90 <tdat9>
+800096bc:	5e0f8f93          	add	t6,t6,1504 # 8000ac98 <tdat9>
 800096c0:	12345137          	lui	sp,0x12345
 800096c4:	67810113          	add	sp,sp,1656 # 12345678 <_entry_offset+0x12345678>
 800096c8:	fe0f8213          	add	tp,t6,-32
@@ -12013,13 +12013,13 @@ Disassembly of section .text:
 
 800096e4 <test_11>:
 800096e4:	00001f97          	auipc	t6,0x1
-800096e8:	5acf8f93          	add	t6,t6,1452 # 8000ac90 <tdat9>
+800096e8:	5b4f8f93          	add	t6,t6,1460 # 8000ac98 <tdat9>
 800096ec:	58213137          	lui	sp,0x58213
 800096f0:	09810113          	add	sp,sp,152 # 58213098 <_entry_offset+0x58213098>
 800096f4:	ffdf8f93          	add	t6,t6,-3
 800096f8:	002fa3a3          	sw	sp,7(t6)
 800096fc:	00001217          	auipc	tp,0x1
-80009700:	59820213          	add	tp,tp,1432 # 8000ac94 <tdat10>
+80009700:	5a020213          	add	tp,tp,1440 # 8000ac9c <tdat10>
 80009704:	00022183          	lw	gp,0(tp) # 0 <_entry_offset>
 80009708:	58213eb7          	lui	t4,0x58213
 8000970c:	098e8e93          	add	t4,t4,152 # 58213098 <_entry_offset+0x58213098>
@@ -12032,7 +12032,7 @@ Disassembly of section .text:
 80009720:	aabbdfb7          	lui	t6,0xaabbd
 80009724:	cddf8f93          	add	t6,t6,-803 # aabbccdd <_end+0x2aba9cdd>
 80009728:	00001117          	auipc	sp,0x1
-8000972c:	54810113          	add	sp,sp,1352 # 8000ac70 <tdat>
+8000972c:	55010113          	add	sp,sp,1360 # 8000ac78 <tdat>
 80009730:	01f12023          	sw	t6,0(sp)
 80009734:	00012183          	lw	gp,0(sp)
 80009738:	aabbdeb7          	lui	t4,0xaabbd
@@ -12048,7 +12048,7 @@ Disassembly of section .text:
 80009758:	daabcfb7          	lui	t6,0xdaabc
 8000975c:	ccdf8f93          	add	t6,t6,-819 # daabbccd <_end+0x5aaa8ccd>
 80009760:	00001117          	auipc	sp,0x1
-80009764:	51010113          	add	sp,sp,1296 # 8000ac70 <tdat>
+80009764:	51810113          	add	sp,sp,1304 # 8000ac78 <tdat>
 80009768:	00000013          	nop
 8000976c:	01f12223          	sw	t6,4(sp)
 80009770:	00412183          	lw	gp,4(sp)
@@ -12065,7 +12065,7 @@ Disassembly of section .text:
 80009794:	ddaacfb7          	lui	t6,0xddaac
 80009798:	bccf8f93          	add	t6,t6,-1076 # ddaabbcc <_end+0x5da98bcc>
 8000979c:	00001117          	auipc	sp,0x1
-800097a0:	4d410113          	add	sp,sp,1236 # 8000ac70 <tdat>
+800097a0:	4dc10113          	add	sp,sp,1244 # 8000ac78 <tdat>
 800097a4:	00000013          	nop
 800097a8:	00000013          	nop
 800097ac:	01f12423          	sw	t6,8(sp)
@@ -12084,7 +12084,7 @@ Disassembly of section .text:
 800097d8:	bbcf8f93          	add	t6,t6,-1092 # cddaabbc <_end+0x4dd97bbc>
 800097dc:	00000013          	nop
 800097e0:	00001117          	auipc	sp,0x1
-800097e4:	49010113          	add	sp,sp,1168 # 8000ac70 <tdat>
+800097e4:	49810113          	add	sp,sp,1176 # 8000ac78 <tdat>
 800097e8:	01f12623          	sw	t6,12(sp)
 800097ec:	00c12183          	lw	gp,12(sp)
 800097f0:	cddabeb7          	lui	t4,0xcddab
@@ -12101,7 +12101,7 @@ Disassembly of section .text:
 80009814:	abbf8f93          	add	t6,t6,-1349 # ccddaabb <_end+0x4cdc7abb>
 80009818:	00000013          	nop
 8000981c:	00001117          	auipc	sp,0x1
-80009820:	45410113          	add	sp,sp,1108 # 8000ac70 <tdat>
+80009820:	45c10113          	add	sp,sp,1116 # 8000ac78 <tdat>
 80009824:	00000013          	nop
 80009828:	01f12823          	sw	t6,16(sp)
 8000982c:	01012183          	lw	gp,16(sp)
@@ -12120,7 +12120,7 @@ Disassembly of section .text:
 80009858:	00000013          	nop
 8000985c:	00000013          	nop
 80009860:	00001117          	auipc	sp,0x1
-80009864:	41010113          	add	sp,sp,1040 # 8000ac70 <tdat>
+80009864:	41810113          	add	sp,sp,1048 # 8000ac78 <tdat>
 80009868:	01f12a23          	sw	t6,20(sp)
 8000986c:	01412183          	lw	gp,20(sp)
 80009870:	bccdeeb7          	lui	t4,0xbccde
@@ -12134,7 +12134,7 @@ Disassembly of section .text:
 80009888:	01200e13          	li	t3,18
 8000988c:	00000213          	li	tp,0
 80009890:	00001117          	auipc	sp,0x1
-80009894:	3e010113          	add	sp,sp,992 # 8000ac70 <tdat>
+80009894:	3e810113          	add	sp,sp,1000 # 8000ac78 <tdat>
 80009898:	00112fb7          	lui	t6,0x112
 8000989c:	233f8f93          	add	t6,t6,563 # 112233 <_entry_offset+0x112233>
 800098a0:	01f12023          	sw	t6,0(sp)
@@ -12150,7 +12150,7 @@ Disassembly of section .text:
 800098c0:	01300e13          	li	t3,19
 800098c4:	00000213          	li	tp,0
 800098c8:	00001117          	auipc	sp,0x1
-800098cc:	3a810113          	add	sp,sp,936 # 8000ac70 <tdat>
+800098cc:	3b010113          	add	sp,sp,944 # 8000ac78 <tdat>
 800098d0:	30011fb7          	lui	t6,0x30011
 800098d4:	223f8f93          	add	t6,t6,547 # 30011223 <_entry_offset+0x30011223>
 800098d8:	00000013          	nop
@@ -12167,7 +12167,7 @@ Disassembly of section .text:
 800098fc:	01400e13          	li	t3,20
 80009900:	00000213          	li	tp,0
 80009904:	00001117          	auipc	sp,0x1
-80009908:	36c10113          	add	sp,sp,876 # 8000ac70 <tdat>
+80009908:	37410113          	add	sp,sp,884 # 8000ac78 <tdat>
 8000990c:	33001fb7          	lui	t6,0x33001
 80009910:	122f8f93          	add	t6,t6,290 # 33001122 <_entry_offset+0x33001122>
 80009914:	00000013          	nop
@@ -12185,7 +12185,7 @@ Disassembly of section .text:
 8000993c:	01500e13          	li	t3,21
 80009940:	00000213          	li	tp,0
 80009944:	00001117          	auipc	sp,0x1
-80009948:	32c10113          	add	sp,sp,812 # 8000ac70 <tdat>
+80009948:	33410113          	add	sp,sp,820 # 8000ac78 <tdat>
 8000994c:	00000013          	nop
 80009950:	23300fb7          	lui	t6,0x23300
 80009954:	112f8f93          	add	t6,t6,274 # 23300112 <_entry_offset+0x23300112>
@@ -12202,7 +12202,7 @@ Disassembly of section .text:
 80009978:	01600e13          	li	t3,22
 8000997c:	00000213          	li	tp,0
 80009980:	00001117          	auipc	sp,0x1
-80009984:	2f010113          	add	sp,sp,752 # 8000ac70 <tdat>
+80009984:	2f810113          	add	sp,sp,760 # 8000ac78 <tdat>
 80009988:	00000013          	nop
 8000998c:	22330fb7          	lui	t6,0x22330
 80009990:	011f8f93          	add	t6,t6,17 # 22330011 <_entry_offset+0x22330011>
@@ -12220,7 +12220,7 @@ Disassembly of section .text:
 800099b8:	01700e13          	li	t3,23
 800099bc:	00000213          	li	tp,0
 800099c0:	00001117          	auipc	sp,0x1
-800099c4:	2b010113          	add	sp,sp,688 # 8000ac70 <tdat>
+800099c4:	2b810113          	add	sp,sp,696 # 8000ac78 <tdat>
 800099c8:	00000013          	nop
 800099cc:	00000013          	nop
 800099d0:	12233fb7          	lui	t6,0x12233
@@ -13426,7 +13426,7 @@ Disassembly of section .text:
 
 8000a97c <lh>:
 8000a97c:	00000f97          	auipc	t6,0x0
-8000a980:	31cf8f93          	add	t6,t6,796 # 8000ac98 <tdat>
+8000a980:	324f8f93          	add	t6,t6,804 # 8000aca0 <tdat>
 8000a984:	000f9183          	lh	gp,0(t6)
 8000a988:	0ff00e93          	li	t4,255
 8000a98c:	00200e13          	li	t3,2
@@ -13434,7 +13434,7 @@ Disassembly of section .text:
 
 8000a994 <test_3>:
 8000a994:	00000f97          	auipc	t6,0x0
-8000a998:	304f8f93          	add	t6,t6,772 # 8000ac98 <tdat>
+8000a998:	30cf8f93          	add	t6,t6,780 # 8000aca0 <tdat>
 8000a99c:	002f9183          	lh	gp,2(t6)
 8000a9a0:	f0000e93          	li	t4,-256
 8000a9a4:	00300e13          	li	t3,3
@@ -13442,7 +13442,7 @@ Disassembly of section .text:
 
 8000a9ac <test_4>:
 8000a9ac:	00000f97          	auipc	t6,0x0
-8000a9b0:	2ecf8f93          	add	t6,t6,748 # 8000ac98 <tdat>
+8000a9b0:	2f4f8f93          	add	t6,t6,756 # 8000aca0 <tdat>
 8000a9b4:	004f9183          	lh	gp,4(t6)
 8000a9b8:	00001eb7          	lui	t4,0x1
 8000a9bc:	ff0e8e93          	add	t4,t4,-16 # ff0 <_entry_offset+0xff0>
@@ -13451,7 +13451,7 @@ Disassembly of section .text:
 
 8000a9c8 <test_5>:
 8000a9c8:	00000f97          	auipc	t6,0x0
-8000a9cc:	2d0f8f93          	add	t6,t6,720 # 8000ac98 <tdat>
+8000a9cc:	2d8f8f93          	add	t6,t6,728 # 8000aca0 <tdat>
 8000a9d0:	006f9183          	lh	gp,6(t6)
 8000a9d4:	fffffeb7          	lui	t4,0xfffff
 8000a9d8:	00fe8e93          	add	t4,t4,15 # fffff00f <_end+0x7ffec00f>
@@ -13460,7 +13460,7 @@ Disassembly of section .text:
 
 8000a9e4 <test_6>:
 8000a9e4:	00000f97          	auipc	t6,0x0
-8000a9e8:	2baf8f93          	add	t6,t6,698 # 8000ac9e <tdat4>
+8000a9e8:	2c2f8f93          	add	t6,t6,706 # 8000aca6 <tdat4>
 8000a9ec:	ffaf9183          	lh	gp,-6(t6)
 8000a9f0:	0ff00e93          	li	t4,255
 8000a9f4:	00600e13          	li	t3,6
@@ -13468,7 +13468,7 @@ Disassembly of section .text:
 
 8000a9fc <test_7>:
 8000a9fc:	00000f97          	auipc	t6,0x0
-8000aa00:	2a2f8f93          	add	t6,t6,674 # 8000ac9e <tdat4>
+8000aa00:	2aaf8f93          	add	t6,t6,682 # 8000aca6 <tdat4>
 8000aa04:	ffcf9183          	lh	gp,-4(t6)
 8000aa08:	f0000e93          	li	t4,-256
 8000aa0c:	00700e13          	li	t3,7
@@ -13476,7 +13476,7 @@ Disassembly of section .text:
 
 8000aa14 <test_8>:
 8000aa14:	00000f97          	auipc	t6,0x0
-8000aa18:	28af8f93          	add	t6,t6,650 # 8000ac9e <tdat4>
+8000aa18:	292f8f93          	add	t6,t6,658 # 8000aca6 <tdat4>
 8000aa1c:	ffef9183          	lh	gp,-2(t6)
 8000aa20:	00001eb7          	lui	t4,0x1
 8000aa24:	ff0e8e93          	add	t4,t4,-16 # ff0 <_entry_offset+0xff0>
@@ -13485,7 +13485,7 @@ Disassembly of section .text:
 
 8000aa30 <test_9>:
 8000aa30:	00000f97          	auipc	t6,0x0
-8000aa34:	26ef8f93          	add	t6,t6,622 # 8000ac9e <tdat4>
+8000aa34:	276f8f93          	add	t6,t6,630 # 8000aca6 <tdat4>
 8000aa38:	000f9183          	lh	gp,0(t6)
 8000aa3c:	fffffeb7          	lui	t4,0xfffff
 8000aa40:	00fe8e93          	add	t4,t4,15 # fffff00f <_end+0x7ffec00f>
@@ -13494,7 +13494,7 @@ Disassembly of section .text:
 
 8000aa4c <test_10>:
 8000aa4c:	00000f97          	auipc	t6,0x0
-8000aa50:	24cf8f93          	add	t6,t6,588 # 8000ac98 <tdat>
+8000aa50:	254f8f93          	add	t6,t6,596 # 8000aca0 <tdat>
 8000aa54:	fe0f8f93          	add	t6,t6,-32
 8000aa58:	020f9183          	lh	gp,32(t6)
 8000aa5c:	0ff00e93          	li	t4,255
@@ -13503,7 +13503,7 @@ Disassembly of section .text:
 
 8000aa68 <test_11>:
 8000aa68:	00000f97          	auipc	t6,0x0
-8000aa6c:	230f8f93          	add	t6,t6,560 # 8000ac98 <tdat>
+8000aa6c:	238f8f93          	add	t6,t6,568 # 8000aca0 <tdat>
 8000aa70:	ffbf8f93          	add	t6,t6,-5
 8000aa74:	007f9183          	lh	gp,7(t6)
 8000aa78:	f0000e93          	li	t4,-256
@@ -13514,7 +13514,7 @@ Disassembly of section .text:
 8000aa84:	00c00e13          	li	t3,12
 8000aa88:	00000213          	li	tp,0
 8000aa8c:	00000f97          	auipc	t6,0x0
-8000aa90:	20ef8f93          	add	t6,t6,526 # 8000ac9a <tdat2>
+8000aa90:	216f8f93          	add	t6,t6,534 # 8000aca2 <tdat2>
 8000aa94:	002f9183          	lh	gp,2(t6)
 8000aa98:	00018313          	mv	t1,gp
 8000aa9c:	00001eb7          	lui	t4,0x1
@@ -13528,7 +13528,7 @@ Disassembly of section .text:
 8000aab4:	00d00e13          	li	t3,13
 8000aab8:	00000213          	li	tp,0
 8000aabc:	00000f97          	auipc	t6,0x0
-8000aac0:	1e0f8f93          	add	t6,t6,480 # 8000ac9c <tdat3>
+8000aac0:	1e8f8f93          	add	t6,t6,488 # 8000aca4 <tdat3>
 8000aac4:	002f9183          	lh	gp,2(t6)
 8000aac8:	00000013          	nop
 8000aacc:	00018313          	mv	t1,gp
@@ -13543,7 +13543,7 @@ Disassembly of section .text:
 8000aae8:	00e00e13          	li	t3,14
 8000aaec:	00000213          	li	tp,0
 8000aaf0:	00000f97          	auipc	t6,0x0
-8000aaf4:	1a8f8f93          	add	t6,t6,424 # 8000ac98 <tdat>
+8000aaf4:	1b0f8f93          	add	t6,t6,432 # 8000aca0 <tdat>
 8000aaf8:	002f9183          	lh	gp,2(t6)
 8000aafc:	00000013          	nop
 8000ab00:	00000013          	nop
@@ -13558,7 +13558,7 @@ Disassembly of section .text:
 8000ab1c:	00f00e13          	li	t3,15
 8000ab20:	00000213          	li	tp,0
 8000ab24:	00000f97          	auipc	t6,0x0
-8000ab28:	176f8f93          	add	t6,t6,374 # 8000ac9a <tdat2>
+8000ab28:	17ef8f93          	add	t6,t6,382 # 8000aca2 <tdat2>
 8000ab2c:	002f9183          	lh	gp,2(t6)
 8000ab30:	00001eb7          	lui	t4,0x1
 8000ab34:	ff0e8e93          	add	t4,t4,-16 # ff0 <_entry_offset+0xff0>
@@ -13571,7 +13571,7 @@ Disassembly of section .text:
 8000ab48:	01000e13          	li	t3,16
 8000ab4c:	00000213          	li	tp,0
 8000ab50:	00000f97          	auipc	t6,0x0
-8000ab54:	14cf8f93          	add	t6,t6,332 # 8000ac9c <tdat3>
+8000ab54:	154f8f93          	add	t6,t6,340 # 8000aca4 <tdat3>
 8000ab58:	00000013          	nop
 8000ab5c:	002f9183          	lh	gp,2(t6)
 8000ab60:	fffffeb7          	lui	t4,0xfffff
@@ -13585,7 +13585,7 @@ Disassembly of section .text:
 8000ab78:	01100e13          	li	t3,17
 8000ab7c:	00000213          	li	tp,0
 8000ab80:	00000f97          	auipc	t6,0x0
-8000ab84:	118f8f93          	add	t6,t6,280 # 8000ac98 <tdat>
+8000ab84:	120f8f93          	add	t6,t6,288 # 8000aca0 <tdat>
 8000ab88:	00000013          	nop
 8000ab8c:	00000013          	nop
 8000ab90:	002f9183          	lh	gp,2(t6)
@@ -13597,7 +13597,7 @@ Disassembly of section .text:
 
 8000aba8 <test_18>:
 8000aba8:	00000197          	auipc	gp,0x0
-8000abac:	0f018193          	add	gp,gp,240 # 8000ac98 <tdat>
+8000abac:	0f818193          	add	gp,gp,248 # 8000aca0 <tdat>
 8000abb0:	00019103          	lh	sp,0(gp)
 8000abb4:	00200113          	li	sp,2
 8000abb8:	00200e93          	li	t4,2
@@ -13606,7 +13606,7 @@ Disassembly of section .text:
 
 8000abc4 <test_19>:
 8000abc4:	00000197          	auipc	gp,0x0
-8000abc8:	0d418193          	add	gp,gp,212 # 8000ac98 <tdat>
+8000abc8:	0dc18193          	add	gp,gp,220 # 8000aca0 <tdat>
 8000abcc:	00019103          	lh	sp,0(gp)
 8000abd0:	00000013          	nop
 8000abd4:	00200113          	li	sp,2
@@ -13625,19 +13625,21 @@ Disassembly of section .text:
 8000abf8:	00008067          	ret
 
 8000abfc <putch>:
-8000abfc:	00008067          	ret
+8000abfc:	a00007b7          	lui	a5,0xa0000
+8000ac00:	3ea78c23          	sb	a0,1016(a5) # a00003f8 <_end+0x1ffed3f8>
+8000ac04:	00008067          	ret
 
-8000ac00 <halt>:
-8000ac00:	00050513          	mv	a0,a0
-8000ac04:	00100073          	ebreak
-8000ac08:	0000006f          	j	8000ac08 <halt+0x8>
+8000ac08 <halt>:
+8000ac08:	00050513          	mv	a0,a0
+8000ac0c:	00100073          	ebreak
+8000ac10:	0000006f          	j	8000ac10 <halt+0x8>
 
-8000ac0c <call_main>:
-8000ac0c:	8000b537          	lui	a0,0x8000b
-8000ac10:	ff010113          	add	sp,sp,-16
-8000ac14:	c2c50513          	add	a0,a0,-980 # 8000ac2c <_etext>
-8000ac18:	00112623          	sw	ra,12(sp)
-8000ac1c:	f30fa0ef          	jal	8000534c <main>
-8000ac20:	00050513          	mv	a0,a0
-8000ac24:	00100073          	ebreak
-8000ac28:	0000006f          	j	8000ac28 <call_main+0x1c>
+8000ac14 <call_main>:
+8000ac14:	8000b537          	lui	a0,0x8000b
+8000ac18:	ff010113          	add	sp,sp,-16
+8000ac1c:	c3450513          	add	a0,a0,-972 # 8000ac34 <_etext>
+8000ac20:	00112623          	sw	ra,12(sp)
+8000ac24:	f28fa0ef          	jal	8000534c <main>
+8000ac28:	00050513          	mv	a0,a0
+8000ac2c:	00100073          	ebreak
+8000ac30:	0000006f          	j	8000ac30 <call_main+0x1c>

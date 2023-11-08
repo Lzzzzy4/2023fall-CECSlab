@@ -1,2 +1,1 @@
-# CECS-pipeline-AXI
-
+# CECS-pipeline-BRAM

@@ -16,9 +16,13 @@ extern "C" {
 
 
     // DPI IMPORTS
-    // DPI import at /home/user/cpu/2023fall-CECSlab/simulator/IP/mycpu/CSR.sv:23:34
+    // DPI import at /home/user/cpu/2023fall-CECSlab/simulator/IP/mycpu/ICache.sv:11:34
+    extern void pmem_read(svBit re, int addr, int mask, int* rword);
+    // DPI import at /home/user/cpu/2023fall-CECSlab/simulator/IP/mycpu/DCache.sv:16:34
+    extern void pmem_write(svBit we, int addr, int mask, int wword);
+    // DPI import at /home/user/cpu/2023fall-CECSlab/simulator/IP/mycpu/CSR.sv:17:34
     extern void set_csr_ptr(const svOpenArrayHandle m1, const svOpenArrayHandle m2, const svOpenArrayHandle m3, const svOpenArrayHandle m4);
-    // DPI import at /home/user/cpu/2023fall-CECSlab/simulator/IP/mycpu/Regfile.sv:18:34
+    // DPI import at /home/user/cpu/2023fall-CECSlab/simulator/IP/mycpu/Regfile.sv:12:34
     extern void set_gpr_ptr(const svOpenArrayHandle a);
 
 #ifdef __cplusplus

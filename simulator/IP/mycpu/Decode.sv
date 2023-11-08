@@ -1,4 +1,3 @@
-`timescale 1ns/1ps
 `include "./include/config.sv"
 module Decode(
     input  logic [31:0] inst,
@@ -6,6 +5,7 @@ module Decode(
     output logic [ 4:0] mem_access,
     output logic [31:0] imm,
     output logic [ 0:0] rf_we,
+    output logic [ 0:0] csr_we,
     output logic [ 1:0] alu_rs1_sel,
     output logic [ 1:0] alu_rs2_sel,
     output logic [ 0:0] wb_rf_sel,
@@ -16,6 +16,7 @@ module Decode(
     wire [4:0] rd = inst[11:7];
     wire [2:0] funct3 = inst[14:12];
     always_comb begin
+        csr_we = 0;
         case(inst[6:0])
         'h37: begin
             // lui, U_TYPE
@@ -30,6 +31,8 @@ module Decode(
         end
         'h17: begin
             // auipc, U_TYPE
+            // Lab3 TODO: finish auipc instruction decode
+
             imm         = {inst[31:12], 12'b0};
             mem_access  = `NO_ACCESS;
             alu_op      = `ADD;
@@ -37,7 +40,7 @@ module Decode(
             alu_rs1_sel = `SRC1_PC;
             alu_rs2_sel = `SRC2_IMM;
             wb_rf_sel   = `FROM_ALU;
-            br_type     = {1'b0, inst[2], funct3};
+            br_type     = {2'b0, funct3};
         end
         'h6f: begin
             // jal, J_TYPE
@@ -52,6 +55,8 @@ module Decode(
         end
         'h67: begin
             // jalr, I_TYPE
+            // Lab3 TODO: finish jalr instruction decode
+
             imm         = {{20{inst[31]}}, inst[31:20]};
             mem_access  = `NO_ACCESS;
             alu_op      = `ADD;
@@ -59,7 +64,7 @@ module Decode(
             alu_rs1_sel = `SRC1_PC;
             alu_rs2_sel = `SRC2_FOUR;
             wb_rf_sel   = `FROM_ALU;
-            br_type     = {1'b1, inst[2], inst[3], inst[1:0]};
+            br_type     = {1'b1, inst[2], funct3};
         end
         'h63: begin
             // branch, B_TYPE
@@ -107,9 +112,11 @@ module Decode(
         end
         'h33: begin
             // R_TYPE
+            // Lab3 TODO: finish R_TYPE instruction decode
+            
             imm         = 0;
             mem_access  = `NO_ACCESS;
-            alu_op      = {inst[30], inst[25], funct3};
+            alu_op      = {inst[30],inst[25],funct3};
             rf_we       = |rd;
             alu_rs1_sel = `SRC1_REG1;
             alu_rs2_sel = `SRC2_REG2;
@@ -117,11 +124,14 @@ module Decode(
             br_type     = {1'b0, inst[2], funct3};
         end
         'h73: begin
-            // priv and priv, I_TYPE
-            imm         = 0;
+            // CSR instruction
+            // Lab4 TODO: finish CSR instruction decode
+            imm         = {{27{1'b0}},{inst[19:15]}};
+            // imm         = 0;
             mem_access  = `NO_ACCESS;
             alu_op      = `ADD;
             rf_we       = |rd && |funct3;
+            csr_we      = |funct3;
             alu_rs1_sel = `SRC1_ZERO;
             alu_rs2_sel = `SRC2_CSR;
             wb_rf_sel   = `FROM_ALU;
@@ -139,12 +149,28 @@ module Decode(
         end
         endcase
     end
-
-    // privilege decode 
-    assign priv_vec[`CSR_RW] = inst[6:0] == 7'h73 && funct3 != 3'h0;
-    assign priv_vec[`ECALL]  = inst[6:0] == 7'h73 && funct3 == 3'h0 && inst[31:20] == 12'h0;
-    assign priv_vec[`MRET]   = inst[6:0] == 7'h73 && funct3 == 3'h0 && inst[31:20] == 12'h302;
+    // Lab4 TODO: you may need to decode for ecall and mret specially here
     assign priv_vec[`FENCEI] = inst[6:0] == 7'hf  && funct3 == 3'h1;
-    assign priv_vec[`FENCE]  = inst[6:0] == 7'hf  && funct3 == 3'h0;
-
+    always_comb begin
+        case (inst[6:0])
+            7'h73:begin
+                priv_vec[`CSR_RW] = funct3 != 3'h0;
+                priv_vec[`ECALL]  = funct3 == 3'h0 && inst[31:20] == 12'h0;
+                priv_vec[`MRET]   = funct3 == 3'h0 && inst[31:20] == 12'h302;
+                priv_vec[`FENCEI] = 0;
+            end 
+            7'hf:begin
+                priv_vec[`CSR_RW] = 0;
+                priv_vec[`ECALL]  = 0;
+                priv_vec[`MRET]   = 0;
+                priv_vec[`FENCEI] = funct3 == 3'h1;
+            end
+            default: begin
+                priv_vec[`CSR_RW] = 0;
+                priv_vec[`ECALL]  = 0;
+                priv_vec[`MRET]   = 0;
+                priv_vec[`FENCEI] = 0;
+            end
+        endcase
+    end
 endmodule

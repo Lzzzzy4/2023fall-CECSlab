@@ -27,19 +27,19 @@ module CSR(
         mepc    = 0;
     end
 
-    
+    logic [31:0] zero = 0;
     always_ff @(posedge clk) begin
         if(!rstn) begin
             mstatus <= 32'h0;
         end
         else if(|mcause_in) begin
-            mstatus <= {mstatus[31:12], mstatus[8:0], 3'h6};
+            mstatus <= {mstatus[31], zero[30:22], mstatus[21:12], mstatus[8:0], 3'h6};
         end
         else if(priv_vec_wb[`MRET]) begin
-            mstatus <= {mstatus[31:12], 3'h1, mstatus[11:3]};
+            mstatus <= {mstatus[31], zero[30:22], mstatus[21:12], 3'h1, mstatus[11:3]};
         end
         else if(waddr == `CSR_MSTATUS && we) begin
-            mstatus <= wdata;
+            mstatus <= {wdata[31], zero[30:22], wdata[21:0]};
         end
     end
 
@@ -50,7 +50,7 @@ module CSR(
             mtvec <= 32'h0;
         end
         else if(waddr == `CSR_MTVEC && we) begin
-            mtvec <=  wdata;
+            mtvec <=  {wdata[31:2], zero[1:0]};
         end
     end
 
@@ -60,10 +60,10 @@ module CSR(
             mcause <= 32'h0;
         end
         else if(|mcause_in) begin
-            mcause <= mcause_in;
+            mcause <= {mcause_in[31], zero[30:4], mcause_in[3:0]};
         end
         else if(waddr == `CSR_MCAUSE && we) begin
-            mcause <= wdata;
+            mcause <= {wdata[31], zero[30:4], wdata[3:0]};
         end
     end
 
