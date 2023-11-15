@@ -93,7 +93,7 @@ module axi_arbiter(
         end
         I_R: begin
             // TODO
-            if(rready && rlast) r_nxt = R_IDLE;
+            if(rvalid && rlast) r_nxt = R_IDLE;
             else r_nxt = I_R;
         end
         D_AR: begin
@@ -103,7 +103,7 @@ module axi_arbiter(
         end
         D_R: begin
             // TODO
-            if(rready && rlast) r_nxt = R_IDLE;
+            if(rvalid && rlast) r_nxt = R_IDLE;
             else r_nxt = D_R;
         end
         default : r_nxt = R_IDLE;    

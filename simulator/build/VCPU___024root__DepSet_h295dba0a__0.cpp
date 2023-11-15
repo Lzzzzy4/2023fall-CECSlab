@@ -41,7 +41,7 @@ VL_INLINE_OPT void VCPU___024root___ico_sequent__TOP__0(VCPU___024root* vlSelf) 
                                            << 5U) | 
                                           (((IData)(vlSelf->rlast) 
                                             << 4U) 
-                                           | (((IData)(vlSelf->rready) 
+                                           | (((IData)(vlSelf->rvalid) 
                                                << 3U) 
                                               | (IData)(vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_crt))))));
     vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_nxt 
@@ -1487,12 +1487,12 @@ VL_INLINE_OPT void VCPU___024root___nba_sequent__TOP__0(VCPU___024root* vlSelf) 
         vlSelf->CPU__DOT__axi_arbiter_inst__DOT__w_crt 
             = vlSelf->CPU__DOT__axi_arbiter_inst__DOT__w_nxt;
         vlSelf->CPU__DOT__ICache_inst__DOT__state = vlSelf->CPU__DOT__ICache_inst__DOT__next_state;
+        vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_crt 
+            = vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_nxt;
         if (vlSelf->CPU__DOT__ICache_inst__DOT__req_buf_we) {
             vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe 
                 = vlSelf->rstn;
         }
-        vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_crt 
-            = vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_nxt;
         vlSelf->CPU__DOT__DCache_inst__DOT__state = vlSelf->CPU__DOT__DCache_inst__DOT__next_state;
         vlSelf->CPU__DOT__DCache_inst__DOT__wfsm_state 
             = vlSelf->CPU__DOT__DCache_inst__DOT__wfsm_next_state;
@@ -1533,8 +1533,8 @@ VL_INLINE_OPT void VCPU___024root___nba_sequent__TOP__0(VCPU___024root* vlSelf) 
         vlSelf->CPU__DOT__DCache_inst__DOT__wstrb_pipe = 0U;
         vlSelf->CPU__DOT__axi_arbiter_inst__DOT__w_crt = 0U;
         vlSelf->CPU__DOT__ICache_inst__DOT__state = 0U;
-        vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe = 0U;
         vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_crt = 0U;
+        vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe = 0U;
         vlSelf->CPU__DOT__DCache_inst__DOT__state = 0U;
         vlSelf->CPU__DOT__DCache_inst__DOT__wfsm_state = 0U;
         vlSelf->CPU__DOT__DCache_inst__DOT__rsize_pipe = 0U;
@@ -1975,8 +1975,8 @@ VL_INLINE_OPT void VCPU___024root___nba_sequent__TOP__0(VCPU___024root* vlSelf) 
     vlSelf->CPU__DOT__DCache_inst__DOT__mem_rdata[0U][3U] 
         = vlSelf->CPU__DOT__DCache_inst__DOT__data_mem0__DOT__ram
         [vlSelf->CPU__DOT__DCache_inst__DOT__data_mem0__DOT__addr_r][3U];
-    vlSelf->arvalid = 0U;
     vlSelf->rready = 0U;
+    vlSelf->arvalid = 0U;
     vlSelf->CPU__DOT__i_rlast = 0U;
     vlSelf->CPU__DOT__i_rready = 0U;
     vlSelf->CPU__DOT__d_rready = 0U;
@@ -3179,7 +3179,7 @@ VL_INLINE_OPT void VCPU___024root___nba_sequent__TOP__0(VCPU___024root* vlSelf) 
                                            << 5U) | 
                                           (((IData)(vlSelf->rlast) 
                                             << 4U) 
-                                           | (((IData)(vlSelf->rready) 
+                                           | (((IData)(vlSelf->rvalid) 
                                                << 3U) 
                                               | (IData)(vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_crt))))));
     vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_nxt 

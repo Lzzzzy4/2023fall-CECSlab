@@ -780,6 +780,7 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
     if ((0U == (IData)(vlSelf->CPU__DOT__DCache_inst__DOT__wfsm_state))) {
         vlSelf->CPU__DOT__DCache_inst__DOT__write_counter_reset = 1U;
     }
+    vlSelf->rready = 0U;
     vlSelf->arvalid = 0U;
     vlSelf->awaddr = vlSelf->CPU__DOT__DCache_inst__DOT__maddr_buf;
     vlSelf->wdata = vlSelf->CPU__DOT__DCache_inst__DOT__wbuf[0U];
@@ -877,7 +878,6 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
         = __Vtemp_h9291c2cc__0[3U];
     vlSelf->CPU__DOT__Hazard_inst__DOT__flush_by_load_use = 0U;
     vlSelf->CPU__DOT__DCache_inst__DOT__data_from_mem = 1U;
-    vlSelf->rready = 0U;
     vlSelf->CPU__DOT__i_rlast = 0U;
     vlSelf->CPU__DOT__i_rready = 0U;
     vlSelf->CPU__DOT__DCache_inst__DOT__mem_rdata[0U][0U] 
@@ -1485,7 +1485,7 @@ VL_ATTR_COLD void VCPU___024root___stl_sequent__TOP__0(VCPU___024root* vlSelf) {
                                            << 5U) | 
                                           (((IData)(vlSelf->rlast) 
                                             << 4U) 
-                                           | (((IData)(vlSelf->rready) 
+                                           | (((IData)(vlSelf->rvalid) 
                                                << 3U) 
                                               | (IData)(vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_crt))))));
     vlSelf->CPU__DOT__axi_arbiter_inst__DOT__r_nxt 
