@@ -42,8 +42,23 @@ module Memory(
     output logic [ 0:0] bvalid,
     input  logic [ 0:0] bready
 );
-logic [ 0:0] tag_r = (araddr[31:28] == 4'ha);
-logic [ 0:0] tag_w = (awaddr[31:28] == 4'ha);
+logic [ 0:0] tag_r, tag_r_reg;
+logic [ 0:0] tag_w, tag_w_reg;
+always_ff @(posedge clk)begin
+    if(!rstn)begin
+        tag_r_reg <= 1'b0;
+        tag_w_reg <= 1'b0;
+    end else begin
+        tag_r_reg <= tag_r;
+        tag_w_reg <= tag_w;
+    end
+end
+always_comb begin
+    if(arvalid) tag_r = (araddr[31:28] == 4'ha);
+    else tag_r = tag_r_reg;
+    if(awvalid) tag_w = (awaddr[31:28] == 4'ha);
+    else tag_w = tag_w_reg;
+end
 
 logic [ 0:0] arready_urat;
 logic [31:0] rdata_urat;

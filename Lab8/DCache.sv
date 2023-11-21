@@ -541,7 +541,8 @@ module DCache #(
 /* -------------- 16 write fsm: for write back-------------- */
     enum logic [1:0] {INIT, WRITE, FINISH} wfsm_state, wfsm_next_state;
     
-    logic [WORD_OFFSET_WIDTH:0] write_num = uncache ? 0 : WORD_NUM - 1;
+    logic [WORD_OFFSET_WIDTH:0] write_num;
+    assign write_num = uncache ? 0 : WORD_NUM - 1;
 
     /* counter of write back */
     always_ff @(posedge clk) begin

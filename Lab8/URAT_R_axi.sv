@@ -39,7 +39,7 @@ always_comb begin
             else ns = Idle;
         end
         ar: begin
-            if(rready)ns = r;
+            if(rready)ns = Idle; //**
             else ns = ar;
         end
         r: begin
@@ -62,9 +62,11 @@ always_comb begin
         end
         ar: begin
             rvalid = 1;
+            rlast = 1;
         end
         r: begin
-            rlast = 1;
+            // rvalid = 1;
+            // rlast = 1;
         end
         default: begin
             
