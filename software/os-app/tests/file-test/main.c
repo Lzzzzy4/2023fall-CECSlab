@@ -34,7 +34,7 @@ int main() {
 
   fclose(fp);
 
-  printf("PASS!!!\n");
+  printf("file test PASS!!!\n");
 
   return 0;
 }

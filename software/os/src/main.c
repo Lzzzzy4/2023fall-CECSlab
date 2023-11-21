@@ -15,6 +15,7 @@ int main() {
   init_irq();
   init_fs();
   init_proc();
+  printf("hello world\n");
 
   Log("Finish initialization");
   yield();

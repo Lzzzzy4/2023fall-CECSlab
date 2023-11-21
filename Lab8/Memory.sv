@@ -60,7 +60,7 @@ URAT_unit URAT_unit(
     .TxD(TxD),
     .RxD(RxD),
     .awaddr(awaddr),
-    .awvalid(tag_w ? awvalid : 0),
+    .awvalid(tag_w ? awvalid : 1'b0),
     .awready(awready_urat),
     .wdata(wdata),
     .wvalid(wvalid),
@@ -68,7 +68,7 @@ URAT_unit URAT_unit(
     .bvalid(bvalid_urat),
     .bready(bready),
     .bresp(bresp_urat),
-    .arvalid(tag_r ? arvalid : 0),
+    .arvalid(tag_r ? arvalid : 1'b0),
     .arready(arready_urat),
     .rdata(rdata_urat),
     .rvalid(rvalid_urat),
@@ -85,40 +85,46 @@ logic [ 0:0] awready_axi;
 logic [ 0:0] wready_axi;
 logic [ 1:0] bresp_axi;
 logic [ 0:0] bvalid_axi;
-// AXI4LITE AXI4LITE(
-//     .clk(clk),
-//     .rstn(rstn),
-//     .s_axi_araddr(araddr),
-//     .s_axi_arvalid(!tag_r ? arvalid : 0),
-//     .s_axi_arready(arready_axi),
-//     .s_axi_arlen(arlen),
-//     .s_axi_arsize(arsize),
-//     .s_axi_arburst(arburst),
-//     .s_axi_rdata(rdata_axi),
-//     .s_axi_rresp(rresp_axi),
-//     .s_axi_rvalid(rvalid_axi),
-//     .s_axi_rready(rready),
-//     .s_axi_rlast(rlast_axi),
-//     .s_axi_awaddr(awaddr),
-//     .s_axi_awvalid(!tag_w ? awvalid : 0),
-//     .s_axi_awready(awready_axi),
-//     .s_axi_awlen(awlen),
-//     .s_axi_awsize(awsize),
-//     .s_axi_awburst(awburst),
-//     .s_axi_wdata(wdata),
-//     .s_axi_wstrb(wstrb),
-//     .s_axi_wvalid(wvalid),
-//     .s_axi_wready(wready_axi),
-//     .s_axi_wlast(wlast),
-//     .s_axi_bresp(bresp_axi),
-//     .s_axi_bvalid(bvalid_axi),
-//     .s_axi_bready(bready),
+logic [ 0:0] rsta_busy;
+logic [ 0:0] rstb_busy;
+logic [ 3:0] s_axi_bid;
+logic [ 3:0] s_axi_rid;
+axi_mem axi_mem(
+    .s_aclk(clk),
+    .s_aresetn(rstn),
+    .rsta_busy(rsta_busy),
+    .rstb_busy(rstb_busy),
+    .s_axi_araddr(araddr),
+    .s_axi_arvalid(!tag_r ? arvalid : 1'b0),
+    .s_axi_arready(arready_axi),
+    .s_axi_arlen(arlen),
+    .s_axi_arsize(arsize),
+    .s_axi_arburst(arburst),
+    .s_axi_rdata(rdata_axi),
+    .s_axi_rresp(rresp_axi),
+    .s_axi_rvalid(rvalid_axi),
+    .s_axi_rready(rready),
+    .s_axi_rlast(rlast_axi),
+    .s_axi_awaddr(awaddr),
+    .s_axi_awvalid(!tag_w ? awvalid : 1'b0),
+    .s_axi_awready(awready_axi),
+    .s_axi_awlen(awlen),
+    .s_axi_awsize(awsize),
+    .s_axi_awburst(awburst),
+    .s_axi_wdata(wdata),
+    .s_axi_wstrb(wstrb),
+    .s_axi_wvalid(wvalid),
+    .s_axi_wready(wready_axi),
+    .s_axi_wlast(wlast),
+    .s_axi_bresp(bresp_axi),
+    .s_axi_bvalid(bvalid_axi),
+    .s_axi_bready(bready),
 
-//     .s_axi_arid(4'b0),
-//     .s_axi_awid(4'b0),
-//     .s_axi_bid(4'b0),
-//     .s_axi_rid(4'b0)
-// );
+    .s_axi_arid(4'b0),
+    .s_axi_awid(4'b0),
+    .s_axi_bid(s_axi_bid),
+    .s_axi_rid(s_axi_rid)
+);
 assign arready = tag_r ? arready_urat : arready_axi;
 assign rdata   = tag_r ? rdata_urat   : rdata_axi;
 assign rresp   = tag_r ? rresp_urat   : rresp_axi;

@@ -15,7 +15,7 @@ module Regfile(
 );
     logic [31:0] rf [31:0];
 `ifdef DIFF
-    import "DPI-C" function void set_gpr_ptr(input logic [31 : 0] a []);
+    // import "DPI-C" function void set_gpr_ptr(input logic [31 : 0] a []);
 `endif
     initial begin
 `ifdef DIFF

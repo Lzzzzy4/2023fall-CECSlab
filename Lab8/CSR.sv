@@ -20,7 +20,7 @@ module CSR(
 );
 
 `ifdef DIFF
-    import "DPI-C" function void set_csr_ptr(input logic [31:0] m1 [], input logic [31:0] m2 [], input  logic [31:0] m3 [], input  logic [31:0] m4 []);
+    // import "DPI-C" function void set_csr_ptr(input logic [31:0] m1 [], input logic [31:0] m2 [], input  logic [31:0] m3 [], input  logic [31:0] m4 []);
 `endif
     wire has_exp = |mcause_in;
     reg [31:0] mstatus;

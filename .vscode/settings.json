@@ -17,6 +17,7 @@
         "dev-mmio.h": "c",
         "stdbool.h": "c",
         "base.h": "c",
-        "sdl.h": "c"
+        "sdl.h": "c",
+        "context.h": "c"
     }
 }
