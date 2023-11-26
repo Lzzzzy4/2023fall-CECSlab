@@ -69,9 +69,15 @@ URAT_W_axi URAT_W_axi(
     .bready(bready),
     .bresp(bresp)
 );
+// logic [9:0]cnt;
+// always_ff @(posedge clk) begin
+//     cnt <= cnt + 1;
+// end
 URAT_T URAT_T(
     .clk(clk),
     .rstn(rstn),
+    // .data(8'h61),
+    // .valid((cnt == 10'd0) ? 1'b1 : 1'b0),
     .data(data_W),
     .valid(valid_W),
     .ready(ready_W),

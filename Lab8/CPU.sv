@@ -46,6 +46,7 @@ module CPU#(
     output logic [ 0:0] commit_wb,
     output logic [ 0:0] uncache_read_wb,
     output logic [31:0] inst,
+    output logic [31:0] pc_cur1,
     output logic [31:0] pc_cur
 `ifdef DEBUG
     ,
@@ -108,6 +109,7 @@ module CPU#(
     assign ip_rvalid_if1 = rstn;
     assign commit_if1 = rstn;
     assign pc_cur = pc_wb;
+    assign pc_cur1 = pc_if1;
     assign inst = inst_wb;
     NPC_Mux  NPC_Mux_inst (
         .pc         (pc_if1),

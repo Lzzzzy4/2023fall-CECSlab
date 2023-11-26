@@ -2,6 +2,7 @@
 module Top(
     input  [0:0] clk,
     input  [0:0] rstn,
+    output [14:0] test,
     output [0:0] TxD,
     input  [0:0] RxD
 );
@@ -44,9 +45,28 @@ module Top(
     logic [ 0:0] uncache_read_wb;
     logic [31:0] inst;
     logic [31:0] pc_cur;
+    logic [31:0] pc_cur1;
+    assign test = pc_cur1[14:0];
+
+    logic [ 0:0] clk1;
+    logic [31:0] cnt;
+    always_ff @(posedge clk)begin
+        if(!rstn)begin
+            cnt <= 32'd0;
+            clk1 <= 1'b0;
+        end
+        else if (cnt == 32'd5207)begin
+            cnt <= 32'd0;
+            clk1 <= ~clk1;
+        end
+        else begin
+            cnt <= cnt + 32'd1;
+        end
+    end
 
     CPU CPU(
         .clk(clk),
+        // .clk(clk1),
         .rstn(rstn),
         .araddr(araddr),
         .arvalid(arvalid),
@@ -76,11 +96,13 @@ module Top(
         .commit_wb(commit_wb),
         .uncache_read_wb(uncache_read_wb),
         .inst(inst),
+        .pc_cur1(pc_cur1),
         .pc_cur(pc_cur)
     );
 
     Memory Memory(
         .clk(clk),
+        // .clk(clk1),
         .rstn(rstn),
         .TxD(TxD),
         .RxD(RxD),
