@@ -89,7 +89,7 @@ module CSR(
     end
     initial begin
 `ifdef DIFF
-        set_csr_ptr(mstatus, mtvec, mepc, mcause);
+        // set_csr_ptr(mstatus, mtvec, mepc, mcause);
 `endif
     end
 endmodule

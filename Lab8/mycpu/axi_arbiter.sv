@@ -34,10 +34,10 @@ module axi_arbiter(
     input  logic [ 0:0] d_bready,
     // from AXI 
     // AR
-    output logic [31:0] araddr,
+    (* DONT_TOUCH= "TRUE" *)output logic [31:0] araddr,
     output logic [ 0:0] arvalid,
     input  logic [ 0:0] arready,
-    output logic [ 7:0] arlen,
+    (* DONT_TOUCH= "TRUE" *)output logic [ 7:0] arlen,
     output logic [ 2:0] arsize,
     output logic [ 1:0] arburst,
 
@@ -68,7 +68,6 @@ module axi_arbiter(
     input  logic [ 0:0] bvalid,
     output logic [ 0:0] bready
 );
-    // Lab5 TODO: implement read FSM here
     enum logic [2:0] {R_IDLE, I_AR, I_R, D_AR, D_R} r_crt, r_nxt;
     always @(posedge clk) begin
         if(!rstn) begin
@@ -77,85 +76,74 @@ module axi_arbiter(
             r_crt <= r_nxt;
         end
     end
-    // stage 2: next state logic
     always @(*) begin
         case(r_crt)
         R_IDLE: begin
-            // TODO
-            if(d_rvalid) r_nxt = D_AR;
-            else if(i_rvalid) r_nxt = I_AR;
-            else r_nxt = R_IDLE;
+            if(d_rvalid)            r_nxt = D_AR;
+            else if(i_rvalid)       r_nxt = I_AR;
+            else                    r_nxt = R_IDLE;
         end
         I_AR: begin
-            // TODO
-            if(arready) r_nxt = I_R;
-            else r_nxt = I_AR;
+            if(arready)             r_nxt = I_R;
+            else                    r_nxt = I_AR;
         end
         I_R: begin
-            // TODO
-            if(rvalid && rlast) r_nxt = R_IDLE;
-            else r_nxt = I_R;
+            if(rvalid && rlast)     r_nxt = R_IDLE;
+            else                    r_nxt = I_R;
         end
         D_AR: begin
-            // TODO
-            if(arready) r_nxt = D_R;
-            else r_nxt = D_AR;
+            if(arready)             r_nxt = D_R;
+            else                    r_nxt = D_AR;
         end
         D_R: begin
-            // TODO
-            if(rvalid && rlast) r_nxt = R_IDLE;
-            else r_nxt = D_R;
+            if(rvalid && rlast)     r_nxt = R_IDLE;
+            else                    r_nxt = D_R;
         end
-        default : r_nxt = R_IDLE;    
+        default :                   r_nxt = R_IDLE;    
         endcase
     end
     
     assign i_rdata = rdata;
     assign d_rdata = rdata;
     assign arburst = 2'b01;
-    // stage 3: output logic
+
     always @(*) begin
         i_rready    = 0;
         i_rlast     = 0;
         d_rready    = 0;
         d_rlast     = 0;
-        arlen       = 0;
+        arlen       = 8'd0;
         arsize      = 0;
         arvalid     = 0;
         araddr      = 0;
         rready      = 0;
         case(r_crt) 
         I_AR: begin
-            // TODO
-            arvalid = 1;
-            araddr = i_raddr;
-            arlen = i_rlen;
-            arsize = i_rsize;
+            araddr      = i_raddr;
+            arvalid     = i_rvalid;
+            arlen       = i_rlen;
+            arsize      = i_rsize;
         end
         I_R: begin
-            // TODO
-            rready = 1;
-            i_rlast = rlast;
-            i_rready = rvalid;
+            rready      = 1;
+            i_rready    = rvalid;
+            i_rlast     = rlast;
         end
         D_AR: begin
-            // TODO
-            arvalid = 1;
-            araddr = d_raddr;
-            arlen = d_rlen;
-            arsize = d_rsize;
+            araddr      = d_raddr;
+            arvalid     = d_rvalid;
+            arlen       = d_rlen;
+            arsize      = d_rsize;
         end
         D_R: begin
-            // TODO
-            rready = 1;
-            d_rlast = rlast;
-            d_rready = rvalid;
+            rready      = 1;
+            d_rready    = rvalid;
+            d_rlast     = rlast;
         end
         default:;
         endcase
     end
 
-    // Lab5 TODO: implement write FSM here
     enum logic [1:0] {W_IDLE, D_AW, D_W, D_B} w_crt, w_nxt;
     always @(posedge clk) begin
         if(!rstn) begin
@@ -164,43 +152,28 @@ module axi_arbiter(
             w_crt <= w_nxt;
         end
     end
+    logic [ 0:0] urat_w;
+    assign urat_w = (awaddr[31:28] == 4'ha); 
     always @(*) begin
         case(w_crt)
         W_IDLE: begin
-            // TODO
-            if(d_wvalid) begin
-                w_nxt = D_AW;
+            if(d_wvalid)begin 
+                if(!urat_w) w_nxt = D_AW;
+                else w_nxt = D_W;
             end
-            else begin
-                w_nxt = W_IDLE;
-            end
+            else                    w_nxt = W_IDLE;
         end
         D_AW: begin
-            // TODO
-            if(awready) begin
-                w_nxt = D_W;
-            end
-            else begin
-                w_nxt = D_AW;
-            end
+            if(awready)             w_nxt = D_W;
+            else                    w_nxt = D_AW;
         end
         D_W: begin
-            // TODO
-            if(wready && d_wlast) begin
-                w_nxt = D_B;
-            end
-            else begin
-                w_nxt = D_W;
-            end
+            if(wready && wlast)     w_nxt = D_B;
+            else                    w_nxt = D_W;
         end
         D_B: begin
-            // TODO
-            if(bvalid) begin
-                w_nxt = W_IDLE;
-            end
-            else begin
-                w_nxt = D_B;
-            end
+            if(bvalid)              w_nxt = W_IDLE;
+            else                    w_nxt = D_B;
         end
         default :                   w_nxt = W_IDLE;    
         endcase
@@ -222,19 +195,17 @@ module axi_arbiter(
 
         case(w_crt)
         D_AW: begin
-            // TODO
-            awvalid = 1;
+            awvalid     = 1;
         end
         D_W: begin
-            // TODO
-            d_wready = wready;
-            wvalid = 1;
-            wlast = d_wlast;
+            if(urat_w) awvalid = 1;
+            wvalid      = 1;
+            wlast       = d_wlast;
+            d_wready    = wready;
         end
         D_B: begin
-            // TODO
-            d_bvalid = bvalid;
-            bready = d_bready;
+            bready      = d_bready;
+            d_bvalid    = bvalid;
         end
         default:;
         endcase

@@ -7,6 +7,7 @@ module CPU#(
 )(
     input  logic [   0:0] clk,
     input  logic [   0:0] rstn,
+    (*DONT_TOUCH="YES"*)output logic [   15:0] test,
 
     // AR
     output logic [31:0] araddr,
@@ -43,10 +44,9 @@ module CPU#(
     input  logic [ 0:0] bvalid,
     output logic [ 0:0] bready,
 
-    output logic [ 0:0] commit_wb,
+    (*DONT_TOUCH="YES"*)output logic [ 0:0] commit_wb,
     output logic [ 0:0] uncache_read_wb,
     output logic [31:0] inst,
-    output logic [31:0] pc_cur1,
     output logic [31:0] pc_cur
 `ifdef DEBUG
     ,
@@ -57,8 +57,8 @@ module CPU#(
 );
 
     /* IF1 stage */
-    logic [31:0]    pc_if1, pc_if2, pc_id, pc_ex, pc_ls, pc_wb;
-    logic [31:0]    inst_if2, inst_id, inst_ex, inst_ls, inst_wb;
+    (*DONT_TOUCH="YES"*)logic [31:0]    pc_if1, pc_if2, pc_id, pc_ex, pc_ls, pc_wb;
+    (*DONT_TOUCH="YES"*)logic [31:0]    inst_if2, inst_id, inst_ex, inst_ls, inst_wb;
     logic [31:0]    pc_target, next_pc;
     logic [31:0]    imm_id, imm_ex;
     logic [31:0]    rf_wdata_wb;
@@ -104,12 +104,37 @@ module CPU#(
     logic [ 0:0]    LS_WB_stall, LS_WB_flush;
     logic [ 0:0]    icache_stall, icache_flush, icache_miss, dcache_miss;
 
-    logic [ 0:0]    commit_if1, commit_if2, commit_id, commit_ex, commit_ls;
+    (*DONT_TOUCH="YES"*)logic [ 0:0]    commit_if1, commit_if2, commit_id, commit_ex, commit_ls;
 
-    assign ip_rvalid_if1 = rstn;
-    assign commit_if1 = rstn;
+    always_ff @(posedge clk) begin
+        if(!rstn) test <= 0;
+        else begin
+            if(pc_wb == 32'h80000bb4 && commit_wb && inst_wb == 32'h334020ef)test[0] <= 1;
+            if(pc_wb == 32'h80000004 && commit_wb && inst_wb == 32'h00009117)test[1] <= 1;
+            if(pc_wb == 32'h80000008 && commit_wb && inst_wb == 32'hffc10113)test[2] <= 1;
+            if(pc_wb == 32'h8000000c && commit_wb && inst_wb == 32'h030000ef)test[3] <= 1;
+            if(pc_wb == 32'h8000004c && commit_wb && inst_wb == 32'hfc5ff0ef)test[4] <= 1;
+            if(awvalid && awaddr[31:28] == 4'ha)test[5] <= 1;//uart
+            // if(pc_wb == 32'h80000030 && commit_wb && test != 16'd10)test <= test + 1;
+        end
+    end
+
+    (*DONT_TOUCH="YES"*) logic [ 0:0] start;
+    logic [31:0]cnt;
+    always_ff @(posedge clk) begin
+        if(!rstn) begin
+            start <= 0;
+            cnt <= 0;
+        end
+        else begin
+            cnt <= cnt + 1;
+            if(cnt == 32'd10) start <= 1; 
+        end
+    end
+
+    assign ip_rvalid_if1 = start;
+    assign commit_if1 = start;
     assign pc_cur = pc_wb;
-    assign pc_cur1 = pc_if1;
     assign inst = inst_wb;
     NPC_Mux  NPC_Mux_inst (
         .pc         (pc_if1),
@@ -123,7 +148,7 @@ module CPU#(
     ) PC_inst (
         .clk        (clk),
         .rstn       (rstn),
-        .stall      (pc_stall),
+        .stall      (pc_stall | ~start),
         .next_pc    (next_pc),
         .pc_set     (pc_set),
         .pc         (pc_if1)

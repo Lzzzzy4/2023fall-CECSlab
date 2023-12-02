@@ -9,21 +9,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ICache #(
+(*DONT_TOUCH="YES"*)module ICache #(
     parameter INDEX_WIDTH       = 4,
     parameter WORD_OFFSET_WIDTH = 2
 )(
     input  logic [ 0:0] clk,            
     input  logic [ 0:0] rstn,           
     // for pipeline 
-    input  logic [ 0:0] rvalid,         // valid signal of read request from pipeline
-    input  logic [31:0] raddr,          // read address from pipeline
-    output logic [31:0] rdata,          // read data to pipeline
+    (*DONT_TOUCH="YES"*)input  logic [ 0:0] rvalid,         // valid signal of read request from pipeline
+    (*DONT_TOUCH="YES"*)input  logic [31:0] raddr,          // read address from pipeline
+    (*DONT_TOUCH="YES"*)output logic [31:0] rdata,          // read data to pipeline
     input  logic [ 0:0] fencei_valid,   // valid signal of fence instruction
     input  logic [ 0:0] fence_valid,    // valid signal of fence instruction
     input  logic [ 0:0] flush,          // flush signal from pipeline
     input  logic [ 0:0] stall,          // stall signal from pipeline
-    output logic [ 0:0] icache_miss,   // stall signal to pipeline
+    (*DONT_TOUCH="YES"*)output logic [ 0:0] icache_miss,   // stall signal to pipeline
     // for AXI arbiter
     output logic [ 0:0] i_rvalid,       // valid signal of read request to main memory
     input  logic [ 0:0] i_rready,       // ready signal of read request from main memory
@@ -51,9 +51,9 @@ module ICache #(
     logic   [BIT_NUM-1:0]       ret_buf;
 
     // data memory
-    logic   [INDEX_WIDTH-1:0]   r_index, w_index;                       
-    logic   [1:0]               mem_we;                
-    logic   [BIT_NUM-1:0]       mem_rdata [0:1];     
+    (*DONT_TOUCH="YES"*)logic   [INDEX_WIDTH-1:0]   r_index, w_index;                       
+    (*DONT_TOUCH="YES"*)logic   [1:0]               mem_we;                
+    (*DONT_TOUCH="YES"*)logic   [BIT_NUM-1:0]       mem_rdata [0:1];     
 
     // tagv memory
     logic   [1:0]               tagv_we;          
@@ -225,7 +225,7 @@ module ICache #(
 
 /* -------------- 11 main FSM -------------- */
     /* main FSM */
-    enum logic [1:0] {IDLE, MISS, REFILL} state, next_state;
+    (*DONT_TOUCH="YES"*) enum logic [1:0] {IDLE, MISS, REFILL, WAIT} state, next_state;
     // stage 1: state transition
     always_ff @(posedge clk) begin
         if(!rstn) begin
@@ -246,7 +246,8 @@ module ICache #(
                 if(i_rready && i_rlast) next_state = REFILL;
                 else                    next_state = MISS;
             end
-            REFILL:                     next_state = IDLE;
+            REFILL:                     next_state = WAIT;
+            WAIT:                       next_state = IDLE;
             default:                    next_state = IDLE;
         endcase
     end
@@ -285,6 +286,9 @@ module ICache #(
             data_from_mem           = 0;
             lru_refill_update       = 1;
             req_buf_we              = !stall;
+        end
+        WAIT: begin
+            icache_miss             = 1;
         end
         default:;
         endcase

@@ -25,16 +25,16 @@ module URAT_W_axi(
 localparam Idle = 3'd0, aw = 3'd1, w = 3'd2, b = 3'd3;
 logic [2:0]cs;
 logic [2:0]ns;
-logic [7:0]din;
-always_comb begin
-    case (awaddr[1:0])
-        2'b00: din = wdata[ 7: 0];
-        2'b01: din = wdata[15: 8];
-        2'b10: din = wdata[23:16];
-        2'b11: din = wdata[31:24]; 
-        default: din = 0;
-    endcase
-end
+// logic [7:0]din;
+// always_comb begin
+//     case (awaddr[1:0])
+//         2'b00: din = wdata[ 7: 0];
+//         2'b01: din = wdata[15: 8];
+//         2'b10: din = wdata[23:16];
+//         2'b11: din = wdata[31:24]; 
+//         default: din = 0;
+//     endcase
+// end
 always_ff  @(posedge clk) begin
     if(!rstn)cs <= Idle;
     else cs <= ns;
@@ -62,7 +62,7 @@ always_comb begin
 end
 always_ff  @(posedge clk) begin
     if(!rstn)data <= 8'd0;
-    else if(cs == aw && wvalid)data <= din;
+    else if(cs == aw && wvalid)data <= wdata[ 7: 0];
 end
 always_comb begin
     awready = 1'b0;
