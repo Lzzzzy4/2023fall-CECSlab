@@ -16,7 +16,7 @@ extern const VlUnpacked<CData/*0:0*/, 64> VCPU__ConstPool__TABLE_h3f1e26a2_0;
 extern const VlUnpacked<CData/*0:0*/, 64> VCPU__ConstPool__TABLE_h07d257b7_0;
 extern const VlUnpacked<CData/*0:0*/, 64> VCPU__ConstPool__TABLE_h8a061d4b_0;
 extern const VlUnpacked<CData/*0:0*/, 64> VCPU__ConstPool__TABLE_h02f04120_0;
-extern const VlUnpacked<CData/*1:0*/, 64> VCPU__ConstPool__TABLE_hb934d788_0;
+extern const VlUnpacked<CData/*1:0*/, 64> VCPU__ConstPool__TABLE_h6fe32423_0;
 extern const VlUnpacked<CData/*1:0*/, 512> VCPU__ConstPool__TABLE_h0c337be4_0;
 
 VL_INLINE_OPT void VCPU___024root___ico_sequent__TOP__0(VCPU___024root* vlSelf) {
@@ -98,17 +98,15 @@ VL_INLINE_OPT void VCPU___024root___ico_sequent__TOP__0(VCPU___024root* vlSelf) 
         [__Vtableidx6];
     vlSelf->wlast = VCPU__ConstPool__TABLE_h02f04120_0
         [__Vtableidx6];
-    __Vtableidx1 = (((IData)(vlSelf->CPU__DOT__i_rlast) 
-                     << 5U) | (((IData)(vlSelf->CPU__DOT__i_rready) 
-                                << 4U) | (((IData)(
-                                                   (0U 
-                                                    != (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__hit))) 
+    __Vtableidx1 = (((IData)((0U != (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__hit))) 
+                     << 5U) | (((IData)(vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe) 
+                                << 4U) | (((IData)(vlSelf->CPU__DOT__i_rlast) 
                                            << 3U) | 
-                                          (((IData)(vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe) 
+                                          (((IData)(vlSelf->CPU__DOT__i_rready) 
                                             << 2U) 
                                            | (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__state)))));
     vlSelf->CPU__DOT__ICache_inst__DOT__next_state 
-        = VCPU__ConstPool__TABLE_hb934d788_0[__Vtableidx1];
+        = VCPU__ConstPool__TABLE_h6fe32423_0[__Vtableidx1];
     vlSelf->CPU__DOT__DCache_inst__DOT__next_state 
         = ((2U & (IData)(vlSelf->CPU__DOT__DCache_inst__DOT__state))
             ? ((1U & (IData)(vlSelf->CPU__DOT__DCache_inst__DOT__state))
@@ -179,13 +177,13 @@ void VCPU___024root___eval_act(VCPU___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VCPU___024root___eval_act\n"); );
 }
 
-extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_h5ca5caf7_0;
+extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_hb84233db_0;
 extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_h57739968_0;
-extern const VlUnpacked<CData/*1:0*/, 128> VCPU__ConstPool__TABLE_h889f6aab_0;
+extern const VlUnpacked<CData/*1:0*/, 128> VCPU__ConstPool__TABLE_he1c44a55_0;
 extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_h27544bbf_0;
-extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_h94004141_0;
+extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_hf63d9f85_0;
 extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_hed1d605a_0;
-extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_h8e18481c_0;
+extern const VlUnpacked<CData/*0:0*/, 128> VCPU__ConstPool__TABLE_h8dd2850e_0;
 
 VL_INLINE_OPT void VCPU___024root___nba_sequent__TOP__0(VCPU___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -3110,43 +3108,42 @@ VL_INLINE_OPT void VCPU___024root___nba_sequent__TOP__0(VCPU___024root* vlSelf) 
     vlSelf->CPU__DOT__next_pc = ((IData)(vlSelf->CPU__DOT__pc_set)
                                   ? vlSelf->CPU__DOT__pc_target
                                   : ((IData)(4U) + vlSelf->CPU__DOT__PC_inst__DOT__pc_reg));
-    __Vtableidx1 = (((IData)(vlSelf->CPU__DOT__i_rlast) 
-                     << 5U) | (((IData)(vlSelf->CPU__DOT__i_rready) 
-                                << 4U) | (((IData)(
-                                                   (0U 
-                                                    != (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__hit))) 
+    __Vtableidx1 = (((IData)((0U != (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__hit))) 
+                     << 5U) | (((IData)(vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe) 
+                                << 4U) | (((IData)(vlSelf->CPU__DOT__i_rlast) 
                                            << 3U) | 
-                                          (((IData)(vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe) 
+                                          (((IData)(vlSelf->CPU__DOT__i_rready) 
                                             << 2U) 
                                            | (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__state)))));
     vlSelf->CPU__DOT__ICache_inst__DOT__next_state 
-        = VCPU__ConstPool__TABLE_hb934d788_0[__Vtableidx1];
-    __Vtableidx2 = ((((1U & ((IData)(vlSelf->CPU__DOT__ICache_inst__DOT__lru) 
-                             >> (0xfU & (vlSelf->CPU__DOT__ICache_inst__DOT__addr_pipe 
-                                         >> 4U)))) ? 2U
-                       : 1U) << 5U) | (((IData)(vlSelf->CPU__DOT__IF2_ID_stall) 
-                                        << 4U) | (((IData)(
-                                                           (0U 
-                                                            != (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__hit))) 
-                                                   << 3U) 
-                                                  | (((IData)(vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe) 
-                                                      << 2U) 
-                                                     | (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__state)))));
+        = VCPU__ConstPool__TABLE_h6fe32423_0[__Vtableidx1];
+    __Vtableidx2 = (((IData)((0U != (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__hit))) 
+                     << 6U) | (((IData)(vlSelf->CPU__DOT__ICache_inst__DOT__rvalid_pipe) 
+                                << 5U) | (((IData)(vlSelf->CPU__DOT__IF2_ID_stall) 
+                                           << 4U) | 
+                                          ((((1U & 
+                                              ((IData)(vlSelf->CPU__DOT__ICache_inst__DOT__lru) 
+                                               >> (0xfU 
+                                                   & (vlSelf->CPU__DOT__ICache_inst__DOT__addr_pipe 
+                                                      >> 4U))))
+                                              ? 2U : 1U) 
+                                            << 2U) 
+                                           | (IData)(vlSelf->CPU__DOT__ICache_inst__DOT__state)))));
     vlSelf->CPU__DOT__ICache_inst__DOT__req_buf_we 
-        = VCPU__ConstPool__TABLE_h5ca5caf7_0[__Vtableidx2];
+        = VCPU__ConstPool__TABLE_hb84233db_0[__Vtableidx2];
     vlSelf->CPU__DOT__i_rvalid = VCPU__ConstPool__TABLE_h57739968_0
         [__Vtableidx2];
-    vlSelf->CPU__DOT__ICache_inst__DOT__tagv_we = VCPU__ConstPool__TABLE_h889f6aab_0
+    vlSelf->CPU__DOT__ICache_inst__DOT__tagv_we = VCPU__ConstPool__TABLE_he1c44a55_0
         [__Vtableidx2];
-    vlSelf->CPU__DOT__ICache_inst__DOT__mem_we = VCPU__ConstPool__TABLE_h889f6aab_0
+    vlSelf->CPU__DOT__ICache_inst__DOT__mem_we = VCPU__ConstPool__TABLE_he1c44a55_0
         [__Vtableidx2];
     vlSelf->CPU__DOT__ICache_inst__DOT__data_from_mem 
         = VCPU__ConstPool__TABLE_h27544bbf_0[__Vtableidx2];
     vlSelf->CPU__DOT__ICache_inst__DOT__lru_hit_update 
-        = VCPU__ConstPool__TABLE_h94004141_0[__Vtableidx2];
+        = VCPU__ConstPool__TABLE_hf63d9f85_0[__Vtableidx2];
     vlSelf->CPU__DOT__ICache_inst__DOT__lru_refill_update 
         = VCPU__ConstPool__TABLE_hed1d605a_0[__Vtableidx2];
-    vlSelf->CPU__DOT__icache_miss = VCPU__ConstPool__TABLE_h8e18481c_0
+    vlSelf->CPU__DOT__icache_miss = VCPU__ConstPool__TABLE_h8dd2850e_0
         [__Vtableidx2];
     vlSelf->CPU__DOT__wstrb_ex = ((0x10U & (IData)(vlSelf->CPU__DOT__mem_access_ex))
                                    ? (0xfU & ((0U == 

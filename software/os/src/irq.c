@@ -53,6 +53,8 @@ void yield() {
 }
 
 void init_irq(void) {
-  Log("Initializing interrupt/exception handler...");
+  // putstr("Log:Initializing interrupt/exception handler...\n");
+  // putstr("2a\n");
   asm volatile("csrw mtvec, %0" : : "r"(__trap_vector));
+  // putstr("2b\n");
 }

@@ -34,14 +34,15 @@ Finfo find_file(const char *name) {
       return file_table[i];
     }
   }
-  printf("File %s not found!\n", name);
+  // printf("File %s not found!\n", name);
   return file_table[0];
 }
 /* Init the file system. */
 void init_fs() {
-  Log("Initializing file system...");
-  DEV_GPU_CONFIG_T gpu_config = io_read(DEV_GPU_CONFIG);
-  file_table[FD_FB].size = gpu_config.height * gpu_config.width * 4;
+  // putstr("init_fs\n");
+  // putstr("need gpu config\n");
+  // DEV_GPU_CONFIG_T gpu_config = io_read(DEV_GPU_CONFIG);
+  // file_table[FD_FB].size = gpu_config.height * gpu_config.width * 4;
 }
 
 /* Open a file and return the size of file. */

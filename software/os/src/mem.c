@@ -18,5 +18,5 @@ int mm_brk(uintptr_t brk) {
 
 void init_mm() {
     pf = (void *)ROUNDUP(heap.start, PGSIZE);
-    Log("Physical pages starting from %p", pf);
+    // putstr("Log:Physical pages starting from 8001d00\n");
 }

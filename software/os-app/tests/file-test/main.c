@@ -2,9 +2,9 @@
 #include <assert.h>
 
 int main() {
-  while(1){
-    printf("a");
-  }
+  // while(1){
+  //   printf("a");
+  // }
   // FILE *fp = fopen("/share/files/num", "r+");
 	// assert(fp);
 
@@ -38,6 +38,11 @@ int main() {
   // fclose(fp);
 
   // printf("file test PASS!!!\n");
+  putchar('f');
+  putchar('i');
+  putchar('l');
+  putchar('e');
+  putchar('\n');
 
   return 0;
 }

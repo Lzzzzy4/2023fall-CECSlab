@@ -12,8 +12,8 @@ static uintptr_t elf_load(const char *filename) {
     Elf_Ehdr elf_h;
     int fd = fs_open(filename, 0, 0);
     fs_read(fd, &elf_h, sizeof(Elf_Ehdr));
-    assert(*((int *)elf_h.e_ident) == 0x464c457f);
-    assert(elf_h.e_machine == EM_RISCV);
+    // assert(*((int *)elf_h.e_ident) == 0x464c457f);
+    // assert(elf_h.e_machine == EM_RISCV);
     Elf_Phdr elf_ph;
     for (int i = 0; i < elf_h.e_phnum; i++) {
         fs_lseek(fd, elf_h.e_phoff + i * elf_h.e_phentsize, SEEK_SET);
@@ -31,10 +31,13 @@ static uintptr_t elf_load(const char *filename) {
 }
 
 void user_naive_load(const char *filename) {
-    Log("Loading %s...", filename);
+    // putstr("Log:Loading /bin/file-test...\n");
+    putch('1');
     uintptr_t entry = elf_load(filename);
-    Log("Jump to entry = %p", (void*)entry);
+    putch('2');
+    // putstr("Log: to entry\n");
     ((void(*)())entry) ();
+    // putch('3');
 }
 
 

@@ -225,7 +225,7 @@ module ICache #(
 
 /* -------------- 11 main FSM -------------- */
     /* main FSM */
-    enum logic [1:0] {IDLE, MISS, REFILL} state, next_state;
+    enum logic [1:0] {IDLE, MISS, REFILL, WAIT} state, next_state;
     // stage 1: state transition
     always_ff @(posedge clk) begin
         if(!rstn) begin
@@ -246,7 +246,8 @@ module ICache #(
                 if(i_rready && i_rlast) next_state = REFILL;
                 else                    next_state = MISS;
             end
-            REFILL:                     next_state = IDLE;
+            REFILL:                     next_state = WAIT;
+            WAIT:                       next_state = IDLE;
             default:                    next_state = IDLE;
         endcase
     end
@@ -285,6 +286,9 @@ module ICache #(
             data_from_mem           = 0;
             lru_refill_update       = 1;
             req_buf_we              = !stall;
+        end
+        WAIT: begin
+            icache_miss             = 1;
         end
         default:;
         endcase
